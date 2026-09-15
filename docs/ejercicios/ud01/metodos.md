@@ -9,12 +9,14 @@
 
 ### Fase I: Recuperación de Información (Método GET)
 El estudiante deberá realizar las siguientes peticiones para analizar la lectura de datos:
+
 1.  **Consulta general:** Realizar una petición `GET` al endpoint `/posts` para obtener el listado completo de publicaciones.
 2.  **Consulta específica:** Realizar una petición `GET` al endpoint `/posts/5` para recuperar únicamente el recurso con el identificador 5.
 3.  **Consulta filtrada:** Realizar una petición `GET` al endpoint `/posts?userId=1` para filtrar los resultados por un usuario específico.
 
 ### Fase II: Creación y Modificación de Recursos (POST, PUT, PATCH)
 El estudiante deberá simular la gestión de registros en el servidor:
+
 1. **Creación:** Configurar una petición `POST` hacia `/posts`. En el cuerpo (**Body**), seleccionar formato **raw** y tipo **JSON**, enviando un objeto con los campos `title`, `body` y `userId`.
 ```json
 {
@@ -24,7 +26,9 @@ El estudiante deberá simular la gestión de registros en el servidor:
 }
 
 ```
+
 4. **Actualización Total:** Configurar una petición `PUT` hacia `/posts/1`, enviando el objeto completo con datos modificados.
+
 ```json
 {
   "id": 1,
@@ -34,7 +38,9 @@ El estudiante deberá simular la gestión de registros en el servidor:
 }
 
 ```
+
 5. **Actualización Parcial:** Configurar una petición `PATCH` hacia `/posts/1`, enviando únicamente el campo `title`.
+
 ```json
 {
   "title": "Título Modificado mediante PATCH"
@@ -44,6 +50,7 @@ El estudiante deberá simular la gestión de registros en el servidor:
 
 ### Fase III: Eliminación de Recursos (Método DELETE)
 El estudiante deberá solicitar la baja de un recurso:
+
 1.  Configurar una petición `DELETE` hacia el endpoint `/posts/1`.
 2.  Ejecutar la petición y analizar la respuesta del servidor.
 
@@ -68,12 +75,14 @@ Para la validación de la actividad, el alumno deberá presentar un informe téc
 
 **A. Matriz de Operaciones Básicas:**
 Una tabla que detalle cada petición realizada en las Fases I, II y III, incluyendo:
+
 *   Método HTTP empleado.
 *   Endpoint utilizado.
 *   Código de estado de la respuesta.
 
 **B. Matriz de Pruebas de Configuración:**
 Una tabla que detalle los experimentos de la Fase IV:
+
 | Variable Modificada | Acción Realizada | Resultado Observado | Código de Estado |
 | :--- | :--- | :--- | :--- |
 | Content-Type | Cambiado a `text/plain` | | |
