@@ -24,7 +24,6 @@ Para evitar conflictos entre versiones de software y mantener el sistema limpio,
 *   **Contenedores:** Son una alternativa más ligera. En lugar de virtualizar el SO completo, comparten el núcleo del sistema anfitrión y ejecutan solo la aplicación y sus dependencias. Esto permite un arranque casi instantáneo y un consumo de recursos mínimo.
 *   **Docker:** Es la tecnología de contenedores más utilizada hoy en día. Permite crear y distribuir aplicaciones mediante contenedores independientes (por ejemplo, un contenedor para Apache, otro para PHP y otro para MariaDB), facilitando que el entorno sea idéntico en cualquier equipo.
 
----
 
 ## 2.2. Servidores Web: Análisis y Comparativa
 
@@ -36,7 +35,6 @@ El servidor web es el software encargado de procesar las peticiones HTTP de los 
 
 **Microsoft IIS (Internet Information Services)** es el servidor desarrollado por Microsoft para Windows Server. Su gran ventaja es la integración total con el ecosistema de Microsoft, como Active Directory y el soporte nativo para aplicaciones ASP.NET.
 
----
 
 ## 2.3. Apache HTTP Server y su Arquitectura Modular
 
@@ -63,7 +61,6 @@ Para gestionar estos módulos, disponemos de herramientas específicas:
 *   `mod_userdir`: Permite que cada usuario del sistema tenga su propio espacio web personal.
 *   **Módulos de autenticación:** `mod_auth_basic`, `mod_authn_*` y `mod_authz_*`, que sirven para solicitar contraseñas y restringir el acceso a recursos.
 
----
 
 ## 2.4. Instalación y Gestión del Servidor
 
@@ -80,7 +77,6 @@ El servidor se gestiona mediante `systemd` con los siguientes comandos:
 ### Verificación y Diagnóstico Inicial
 Para comprobar que Apache funciona, podemos acceder a `http://localhost` o a la dirección IP del equipo (obtenida con `hostname -I` o `ip addr`). También podemos usar la terminal con `curl http://localhost` o `wget -O - http://localhost`.
 
----
 
 ## 2.5. Configuración Detallada de Apache
 
@@ -97,7 +93,6 @@ De igual forma, existen las configuraciones generales en `conf-available` y `con
 ### El DocumentRoot
 Cada sitio necesita un directorio donde guardar sus archivos públicos, llamado **DocumentRoot**. Por defecto es `/var/www/html`. Si un usuario pide `index.html`, Apache lo buscará exactamente en esa ruta.
 
----
 
 ## 2.6. Funcionalidades Avanzadas de Alojamiento
 
@@ -124,7 +119,6 @@ Este módulo permite que cada usuario del sistema tenga su propio espacio web in
 2. Localizar el bloque que contiene la directiva `<IfModule mod_userdir.c>` y **comentar** la línea `php_admin_value engine Off` añadiendo un `#` al principio: `# php_admin_value engine Off`
 3. Guardar los cambios y reiniciar el servidor: `sudo systemctl restart apache2`.
 
----
 
 ## 2.7. Seguridad y Control de Accesos
 
@@ -151,7 +145,6 @@ Para que el servidor sea accesible, usamos `ufw`. Los perfiles disponibles son:
 *   `Apache Full`: Ambos puertos.
 **Regla de oro:** Siempre ejecutar `sudo ufw allow OpenSSH` antes de `sudo ufw enable` para evitar quedar bloqueados fuera del servidor.
 
----
 
 ## 2.8. Plataformas Integradas y Documentación Profesional
 
@@ -163,7 +156,6 @@ Para agilizar el desarrollo, existen plataformas integradas:
 ### La Documentación Técnica
 Documentar es un criterio de evaluación obligatorio. Una documentación profesional debe permitir que cualquier técnico reproduzca el sistema. Debe seguir una estructura: **Objetivo, Entorno, Procedimiento, Configuración, Comprobación e Incidencias**.
 
----
 
 ## 2.9. Diagnóstico y Resolución de Problemas (Troubleshooting)
 

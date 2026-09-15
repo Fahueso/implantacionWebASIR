@@ -21,7 +21,6 @@ El usuario nunca ve las etiquetas `<?php ?>`, sino que recibe únicamente:
 ### El flujo de procesamiento en el servidor
 Cuando un usuario solicita un archivo con extensión `.php`, Apache no puede enviarlo directamente. En su lugar, Apache delega el archivo al **intérprete de PHP**. Este procesa el código, genera una respuesta en HTML y se la devuelve a Apache, quien finalmente la entrega al cliente. Este mecanismo permite generar contenido dinámico adaptado a cada usuario, gestionar sesiones y acceder a bases de datos.
 
----
 
 ## 3.2. Instalación y Configuración del Entorno PHP
 
@@ -52,7 +51,6 @@ El archivo principal de configuración es el **php.ini**. En Debian se encuentra
 
 Los archivos PHP se almacenan en el DocumentRoot de Apache, habitualmente en `/var/www/html`, con nombres como `index.php` o `login.php`.
 
----
 
 ## 3.3. Extensiones y Arquitecturas de Ejecución
 
@@ -67,7 +65,6 @@ Existen dos formas de integrar Apache y PHP:
 1.  **mod_php:** PHP está integrado directamente en Apache. Es la opción más sencilla y la que usaremos en las primeras prácticas.
 2.  **PHP-FPM (FastCGI Process Manager):** Se instala con `sudo apt install php-fpm`. PHP corre como un servicio independiente. Es la opción profesional por su mejor rendimiento y escalabilidad.
 
----
 
 ## 3.4. El Sistema Gestor de Bases de Datos: MariaDB
 
@@ -94,7 +91,6 @@ Este asistente permite:
 
 **Importante:** Una vez ejecutado este script, la cuenta de `root` queda reservada únicamente para tareas de mantenimiento crítico. Para el funcionamiento de cualquier aplicación web, es obligatorio crear un usuario específico con privilegios limitados (ver apartado 3.5)
 
----
 
 ## 3.5. Usuarios, Privilegios y Herramientas Gráficas
 
@@ -116,7 +112,6 @@ sudo systemctl reload apache2
 ```
 Acceso: `http://localhost/phpmyadmin`.
 
----
 
 ## 3.6. Integración Final: Conectando PHP con MariaDB (Estilo Procedimental)
 
@@ -166,7 +161,6 @@ mysqli_close($conexion);
 ?>
 ```
 
----
 
 ## 3.7. Seguridad y Sentencias Preparadas (Estilo Procedimental)
 
@@ -199,7 +193,6 @@ mysqli_close($conexion);
 ?>
 ```
 
----
 
 ## 3.8. Metodología de Pruebas y Diagnóstico
 
@@ -218,7 +211,6 @@ mysqli_close($conexion);
 *   **Acceso denegado:** Revisar privilegios con `SHOW GRANTS FOR 'usuario'@'localhost';`.
 *   **Puerto 3306 ocupado:** Revisar con `sudo ss -tulpn | grep :3306`.
 
----
 
 ## 3.9. Prueba de Integración Completa (Full Stack)
 

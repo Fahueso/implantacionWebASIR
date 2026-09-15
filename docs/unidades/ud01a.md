@@ -16,7 +16,6 @@ Son ejemplos de aplicaciones web:
 
 Cuando utilizamos cualquiera de estas aplicaciones, nuestro navegador intercambia información con uno o varios servidores que procesan las peticiones y generan las respuestas.
 
----
 
 ## 2. Arquitectura cliente-servidor
 
