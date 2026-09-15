@@ -6,11 +6,7 @@ nav:
     - UD1 - Aplicaciones web: unidades/ud01a.md
     - UD1 - Entornos de Desarrollo y Servidores Web: unidades/ud01b.md
     - UD1 - El Motor de Aplicación y la Base de Datos: unidades/ud01c.md
-  
-  - Recursos:
-    - Guías:
-      - Instalación IntelliJ: recursos/guia_intellij.md
-    
+      
   - Inicio: index.md
 
 repo_url: https://github.com/Fahueso/implantacionWebASIR

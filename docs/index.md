@@ -37,6 +37,6 @@ Este sitio recoge el material didáctico completo del módulo de **Implantación
 
 - [Guía de instalación de IntelliJ IDEA](recursos/guia_intellij.md)
 
-
+-->
 ---
 
