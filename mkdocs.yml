@@ -3,7 +3,9 @@ site_url: https://fahueso.github.io/implantacionWebASIR/
 
 nav:
   - Unidades:
-    - UD1 - Arquitectura y entornos de desarrollo web: unidades/ud01.md
+    - UD1 - Aplicaciones web: unidades/ud01a.md
+    - UD1 - Bloque Entornos de Desarrollo y Servidores Web: unidades/ud01a.md
+    - UD1 - El Motor de Aplicación y la Base de Datos: unidades/ud01a.md
   
   - Recursos:
     - Guías:
