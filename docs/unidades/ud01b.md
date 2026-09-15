@@ -3,7 +3,7 @@
 ## 2.1. Introducción a los Entornos de Desarrollo Web
 
 Antes de comenzar a desarrollar aplicaciones web, es imprescindible disponer de un entorno de trabajo adecuado. Definimos un **entorno de desarrollo web** como el conjunto de herramientas, servicios y configuraciones que permiten desarrollar, probar y desplegar aplicaciones. En este módulo, nuestro trabajo se centrará en tecnologías fundamentales como los servidores Apache o Nginx, el lenguaje PHP y el sistema de gestión de bases de datos MariaDB. El objetivo final es que el alumno sea capaz de montar un entorno que reproduzca, en la medida de lo posible, las condiciones reales donde se ejecutará la aplicación. 
- 
+
 ### La necesidad de diferentes entornos
 En el desarrollo de software, es habitual realizar cambios constantes, corregir errores y experimentar con nuevas funcionalidades. Si estas modificaciones se hicieran directamente sobre la aplicación que utilizan los usuarios finales, cualquier error podría provocar interrupciones del servicio o, en el peor de los casos, la pérdida de información. Por esta razón, las organizaciones implementan un ciclo de vida dividido en tres entornos:
 
