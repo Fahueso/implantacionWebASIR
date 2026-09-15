@@ -1,4 +1,3 @@
-
 # Bloque 3: El Motor de Aplicación y la Base de Datos (PHP y MariaDB)
 
 ## 3.1. Fundamentos de PHP y su Integración con el Servidor
