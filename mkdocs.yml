@@ -1,0 +1,79 @@
+site_name: Implantación de aplicaciones Web ASIR
+site_url: https://fahueso.github.io/implantacionWebASIR/
+
+nav:
+  - Unidades:
+    - UD1 - Arquitectura y entornos de desarrollo web: unidades/ud01.md
+  
+  - Recursos:
+    - Guías:
+      - Instalación IntelliJ: recursos/guia_intellij.md
+    
+  - Inicio: index.md
+
+repo_url: https://github.com/Fahueso/implantacionWebASIR
+repo_name: Fahueso/implantacionWebASIR
+
+theme:
+  name: material
+  language: es
+  logo: ./assets/images/camp.png
+  favicon: ./assets/images/camp.png
+  icon:
+    previous: fontawesome/solid/angle-left
+    next: fontawesome/solid/angle-right
+  font: 
+    code: Roboto Mono
+  hljs_languages:
+    - python
+    - java
+    - c
+  features:
+    - optimize
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+    - navigation.top
+    - navigation.footer
+    - navigation.tabs
+    - navigation.tabs.sticky
+
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7 
+        name: Modo oscuro
+      primary: black
+      accent: black
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Modo claro
+      primary: black
+      accent: black
+
+extra_css:
+  - stylesheets/extra.css
+markdown_extensions:
+  - pymdownx.snippets
+  - sane_lists
+  - pymdownx.highlight:
+      anchor_linenums: true
+      linenums: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - pymdownx.tabbed:
+      alternate_style: true
+extra:
+  social:
+    - icon: fontawesome/brands/github 
+      link: https://github.com/Fahueso/implantacionWebASIR
