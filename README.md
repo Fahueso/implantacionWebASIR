@@ -22,7 +22,7 @@ El módulo cubre el ciclo completo del desarrollo en Java: desde los fundamentos
 
 | Unidad | Título |
 | :---: | :--- |
-| UD1 | Unidad 1 |
+| UD1 | Arquitectura y entorno de desarrollo web |
 
 
 ### Boletines de Ejercicios
