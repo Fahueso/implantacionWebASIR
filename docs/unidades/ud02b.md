@@ -22,7 +22,6 @@ Esta característica es la que los hace ideales para la web: permiten un flujo d
 En el otro extremo encontramos lenguajes como Java o C#. Estos requieren un proceso llamado **compilación**. Antes de que el programa pueda ejecutarse, un compilador analiza todo el código fuente y lo traduce íntegramente a un lenguaje de bajo nivel (binario o *bytecode*) que la máquina entiende directamente. 
 Aunque este proceso añade un paso adicional al desarrollo, ofrece dos ventajas críticas: la velocidad de ejecución es significativamente mayor y el compilador detecta la mayoría de los errores de sintaxis y tipos antes de que el programa llegue al usuario. Por ello, son la elección predilecta para sistemas de escala masiva, como la infraestructura de un banco o la gestión de un ERP corporativo.
 
----
 
 ## 12. Infraestructura y Configuración del Entorno
 
@@ -70,8 +69,6 @@ Para solucionar esto, debemos liberar la puerta apagando el servicio de Apache:
 ```bash
 sudo systemctl stop apache2
 ```
-
----
 
 ## 13. Análisis Comparativo de Implementaciones
 

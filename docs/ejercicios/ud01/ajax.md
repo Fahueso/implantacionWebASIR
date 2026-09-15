@@ -1,6 +1,5 @@
 # Caso de Estudio: Análisis de la API de Wikipedia
 
-En este ejercicio, el estudiante dejará de usar un servidor de pruebas para interactuar con un sistema de producción real. El objetivo es analizar cómo Wikipedia gestiona las búsquedas y devuelve sugerencias en tiempo real.
 
 ### Metodología
 Wikipedia utiliza una API llamada **MediaWiki**. Para obtener resultados de búsqueda en formato JSON, utilizaremos el siguiente endpoint:

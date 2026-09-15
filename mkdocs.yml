@@ -8,6 +8,7 @@ nav:
     - UD1 - El Motor de Aplicación y la Base de Datos: unidades/ud01c.md
   - Ejercicios:
     - UD1 - Metodos HTTP: ejercicios/ud01/metodos.md
+    - UD1 - Cliente Servidor: ejercicios/ud01/python.md
     - UD1 - Ajax: ejercicios/ud01/ajax.md
       
   - Inicio: index.md

@@ -1,10 +1,9 @@
-Interacción con APIs REST y Análisis del Protocolo HTTP
+# Interacción con APIs REST y Análisis del Protocolo HTTP
 
 ## Para el desarrollo de la práctica se utilizarán las siguientes herramientas:
 *   **Cliente de peticiones:** Postman (o software equivalente).
 *   **Servidor de pruebas:** JSONPlaceholder (`https://jsonplaceholder.typicode.com`).
 
----
 
 ## 1. Desarrollo de la Práctica
 
@@ -63,7 +62,6 @@ En esta fase, el estudiante manipulará variables adicionales para observar la r
 
     * Intentar realizar una petición `POST` enviando un cuerpo JSON con errores de sintaxis (ej: omitir una coma o una llave de cierre).
 
----
 
 ## 5. Entregables y Evaluación
 Para la validación de la actividad, el alumno deberá presentar un informe técnico que incluya:
