@@ -16,7 +16,7 @@ Para que una aplicación web funcione, necesita varios componentes trabajando co
 *   **Stack LAMP:** Compuesto por Linux (Sistema Operativo), Apache (Servidor Web), MariaDB o MySQL (Base de Datos) y PHP (Lenguaje de programación). Es el stack sobre el que corren aplicaciones como WordPress, Moodle o Nextcloud.
  *   **Stack LEMP:** Es una alternativa donde se sustituye Apache por **Nginx** (pronunciado *Engine-X*). La principal diferencia radica en cómo el servidor gestiona las conexiones y el rendimiento.
 
-![[Pasted image 20260909173157.png]]
+![](../assets/images/ud01/Pasted%20image%2020260909173157.png)
 
 ### Aislamiento: Virtualización y Contenedores
 Para evitar conflictos entre versiones de software y mantener el sistema limpio, utilizamos técnicas de aislamiento:

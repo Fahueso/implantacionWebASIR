@@ -24,10 +24,11 @@ La mayoría de los servicios que utilizamos diariamente funcionan siguiendo una 
 - **Cliente**: realiza solicitudes y presenta la información al usuario.
 - **Servidor**: recibe las solicitudes, las procesa y devuelve una respuesta.
 
-La comunicación entre ambos se realiza a través de una red, que puede ser Internet o una red local.  
-Pasted image 20260901173311.png
+La comunicación entre ambos se realiza a través de una red, que puede ser Internet o una red local.
 
-Gracias a esta arquitectura es posible centralizar la información y los servicios en uno o varios servidores, permitiendo que múltiples clientes accedan simultáneamente a ellos.
+![](../assets/images/ud01/image.png)
+
+Gracias a esta arquitectura es posible centralizar la información y los servicios en uno o varios servidores, permitiendo que múltiples clientes accedan simultáneamente a ellos.  
 
 **El proceso de comunicación sigue estos pasos:**
 
@@ -215,9 +216,9 @@ Cuando un usuario escribe una dirección web, se realizan los siguientes pasos:
 
 Ejemplo: Para acceder a `https://aules.edu.gva.es`, el navegador consulta el DNS para obtener la IP asociada y así establecer la comunicación.
 
-Pasted image 20260909173108.png
+![](../assets/images/ud01/Pasted%20image%2020260909173108.png)
 
-#### Estructura de un nombre de dominio
+Estructura de un nombre de dominio
 
 Está organizado de forma jerárquica. Ejemplo: `aules.edu.gva.es`
 
