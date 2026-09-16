@@ -1,11 +1,12 @@
 # Frontend Web - Repaso lenguaje de Marcas
 
-## Capítulo 1. Los Tres Pilares del Desarrollo Web
+## 1. Los Tres Pilares del Desarrollo W
 
-Para entender la web, debemos imaginar que estamos construyendo una casa. No podemos pintar las paredes si no hay ladrillos, y no podemos instalar la electricidad si no hay una estructura.
 
-### 1.1 HTML: La Estructura (Los Ladrillos)
+### 1.1 HTML: La Estructura
 El HTML define qué elementos hay en la página. Si queremos un botón, ponemos un botón. Si queremos un título, ponemos un título.
+
+
 
 **Ejemplo rápido:**
 ```html
@@ -15,7 +16,7 @@ El HTML define qué elementos hay en la página. Si queremos un botón, ponemos 
 ```
 *Aquí el navegador sabe que hay un título principal, un párrafo y un botón, pero no sabe si son rojos, azules, grandes o pequeños.*
 
-### 1.2 CSS: La Presentación (La Pintura y Decoración)
+### 1.2 CSS: La Presención)
 El CSS toma esos elementos de HTML y les da estilo.
 
 **Ejemplo rápido:**
@@ -25,7 +26,7 @@ button { background-color: green; color: white; border-radius: 5px; }
 ```
 *Ahora, el título es azul marino y el botón es verde con bordes redondeados.*
 
-### 1.3 JavaScript: La Interactividad (La Electricidad)
+### 1.3 JavaScript: La Intevractidad)
 JavaScript hace que las cosas "pasen".
 
 **Ejemplo rápido:**
@@ -36,9 +37,8 @@ document.querySelector('button').onclick = function() {
 ```
 *Ahora, cuando el usuario hace clic en el botón, aparece un mensaje de alerta.*
 
----
-
-## Capítulo 2. El Lenguaje HTML: Fundamentos y Anatomía
+## 
+tulo 2. El Lenguaje HTML: Fundamentos y Anomía
 
 Un documento HTML no es solo una lista de etiquetas; es un árbol organizado. Todo comienza con una estructura base obligatoria.
 
@@ -60,12 +60,12 @@ Cualquier página profesional comienza así:
 </html>
 ```
 **Explicación del código:**
-*   `lang="es"`: Le dice a Google que la página está en español.
-*   `charset="utf-8"`: Permite que las tildes y la "ñ" se vean correctamente.
-*   `viewport`: Es la instrucción mágica para que la página no se vea "minúscula" en un móvil.
+*   `lang=Identifica Google que la página está en español.
+*   `charset="utf-8"`: Permite que las tildes y la "ñ" se vean correc, utilizando el conjunto de caracteres típico uft-8tamente.
+*   `viewport`: Es la instrútil mágica para que la se adapte a dispositivos móvilesn móvil.
 
 ### 2.2 Identificadores y Clases: ¿Cómo diferenciar elementos?
-Imagina que tienes tres párrafos, pero solo quieres que uno sea rojo. Para eso usamos `id` y `class`.
+Imagina que tienes tres párrafosquieres tenerlos clasificados para operar con ellos en bloquee.a rojo. Para eso usamos `id` y `class`.
 
 **Ejemplo práctico:**
 ```html
@@ -76,6 +76,9 @@ Imagina que tienes tres párrafos, pero solo quieres que uno sea rojo. Para eso 
 <p class="texto-azul">Este texto será azul.</p>
 <p class="texto-azul">Este también será azul porque comparte la clase.</p>
 <p class="texto-azul destacado">Este es azul y además tiene un estilo de destacado.</p>
+
+
+Más adelante veremos como asignar el estilo deseado mediante CSS.
 ```
 
 ---
@@ -83,7 +86,7 @@ Imagina que tienes tres párrafos, pero solo quieres que uno sea rojo. Para eso 
 ## Capítulo 3. Estructuración de Contenido: Texto, Enlaces y Listas
 
 ### 3.1 Jerarquía de Títulos
-No uses el `<h1>` solo para que el texto sea grande; úsalo para organizar la importancia.
+No uses el `<h1>` solo para que el texto sea grande; úsalo para organizar la  Esta jerarquía la tendrán en cuenta motores de búsqueda, entre otros.importancia.
 
 **Ejemplo de estructura real:**
 ```html
@@ -107,7 +110,7 @@ Para resaltar ideas dentro de un párrafo:
 *   `<em>`: Se ve en cursiva (indica énfasis).
 
 ### 3.3 Listas: Organizando Información
-Dependiendo de si el orden importa o no, elegimos la lista:
+Dependiendo de si el orden importa o no, elegi numerada o no numeradamos la lista:
 
 **Ejemplo: Receta de Cocina**
 ```html
@@ -142,13 +145,7 @@ La web es una red de conexiones. Así se crean:
 ```html
 <img src="perrito.jpg" alt="Un cachorro de Golden Retriever jugando" width="400">
 ```
-*El atributo `alt` es vital: si la imagen falla o el usuario es ciego, el navegador leerá esa descripción.*
-
----
-
-Continuamos con el formato de **Concepto $\rightarrow$ Ejemplo $\rightarrow$ Explicación**. Ahora entraremos en la parte donde el usuario empieza a interactuar con la página y donde empezamos a darle belleza visual con CSS.
-
----
+*El atributo `alt` es vital: si la imagen falla o el usuario es ciego, el navegador leerá esa descr.
 
 ## Capítulo 4. Interactividad Básica: Multimedia y Formularios
 
@@ -179,7 +176,7 @@ Ya no necesitamos plugins externos. HTML5 permite insertar archivos multimedia d
 ### 4.2 Formularios: Capturando Datos del Usuario
 El formulario es la herramienta más potente para convertir un sitio web en una aplicación.
 
-**Ejemplo de un Formulario de Registro:**
+**Ejemplo de un Formular hacia un PHPio de Registro:**
 ```html
 <form action="procesar_registro.php" method="POST">
   <!-- Campo de Texto con Label -->
@@ -212,7 +209,7 @@ El formulario es la herramienta más potente para convertir un sitio web en una 
 
 ---
 
-## Capítulo 5. Introducción a CSS: El Arte de la Presentación
+## 5. Introducción a CSS:
 
 Ahora que tenemos una estructura funcional, vamos a aprender a diseñarla. El CSS nos permite separar el **qué** (HTML) del **cómo** (CSS).
 
@@ -268,7 +265,7 @@ p { color: green; }       /* Prioridad Baja (Etiqueta) */
 ```
 **Resultado:** El texto será **rojo**, porque el ID siempre gana sobre la clase y la etiqueta.
 
-## Capítulo 6. Estilización de Texto y Fondos: El Detalle Visual
+## 6. Estilización de Texto y Fondos:
 
 El diseño no es solo poner colores; es guiar la vista del usuario. En este capítulo aprenderemos a controlar la tipografía y el espacio visual.
 
@@ -317,9 +314,9 @@ El fondo puede ser un color sólido o una imagen que se adapte a cualquier panta
 
 ---
 
-## Capítulo 7. Layouts en CSS: La Arquitectura de la Página
+## 7. Layouts en CSS:
 
-Aquí es donde la mayoría de los estudiantes se confunden. Para entender los Layouts, primero debemos entender que **en la web, todo es una caja**.
+
 
 ### 7.1 El Modelo de Caja (Box Model)
 Cada elemento HTML es un rectángulo compuesto por cuatro capas.
@@ -354,7 +351,7 @@ A veces necesitamos que un elemento ignore las reglas normales y se coloque dond
 }
 ```
 
-### 7.3 Flexbox: El Rey de la Alineación Unidimensional
+### 7.3 Fleional
 Flexbox sirve para alinear elementos en una sola dirección (ya sea una fila o una columna).
 
 **Ejemplo: Una Barra de Navegación (Navbar):**
@@ -385,7 +382,7 @@ Flexbox sirve para alinear elementos en una sola dirección (ya sea una fila o u
 }
 ```
 
-### 7.4 CSS Grid: Diseño Bidimensional Complejo
+### 7.4 CSS plejo
 Grid se usa cuando necesitamos controlar filas y columnas al mismo tiempo.
 
 **Ejemplo: Layout de Periódico Digital:**
@@ -405,8 +402,7 @@ Grid se usa cuando necesitamos controlar filas y columnas al mismo tiempo.
 **Explicación del código:**
 *   `1fr`: Significa "una fracción del espacio disponible". Es mucho más flexible que usar porcentajes.
 *   `grid-column: 1 / 3`: Le dice al elemento que se estire a través de dos columnas.
-
-## Capítulo 8. Fundamentos de JavaScript: El Cerebro de la Web
+tulo 8. Fundamentos de JavaSca Web
 
 Si HTML es el cuerpo y CSS es la ropa, **JavaScript (JS)** es el sistema nervioso. Es el lenguaje que permite que la página "piense", tome decisiones y reaccione a lo que el usuario hace.
 
@@ -466,7 +462,7 @@ if (passwordIngresada === passwordCorrecta) {
 }
 ```
 
-### 8.5 Funciones: Recetas de Código Reutilizables
+### 8.5 Funciables
 Una función es un bloque de código que hace una tarea específica y que puedes llamar cuantas veces quieras.
 
 **Ejemplo: Calculadora de descuentos**
@@ -485,8 +481,7 @@ console.log(`El zapato cuesta ${zapato} y la camisa ${camisa}`);
 ```
 
 ---
-
-## Capítulo 9. El DOM: Manipulando la Realidad Visual
+tulo 9. Eisual
 
 El **DOM (Document Object Model)** es la representación que hace el navegador del HTML. JavaScript no edita el archivo `.html`, sino que edita el DOM en la memoria del navegador.
 
@@ -564,8 +559,7 @@ imagen.addEventListener("mouseleave", () => {
 ```
 
 ---
-
-## Capítulo 10. Bootstrap y Frameworks de Diseño: Desarrollo Profesional
+tulo 10. Bootstrap y Frameworks de Diseño: Desarrollo Profesional
 
 Hasta ahora, hemos construido cada botón y cada columna escribiendo líneas de CSS. Sin embargo, en el mundo laboral, la velocidad es clave. **Bootstrap** es la biblioteca de estilos más popular del mundo y permite crear sitios web modernos y responsivos en una fracción del tiempo.
 
@@ -586,7 +580,7 @@ Bootstrap es un conjunto de clases CSS y componentes JavaScript ya creados. En l
 </body>
 ```
 
-### 10.2 El Sistema de Rejilla (Grid System): El Corazón de Bootstrap
+### 10.2 El Sistema de Rejilla (Grid Sysstrap
 El concepto más potente de Bootstrap es su división de la pantalla en **12 columnas invisibles**. Tú decides cuántas de esas columnas ocupa cada elemento según el dispositivo.
 
 **Ejemplo: Una sección de "Servicios" responsiva**
@@ -642,7 +636,5 @@ Bootstrap permite hacer ajustes pequeños sin escribir una sola línea de CSS pr
 ```
 *   `mt-5`: Margin Top nivel 5.
 *   `p-3`: Padding nivel 3.
-*   `text-center`: Alineación centrada.
-
-##  b
+*   `text-center`: Alineación centrada
 
