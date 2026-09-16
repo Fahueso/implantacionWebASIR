@@ -1,6 +1,6 @@
 # Frontend Web - Repaso lenguaje de Marcas
 
-## 1. Los Tres Pilares del Desarrollo W
+## 1. Los Tres Pilares del Desarrollo Web
 
 
 ### 1.1 HTML: La Estructura
@@ -16,7 +16,7 @@ El HTML define qué elementos hay en la página. Si queremos un botón, ponemos 
 ```
 *Aquí el navegador sabe que hay un título principal, un párrafo y un botón, pero no sabe si son rojos, azules, grandes o pequeños.*
 
-### 1.2 CSS: La Presención)
+### 1.2 CSS: La Presentación
 El CSS toma esos elementos de HTML y les da estilo.
 
 **Ejemplo rápido:**
@@ -26,7 +26,7 @@ button { background-color: green; color: white; border-radius: 5px; }
 ```
 *Ahora, el título es azul marino y el botón es verde con bordes redondeados.*
 
-### 1.3 JavaScript: La Intevractidad)
+### 1.3 JavaScript: La Interactividad
 JavaScript hace que las cosas "pasen".
 
 **Ejemplo rápido:**
@@ -38,7 +38,7 @@ document.querySelector('button').onclick = function() {
 *Ahora, cuando el usuario hace clic en el botón, aparece un mensaje de alerta.*
 
 ## 
-tulo 2. El Lenguaje HTML: Fundamentos y Anomía
+## 2. El Lenguaje HTML: Fundamentos y Anatomía
 
 Un documento HTML no es solo una lista de etiquetas; es un árbol organizado. Todo comienza con una estructura base obligatoria.
 
@@ -83,7 +83,7 @@ Más adelante veremos como asignar el estilo deseado mediante CSS.
 
 ---
 
-## Capítulo 3. Estructuración de Contenido: Texto, Enlaces y Listas
+## 3. Estructuración de Contenido: Texto, Enlaces y Listas
 
 ### 3.1 Jerarquía de Títulos
 No uses el `<h1>` solo para que el texto sea grande; úsalo para organizar la  Esta jerarquía la tendrán en cuenta motores de búsqueda, entre otros.importancia.
@@ -147,7 +147,7 @@ La web es una red de conexiones. Así se crean:
 ```
 *El atributo `alt` es vital: si la imagen falla o el usuario es ciego, el navegador leerá esa descr.
 
-## Capítulo 4. Interactividad Básica: Multimedia y Formularios
+## 4. Interactividad Básica: Multimedia y Formularios
 
 En este capítulo pasamos de mostrar información a permitir que el usuario consuma contenido multimedia y, lo más importante, que nos envíe sus propios datos.
 
