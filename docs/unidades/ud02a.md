@@ -59,6 +59,7 @@ Cualquier página profesional comienza así:
   </body>
 </html>
 ```
+
 **Explicación del código:**
 *   `lang=Identifica Google que la página está en español.
 *   `charset="utf-8"`: Permite que las tildes y la "ñ" se vean correc, utilizando el conjunto de caracteres típico uft-8tamente.
@@ -80,8 +81,6 @@ Imagina que tienes tres párrafosquieres tenerlos clasificados para operar con e
 
 Más adelante veremos como asignar el estilo deseado mediante CSS.
 ```
-
----
 
 ## 3. Estructuración de Contenido: Texto, Enlaces y Listas
 
@@ -163,6 +162,7 @@ Ya no necesitamos plugins externos. HTML5 permite insertar archivos multimedia d
   </video>
 </section>
 ```
+
 **Explicación del código:**
 *   `controls`: Añade los botones de Play, Pausa y Volumen. Sin esto, el video sería solo una imagen estática.
 *   `poster`: Define la imagen que se ve antes de darle a Play.
@@ -177,6 +177,7 @@ Ya no necesitamos plugins externos. HTML5 permite insertar archivos multimedia d
 El formulario es la herramienta más potente para convertir un sitio web en una aplicación.
 
 **Ejemplo de un Formular hacia un PHPio de Registro:**
+
 ```html
 <form action="procesar_registro.php" method="POST">
   <!-- Campo de Texto con Label -->
@@ -201,13 +202,13 @@ El formulario es la herramienta más potente para convertir un sitio web en una 
   <button type="submit">Crear Cuenta</button>
 </form>
 ```
+
 **Explicación del código:**
 *   `action="procesar_registro.php"`: Indica a dónde se envían los datos una vez que el usuario hace clic en enviar.
 *   `method="POST"`: Envía los datos de forma oculta. Es obligatorio para contraseñas.
 *   `label for="nombre"` + `id="nombre"`: Esta conexión es clave. Si haces clic en el texto "Nombre completo", el cursor saltará automáticamente al cuadro de texto.
 *   `required`: Es una validación nativa de HTML. El navegador no dejará enviar el formulario si el campo está vacío.
 
----
 
 ## 5. Introducción a CSS:
 
@@ -312,7 +313,6 @@ El fondo puede ser un color sólido o una imagen que se adapte a cualquier panta
 **Explicación del código:**
 *   `background-size: cover`: Es la propiedad más importante. Evita que la imagen se vea estirada o repetida como un mosaico; la recorta inteligentemente para llenar el contenedor.
 
----
 
 ## 7. Layouts en CSS:
 
@@ -480,8 +480,8 @@ let camisa = calcularDescuento(50, 10);  // 10% de descuento
 console.log(`El zapato cuesta ${zapato} y la camisa ${camisa}`);
 ```
 
----
-tulo 9. Eisual
+
+### 9. El DOM
 
 El **DOM (Document Object Model)** es la representación que hace el navegador del HTML. JavaScript no edita el archivo `.html`, sino que edita el DOM en la memoria del navegador.
 
@@ -558,8 +558,8 @@ imagen.addEventListener("mouseleave", () => {
 });
 ```
 
----
-tulo 10. Bootstrap y Frameworks de Diseño: Desarrollo Profesional
+
+## 10. Bootstrap y Frameworks de Diseño: Desarrollo Profesional
 
 Hasta ahora, hemos construido cada botón y cada columna escribiendo líneas de CSS. Sin embargo, en el mundo laboral, la velocidad es clave. **Bootstrap** es la biblioteca de estilos más popular del mundo y permite crear sitios web modernos y responsivos en una fracción del tiempo.
 
@@ -600,6 +600,7 @@ El concepto más potente de Bootstrap es su división de la pantalla en **12 col
   </div>
 </div>
 ```
+
 **Explicación del código:**
 *   `.container`: Centra el contenido y evita que toque los bordes de la pantalla.
 *   `.row`: Crea una fila que contiene las columnas.
