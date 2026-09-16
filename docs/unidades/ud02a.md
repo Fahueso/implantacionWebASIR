@@ -61,7 +61,7 @@ Cualquier página profesional comienza así:
 ```
 
 **Explicación del código:**
-*   `lang=Identifica Google que la página está en español.
+*   `lang=Identifica a navegadores y robots que la página está en español.
 *   `charset="utf-8"`: Permite que las tildes y la "ñ" se vean correc, utilizando el conjunto de caracteres típico uft-8tamente.
 *   `viewport`: Es la instrútil mágica para que la se adapte a dispositivos móvilesn móvil.
 
