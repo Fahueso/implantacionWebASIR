@@ -12,11 +12,13 @@ La comunicación Cliente-Servidor es un modelo de diseño de software en el que 
 
 ## 2. Metodología y Herramientas
 Para el desarrollo de la práctica se utilizarán los siguientes recursos:
+
 *   **Entorno:** Sistema operativo Linux con intérprete de Python 3.x.
 *   **Archivos:** Se entregan los scripts `servidor.py` y `cliente.py`.
 *   **Configuración:** Ejecución en entorno local utilizando la dirección de bucle invertido (`localhost` / `127.0.0.1`).
 
 **Instrucciones de ejecución en Linux:**
+
 1.  Abrir una terminal y ejecutar el servidor: `python3 servidor.py`
 2.  Abrir una **segunda terminal** independiente y ejecutar el cliente: `python3 cliente.py`
 
@@ -25,6 +27,7 @@ Para el desarrollo de la práctica se utilizarán los siguientes recursos:
 
 ### Fase I: Análisis de Código y Ejecución
 El estudiante deberá ejecutar el sistema y analizar la relación entre ambos scripts:
+
 1.  **Flujo de Mensajes:** Enviar un mensaje desde el cliente y observar la respuesta en la consola del servidor y viceversa.
 2.  **Localización de Parámetros:** Identificar en el código dónde se define la dirección IP y el puerto.
 3.  **Mapeo de Funciones:** Identificar la secuencia de llamadas al sistema necesarias para establecer la conexión.
@@ -58,6 +61,7 @@ La tabla de la Fase II debidamente cumplimentada con los resultados observados y
 Los archivos `servidor.py` y `cliente.py` con las implementaciones de la Fase III.
 
 **C. Cuestionario de Análisis:**
+
 1.  ¿Por qué es necesario utilizar `.encode()` y `.decode()` al enviar mensajes? ¿Qué sucedería si se omitieran?
 2.  En el experimento B, ¿por qué el segundo cliente no puede comunicarse con el servidor? Explique el concepto de "bloqueo" (*blocking*) en los sockets.
 3.  ¿Cuál es la diferencia fundamental entre la IP `127.0.0.1` y una IP pública de internet?

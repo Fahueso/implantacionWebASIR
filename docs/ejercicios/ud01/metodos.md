@@ -93,6 +93,7 @@ Una tabla que detalle los experimentos de la Fase IV:
 
 **C. Análisis Técnico Final:**
 Responder a los siguientes cuestionamientos:
+
 1.  ¿Cuál es la diferencia técnica entre un parámetro de ruta (`/posts/1`) y un parámetro de consulta (`/posts?userId=1`)?
 2.  ¿Qué sucede cuando el cliente y el servidor no acuerdan el mismo `Content-Type`?
 3.  Explique la diferencia operativa entre los métodos `PUT` y `PATCH`.

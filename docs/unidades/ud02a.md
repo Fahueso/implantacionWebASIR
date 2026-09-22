@@ -61,6 +61,7 @@ Cualquier página profesional comienza así:
 ```
 
 **Explicación del código:**
+
 *   `lang=Identifica a navegadores y robots que la página está en español.
 *   `charset="utf-8"`: Permite que las tildes y la "ñ" se vean correc, utilizando el conjunto de caracteres típico uft-8tamente.
 *   `viewport`: Es la instrútil mágica para que la se adapte a dispositivos móvilesn móvil.
@@ -105,6 +106,7 @@ Para resaltar ideas dentro de un párrafo:
 <p>El lenguaje <strong>JavaScript</strong> es fundamental, 
    pero <em>no es lo mismo</em> que Java.</p>
 ```
+
 *   `<strong>`: Se ve en negrita (indica importancia).
 *   `<em>`: Se ve en cursiva (indica énfasis).
 
@@ -164,6 +166,7 @@ Ya no necesitamos plugins externos. HTML5 permite insertar archivos multimedia d
 ```
 
 **Explicación del código:**
+
 *   `controls`: Añade los botones de Play, Pausa y Volumen. Sin esto, el video sería solo una imagen estática.
 *   `poster`: Define la imagen que se ve antes de darle a Play.
 *   El texto dentro de la etiqueta es un "fallback": solo se muestra si el navegador es muy antiguo y no soporta el video.
@@ -204,6 +207,7 @@ El formulario es la herramienta más potente para convertir un sitio web en una 
 ```
 
 **Explicación del código:**
+
 *   `action="procesar_registro.php"`: Indica a dónde se envían los datos una vez que el usuario hace clic en enviar.
 *   `method="POST"`: Envía los datos de forma oculta. Es obligatorio para contraseñas.
 *   `label for="nombre"` + `id="nombre"`: Esta conexión es clave. Si haces clic en el texto "Nombre completo", el cursor saltará automáticamente al cuadro de texto.
@@ -602,6 +606,7 @@ El concepto más potente de Bootstrap es su división de la pantalla en **12 col
 ```
 
 **Explicación del código:**
+
 *   `.container`: Centra el contenido y evita que toque los bordes de la pantalla.
 *   `.row`: Crea una fila que contiene las columnas.
 *   `.col-12 col-sm-6 col-md-4`: Aquí definimos la **responsividad**. El elemento cambia de tamaño automáticamente según el ancho de la pantalla del usuario.
@@ -622,6 +627,7 @@ Bootstrap ofrece "piezas de Lego" que ya tienen diseño y comportamiento profesi
 </div>
 ```
 **Explicación del código:**
+
 *   `.card`: Crea el contenedor con borde y sombra suave.
 *   `.btn .btn-primary`: Crea un botón azul profesional con efectos de hover (cambio de color al pasar el ratón).
 *   `.btn-outline-secondary`: Crea un botón con borde gris, ideal para acciones secundarias.
@@ -635,6 +641,7 @@ Bootstrap permite hacer ajustes pequeños sin escribir una sola línea de CSS pr
   Este div tiene margen superior (mt-5), padding (p-3), texto centrado, fondo oscuro y letras blancas.
 </div>
 ```
+
 *   `mt-5`: Margin Top nivel 5.
 *   `p-3`: Padding nivel 3.
 *   `text-center`: Alineación centrada

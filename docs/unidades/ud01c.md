@@ -39,6 +39,7 @@ sudo systemctl restart apache2
 
 ### Paquetes y componentes clave
 Durante la instalación se añaden varios componentes esenciales:
+
 *   **php:** Metapaquete principal con la versión recomendada.
 *   **php-cli:** Permite ejecutar scripts desde la terminal: `php fichero.php`.
 *   **php-common:** Bibliotecas comunes utilizadas por PHP.
@@ -55,6 +56,7 @@ Los archivos PHP se almacenan en el DocumentRoot de Apache, habitualmente en `/v
 ## 3.3. Extensiones y Arquitecturas de Ejecución
 
 PHP se amplía mediante extensiones para añadir funcionalidades específicas. Las más habituales son:
+
 *   **php-mysql:** Para conectar con MariaDB/MySQL: `sudo apt install php-mysql`.
 *   **php-gd:** Para trabajar con imágenes: `sudo apt install php-gd`.
 *   **php-xml:** Para procesar documentos XML: `sudo apt install php-xml`.
@@ -62,6 +64,7 @@ PHP se amplía mediante extensiones para añadir funcionalidades específicas. L
 
 ### Modos de ejecución: mod_php frente a PHP-FPM
 Existen dos formas de integrar Apache y PHP:
+
 1.  **mod_php:** PHP está integrado directamente en Apache. Es la opción más sencilla y la que usaremos en las primeras prácticas.
 2.  **PHP-FPM (FastCGI Process Manager):** Se instala con `sudo apt install php-fpm`. PHP corre como un servicio independiente. Es la opción profesional por su mejor rendimiento y escalabilidad.
 
@@ -96,6 +99,7 @@ Este asistente permite:
 
 ### Gestión de Usuarios y Seguridad
 Nunca debemos usar el usuario `root` en las aplicaciones. Creamos usuarios específicos:
+
 1. **Crear usuario:** `CREATE USER 'appweb'@'localhost' IDENTIFIED BY 'contraseña_segura';`
 2. **Asignar permisos:** `GRANT ALL PRIVILEGES ON tienda.* TO 'appweb'@'localhost';`
 3. **Aplicar cambios:** `FLUSH PRIVILEGES;`
@@ -197,6 +201,7 @@ mysqli_close($conexion);
 ## 3.8. Metodología de Pruebas y Diagnóstico
 
 ### Pruebas Sistemáticas
+
 1.  **`phpinfo()`:** Crear `/var/www/html/info.php` con `<?php phpinfo(); ?>`. Confirma la instalación y extensiones.
 2.  **Salida de texto:** Crear `prueba.php` con `echo "PHP funciona correctamente";`.
 3.  **Contenido Dinámico:** Usar `echo date("d/m/Y H:i:s");` para comprobar la ejecución en el servidor.
@@ -205,6 +210,7 @@ mysqli_close($conexion);
 6.  **Consola:** Ejecutar `php prueba.php` desde la terminal.
 
 ### Diagnóstico de Errores
+
 *   **Código PHP visible:** El módulo `mod_php` no está cargado. Revisar `sudo apache2ctl -M | grep php`.
 *   **Página en blanco / Error 500:** Revisar `sudo tail /var/log/apache2/error.log`.
 *   **MariaDB no arranca:** Revisar `sudo systemctl status mariadb` y `sudo journalctl -u mariadb`.
@@ -215,6 +221,7 @@ mysqli_close($conexion);
 ## 3.9. Prueba de Integración Completa (Full Stack)
 
 Para validar todo el sistema:
+
 1.  **SQL:** Crear BD `prueba_lamp`, tabla `mensajes` e insertar un registro.
 2.  **Usuario:** Crear `lampuser` con privilegios sobre `prueba_lamp`.
 3.  **PHP (Procedimental):** Crear `/var/www/html/prueba_lamp.php`:

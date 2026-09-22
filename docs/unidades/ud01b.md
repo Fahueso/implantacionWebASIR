@@ -13,13 +13,15 @@ En el desarrollo de software, es habitual realizar cambios constantes, corregir 
 
 ### El concepto de "Stack" de desarrollo
 Para que una aplicación web funcione, necesita varios componentes trabajando conjuntamente. A este conjunto de tecnologías se le llama **stack**. Los más habituales son:
+
 *   **Stack LAMP:** Compuesto por Linux (Sistema Operativo), Apache (Servidor Web), MariaDB o MySQL (Base de Datos) y PHP (Lenguaje de programación). Es el stack sobre el que corren aplicaciones como WordPress, Moodle o Nextcloud.
- *   **Stack LEMP:** Es una alternativa donde se sustituye Apache por **Nginx** (pronunciado *Engine-X*). La principal diferencia radica en cómo el servidor gestiona las conexiones y el rendimiento.
+*   **Stack LEMP:** Es una alternativa donde se sustituye Apache por **Nginx** (pronunciado *Engine-X*). La principal diferencia radica en cómo el servidor gestiona las conexiones y el rendimiento.
 
 ![](../assets/images/ud01/Pasted%20image%2020260909173157.png)
 
 ### Aislamiento: Virtualización y Contenedores
 Para evitar conflictos entre versiones de software y mantener el sistema limpio, utilizamos técnicas de aislamiento:
+
 *   **Virtualización:** Permite ejecutar varios sistemas operativos independientes sobre un mismo equipo físico mediante máquinas virtuales. Ofrece un aislamiento total y permite crear "instantáneas" (snapshots) para restaurar el sistema a un estado anterior. Sin embargo, consume mucha memoria y almacenamiento, y el arranque es lento ya que requiere un SO completo por cada máquina.
 *   **Contenedores:** Son una alternativa más ligera. En lugar de virtualizar el SO completo, comparten el núcleo del sistema anfitrión y ejecutan solo la aplicación y sus dependencias. Esto permite un arranque casi instantáneo y un consumo de recursos mínimo.
 *   **Docker:** Es la tecnología de contenedores más utilizada hoy en día. Permite crear y distribuir aplicaciones mediante contenedores independientes (por ejemplo, un contenedor para Apache, otro para PHP y otro para MariaDB), facilitando que el entorno sea idéntico en cualquier equipo.
@@ -44,10 +46,12 @@ Apache ha mantenido su popularidad desde los años 90 gracias a su flexibilidad.
 La clave del éxito de Apache es su **arquitectura modular**. El servidor tiene un núcleo reducido y las funcionalidades adicionales se añaden mediante módulos que pueden activarse o desactivarse. Esto permite que el servidor sea ligero y seguro, ya que solo cargamos lo que necesitamos, reduciendo así la "superficie de ataque" para posibles hackers.
 
 En los sistemas Debian y Ubuntu, los módulos se organizan de la siguiente manera:
+
 *   Los módulos disponibles se almacenan en `/etc/apache2/mods-available`.
 *   Cuando activamos un módulo, Apache crea un enlace simbólico en `/etc/apache2/mods-enabled`.
 
 Para gestionar estos módulos, disponemos de herramientas específicas:
+
 *   **Activar un módulo:** `sudo a2enmod nombre_modulo` (ej. `sudo a2enmod rewrite`).
 *   **Desactivar un módulo:** `sudo a2dismod nombre_modulo`.
 *   **Consultar módulos activos:** `sudo apache2ctl -M`.
@@ -68,6 +72,7 @@ En Debian, la instalación se realiza mediante el gestor de paquetes APT con el 
 
 ### Control del servicio
 El servidor se gestiona mediante `systemd` con los siguientes comandos:
+
 *   `sudo systemctl start apache2` (Iniciar)
 *   `sudo systemctl stop apache2` (Detener)
 *   `sudo systemctl restart apache2` (Reiniciar el servicio por completo)
@@ -84,6 +89,7 @@ La configuración de Apache en Debian es jerárquica. El archivo principal es `/
 
 ### Gestión de Sitios y Configuraciones
 Apache separa los sitios definidos de los sitios activos:
+
 *   **Sitios disponibles:** `/etc/apache2/sites-available`. Aquí se guarda la configuración de cada web. El archivo `000-default.conf` es el sitio por defecto.
 *   **Sitios activos:** `/etc/apache2/sites-enabled`. Contiene enlaces a los sitios que Apache debe cargar al arrancar.
 *   **Comandos:** `sudo a2ensite` para activar y `sudo a2dissite` para desactivar.
@@ -98,6 +104,7 @@ Cada sitio necesita un directorio donde guardar sus archivos públicos, llamado 
 
 ### Virtual Hosts (Hosts Virtuales)
 Un único servidor puede alojar múltiples sitios web independientes. Esto se hace mediante Virtual Hosts. Existen dos tipos:
+
 1.  **Basados en IP:** Cada sitio tiene su propia IP (poco común).
 2.  **Basados en nombre:** Todos comparten la misma IP y puerto, pero Apache distingue el sitio mediante la cabecera `Host` de la petición.
 
@@ -126,6 +133,7 @@ Este módulo permite que cada usuario del sistema tenga su propio espacio web in
 La **autenticación** verifica la identidad (¿quién eres?), mientras que la **autorización** define los permisos (¿qué puedes hacer?). 
 
 La **Autenticación Básica** se implementa con `mod_auth_basic`. Primero creamos el archivo de contraseñas con `sudo htpasswd -c /etc/apache2/.htpasswd usuario`. Luego, en la configuración del directorio, añadimos:
+
 *   `AuthType Basic`
 *   `AuthName "Mensaje de aviso"`
 *   `AuthUserFile /etc/apache2/.htpasswd`
@@ -140,9 +148,11 @@ En producción, se utilizan certificados de autoridades como **Let's Encrypt**.
 
 ### Cortafuegos con UFW
 Para que el servidor sea accesible, usamos `ufw`. Los perfiles disponibles son:
+
 *   `Apache`: Puerto 80.
 *   `Apache Secure`: Puerto 443.
 *   `Apache Full`: Ambos puertos.
+
 **Regla de oro:** Siempre ejecutar `sudo ufw allow OpenSSH` antes de `sudo ufw enable` para evitar quedar bloqueados fuera del servidor.
 
 
@@ -150,6 +160,7 @@ Para que el servidor sea accesible, usamos `ufw`. Los perfiles disponibles son:
 
 ### Alternativas de Despliegue
 Para agilizar el desarrollo, existen plataformas integradas:
+
 *   **XAMPP:** Instala Apache, PHP y MariaDB en un solo paquete. Es rápido pero su configuración difiere de un servidor real.
 *   **Docker Compose:** Permite definir todo el stack en un archivo `docker-compose.yml`. Es la opción profesional, ya que garantiza que el entorno sea idéntico en cualquier máquina.
 
@@ -163,6 +174,7 @@ Cuando un servidor web no responde o no muestra el contenido esperado, es fundam
 
 ### El flujo de diagnóstico básico
 Si un sitio web no es accesible desde otro equipo de la red, debemos hacernos la siguiente pregunta: **¿Responde el servidor en localhost?**
+
 *   **Si la respuesta es NO:** El problema está en el servidor Apache. Debemos revisar si el servicio está activo o si hay errores de configuración.
 *   **Si la respuesta es SÍ:** El servidor funciona, pero algo impide que la petición llegue desde el exterior. El problema suele estar en el cortafuegos (`ufw`) o en la red.
 
@@ -185,10 +197,12 @@ Si el estado es `active` pero no vemos el perfil de Apache, debemos ejecutar `su
 
 **4. Errores de "Forbidden" (403) o "Not Found" (404)**
 Cuando el servidor responde pero da un error de acceso:
+
 *   **403 Forbidden:** Suele ser un problema de permisos de Linux. Debemos comprobar que el directorio `DocumentRoot` y sus archivos tengan permisos de lectura y ejecución para el usuario de Apache (`www-data`). En el caso de los directorios personales, recordar ejecutar `chmod 755 ~/public_html`.
 *   **404 Not Found:** El archivo solicitado no existe en el `DocumentRoot` o el nombre del archivo está mal escrito (recordar que en Linux las mayúsculas y minúsculas importan).
 
 **5. Análisis profundo mediante Logs**
 Cuando el error no es evidente, la fuente de verdad son los registros:
+
 *   **Log de errores (`/var/log/apache2/error.log`):** Aquí aparecen fallos de módulos, errores de permisos y caídas del servicio. Usar `sudo tail -f /var/log/apache2/error.log` para ver los errores en tiempo real mientras refrescamos la web.
 *   **Log de accesos (`/var/log/apache2/access.log`):** Permite ver si la petición del cliente está llegando realmente al servidor y qué código de respuesta está devolviendo Apache.
