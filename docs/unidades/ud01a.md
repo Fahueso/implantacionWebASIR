@@ -274,7 +274,7 @@ El **HTTP (HyperText Transfer Protocol)** es el protocolo utilizado por navegado
 
 Funciona igual que HTTP, pero incorpora mecanismos de seguridad: los datos viajan cifrados, se evita que terceros lean la información, se verifica la identidad del servidor y se protege la integridad de los datos. Para ello, es necesario instalar un **certificado digital** en el servidor web.
 
-**Análisis de peticiones:** Mediante las herramientas de desarrollador del navegador (F12 \\rightarrow pestaña Red/Network), se pueden observar las URL solicitadas, los métodos, los códigos de estado, el tamaño y el tiempo de cada petición.
+**Análisis de peticiones:** Mediante las herramientas de desarrollador del navegador (F12 ➜ pestaña Red/Network), se pueden observar las URL solicitadas, los métodos, los códigos de estado, el tamaño y el tiempo de cada petición.
 
 ## 5. Aplicaciones web modernas
 
@@ -290,7 +290,7 @@ Para lograrlo, el servidor debe recibir datos (ej. usuario y contraseña), compr
 Cuando una aplicación necesita procesar información, utiliza un **motor de aplicación**, que es el software encargado de ejecutar la lógica de negocio. Sus funciones son: procesar solicitudes, ejecutar el código, validar datos, gestionar sesiones, consultar bases de datos y generar respuestas dinámicas.
 
 **Flujo de funcionamiento:**  
-Cliente web \\rightarrow Servidor web \\rightarrow Motor de aplicación \\rightarrow Base de datos \\rightarrow Motor de aplicación \\rightarrow Servidor web \\rightarrow Cliente web.
+Cliente web ➜ Servidor web ➜ Motor de aplicación ➜ Base de datos ➜ Motor de aplicación ➜ Servidor web ➜ Cliente web.
 
 **Tecnologías y Contenedores:**  
 Se utilizan lenguajes como PHP, Java, Python o JavaScript (Node.js). En Java, se usan **contenedores de aplicaciones** (como Apache Tomcat, WildFly o GlassFish) para ejecutar la aplicación, gestionar recursos y sesiones.
@@ -324,5 +324,5 @@ Las aplicaciones modernas se dividen en tres capas lógicas:
 2. **Capa de Aplicación:** Lógica de negocio (procesar solicitudes, aplicar reglas, coordinar datos).
 3. **Capa de Datos:** Almacenamiento y recuperación de la información.
 
-**Flujo de información:** Usuario \\rightarrow Presentación \\rightarrow Aplicación \\rightarrow Datos (y viceversa).  
+**Flujo de información:** Usuario ➜ Presentación ➜ Aplicación ➜ Datos (y viceversa).  
 Esta separación facilita el mantenimiento, favorece el trabajo en equipo, permite reutilizar componentes, reduce el impacto de los cambios y mejora la escalabilidad. Las capas pueden estar en la misma máquina o distribuidas en varios servidores.

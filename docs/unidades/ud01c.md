@@ -242,4 +242,4 @@ while ($fila = mysqli_fetch_assoc($resultado)) {
 mysqli_close($conexion);
 ?>
 ```
-Si el mensaje aparece en el navegador, el flujo **Cliente $\rightarrow$ Apache $\rightarrow$ PHP $\rightarrow$ MariaDB** es correcto.
+Si el mensaje aparece en el navegador, el flujo **Cliente ➜ Apache ➜ PHP ➜ MariaDB** es correcto.

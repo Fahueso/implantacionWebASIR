@@ -22,7 +22,7 @@ El alumno deberá configurar una petición `GET` en Postman con los siguientes *
 Una vez ejecutada la petición, el alumno deberá analizar la estructura del JSON devuelto y responder a lo siguiente:
 
 1.  **Jerarquía de Datos:** El JSON de Wikipedia es más complejo que el de JSONPlaceholder. 
-    *   ¿En qué "capa" o clave se encuentran los resultados de la búsqueda? (Ej: `query` $\rightarrow$ `search`).
+    *   ¿En qué "capa" o clave se encuentran los resultados de la búsqueda? (Ej: `query` ➜ `search`).
 2.  **Análisis de un Resultado:** Selecciona el primer resultado de la lista y localiza los siguientes campos:
     *   `title`: ¿Cuál es el título exacto del artículo?
     *   `pageid`: ¿Cuál es el identificador numérico único de esa página en la base de datos de Wikipedia?

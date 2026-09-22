@@ -116,7 +116,7 @@ Este módulo permite que cada usuario del sistema tenga su propio espacio web in
 
 **Procedimiento de activación:**
 
-1. **Habilitar el módulo:** `sudo a2enmod userdir` $\rightarrow$ `sudo systemctl reload apache2`.
+1. **Habilitar el módulo:** `sudo a2enmod userdir` ➜ `sudo systemctl reload apache2`.
 2. **Crear el espacio web:** El usuario debe crear la carpeta específica en su home: `mkdir ~/public_html`.
 3. **Asignar permisos:** Para que Apache pueda leer el contenido, la carpeta debe tener permisos de lectura y ejecución: `chmod 755 ~/public_html`.
 
