@@ -1,0 +1,1929 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://fahueso.github.io/implantacionWebASIR/unidades/ud01a/">
+      
+      
+      
+        <link rel="next" href="../ud01b/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/camp.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>UD1 - Aplicaciones web - Implantación de aplicaciones Web ASIR</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="black">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#bloque-1-aplicaciones-web" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Implantación de aplicaciones Web ASIR" class="md-header__button md-logo" aria-label="Implantación de aplicaciones Web ASIR" data-md-component="logo">
+      
+  <img src="../../assets/images/camp.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Implantación de aplicaciones Web ASIR
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              UD1 - Aplicaciones web
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="black"  aria-label="Modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="black"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l137.3-137.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Fahueso/implantacionWebASIR" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Fahueso/implantacionWebASIR
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Unidades
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ejercicios/ud01/metodos/" class="md-tabs__link">
+          
+  
+  
+  Ejercicios
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Implantación de aplicaciones Web ASIR" class="md-nav__button md-logo" aria-label="Implantación de aplicaciones Web ASIR" data-md-component="logo">
+      
+  <img src="../../assets/images/camp.png" alt="logo">
+
+    </a>
+    Implantación de aplicaciones Web ASIR
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Fahueso/implantacionWebASIR" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Fahueso/implantacionWebASIR
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unidades
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Unidades
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD1 - Aplicaciones web
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD1 - Aplicaciones web
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-que-es-una-aplicacion-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. ¿Qué es una aplicación web?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-arquitectura-cliente-servidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Arquitectura cliente-servidor
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Arquitectura cliente-servidor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplos-de-arquitecturas-cliente-servidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejemplos de arquitecturas cliente-servidor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ventajas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ventajas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inconvenientes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inconvenientes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#21-arquitectura-cliente-servidor-en-aplicaciones-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Arquitectura cliente-servidor en aplicaciones web
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 Arquitectura cliente-servidor en aplicaciones web">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cliente-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cliente web
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#servidor-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Servidor web
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-de-navegacion-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejemplo de navegación web
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-comunicacion-en-la-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Comunicación en la web
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Comunicación en la web">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-recursos-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Recursos web
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 Recursos web">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recursos-estaticos-y-dinamicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recursos estáticos y dinámicos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#una-pagina-web-esta-formada-por-varios-recursos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Una página web está formada por varios recursos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identificacion-de-recursos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identificación de recursos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 URL
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 URL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#componentes-de-una-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Componentes de una URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-resolucion-de-nombres-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Resolución de nombres (DNS)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 Resolución de nombres (DNS)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#funcionamiento-basico-sin-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Funcionamiento básico (sin caché)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comprobacion-de-la-resolucion-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comprobación de la resolución DNS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-protocolos-de-comunicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Protocolos de comunicación
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Protocolos de comunicación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#protocolos-y-servicios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protocolos y servicios
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Protocolos y servicios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#protocolos-en-capas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protocolos en capas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-y-https" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP y HTTPS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HTTP y HTTPS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#peticiones-http-metodos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Peticiones HTTP (Métodos)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#respuestas-http-codigos-de-estado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Respuestas HTTP (Códigos de estado)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#https-hypertext-transfer-protocol-secure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTPS (HyperText Transfer Protocol Secure)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-aplicaciones-web-modernas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Aplicaciones web modernas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Aplicaciones web modernas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-limitaciones-del-modelo-simple-cliente-servidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Limitaciones del modelo simple cliente-servidor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-motores-de-aplicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Motores de aplicación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-bases-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Bases de datos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-arquitectura-multicapa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 Arquitectura multicapa
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud01b/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD1 - Entornos de Desarrollo y Servidores Web
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud01c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD1 - El Motor de Aplicación y la Base de Datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ejercicios
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ejercicios
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ejercicios/ud01/metodos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD1 - Metodos HTTP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ejercicios/ud01/python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD1 - Cliente Servidor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ejercicios/ud01/ajax/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD1 - Ajax
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-que-es-una-aplicacion-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. ¿Qué es una aplicación web?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-arquitectura-cliente-servidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Arquitectura cliente-servidor
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Arquitectura cliente-servidor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplos-de-arquitecturas-cliente-servidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejemplos de arquitecturas cliente-servidor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ventajas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ventajas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inconvenientes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inconvenientes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#21-arquitectura-cliente-servidor-en-aplicaciones-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Arquitectura cliente-servidor en aplicaciones web
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 Arquitectura cliente-servidor en aplicaciones web">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cliente-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cliente web
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#servidor-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Servidor web
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-de-navegacion-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejemplo de navegación web
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-comunicacion-en-la-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Comunicación en la web
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Comunicación en la web">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-recursos-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Recursos web
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 Recursos web">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recursos-estaticos-y-dinamicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recursos estáticos y dinámicos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#una-pagina-web-esta-formada-por-varios-recursos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Una página web está formada por varios recursos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identificacion-de-recursos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identificación de recursos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 URL
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 URL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#componentes-de-una-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Componentes de una URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-resolucion-de-nombres-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Resolución de nombres (DNS)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 Resolución de nombres (DNS)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#funcionamiento-basico-sin-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Funcionamiento básico (sin caché)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comprobacion-de-la-resolucion-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comprobación de la resolución DNS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-protocolos-de-comunicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Protocolos de comunicación
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Protocolos de comunicación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#protocolos-y-servicios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protocolos y servicios
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Protocolos y servicios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#protocolos-en-capas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protocolos en capas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-y-https" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP y HTTPS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HTTP y HTTPS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#peticiones-http-metodos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Peticiones HTTP (Métodos)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#respuestas-http-codigos-de-estado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Respuestas HTTP (Códigos de estado)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#https-hypertext-transfer-protocol-secure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTPS (HyperText Transfer Protocol Secure)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-aplicaciones-web-modernas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Aplicaciones web modernas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Aplicaciones web modernas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-limitaciones-del-modelo-simple-cliente-servidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Limitaciones del modelo simple cliente-servidor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-motores-de-aplicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Motores de aplicación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-bases-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Bases de datos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-arquitectura-multicapa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 Arquitectura multicapa
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="bloque-1-aplicaciones-web">Bloque 1. Aplicaciones web</h1>
+<h2 id="1-que-es-una-aplicacion-web">1. ¿Qué es una aplicación web?</h2>
+<p>Una <strong>aplicación web</strong> es un programa informático al que accedemos a través de un navegador web utilizando una red, normalmente Internet o una intranet.</p>
+<p>A diferencia de las aplicaciones de escritorio, no es necesario instalar la aplicación completa en el equipo del usuario. Gran parte del procesamiento se realiza en uno o varios servidores remotos.</p>
+<p>Son ejemplos de aplicaciones web:</p>
+<ul>
+<li>Moodle</li>
+<li>Nextcloud</li>
+<li>WordPress</li>
+<li>phpMyAdmin</li>
+<li>GitLab</li>
+</ul>
+<p>Cuando utilizamos cualquiera de estas aplicaciones, nuestro navegador intercambia información con uno o varios servidores que procesan las peticiones y generan las respuestas.</p>
+<h2 id="2-arquitectura-cliente-servidor">2. Arquitectura cliente-servidor</h2>
+<p>La mayoría de los servicios que utilizamos diariamente funcionan siguiendo una arquitectura denominada <strong>cliente-servidor</strong>. En este modelo, una aplicación se divide en dos partes:</p>
+<ul>
+<li><strong>Cliente</strong>: realiza solicitudes y presenta la información al usuario.</li>
+<li><strong>Servidor</strong>: recibe las solicitudes, las procesa y devuelve una respuesta.</li>
+</ul>
+<p>La comunicación entre ambos se realiza a través de una red, que puede ser Internet o una red local.</p>
+<p><img alt="" src="../../assets/images/ud01/image.png" /></p>
+<p>Gracias a esta arquitectura es posible centralizar la información y los servicios en uno o varios servidores, permitiendo que múltiples clientes accedan simultáneamente a ellos.  </p>
+<p><strong>El proceso de comunicación sigue estos pasos:</strong></p>
+<ol>
+<li>El cliente solicita un recurso o servicio.</li>
+<li>El servidor recibe la solicitud.</li>
+<li>El servidor la procesa.</li>
+<li>El servidor genera una respuesta.</li>
+<li>El cliente recibe el resultado.</li>
+</ol>
+<h3 id="ejemplos-de-arquitecturas-cliente-servidor">Ejemplos de arquitecturas cliente-servidor</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Servicio</th>
+<th style="text-align: left;">Cliente</th>
+<th style="text-align: left;">Servidor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Correo electrónico</td>
+<td style="text-align: left;">Thunderbird</td>
+<td style="text-align: left;">Servidor de correo</td>
+</tr>
+<tr>
+<td style="text-align: left;">Web</td>
+<td style="text-align: left;">Firefox</td>
+<td style="text-align: left;">Servidor web</td>
+</tr>
+<tr>
+<td style="text-align: left;">Bases de datos</td>
+<td style="text-align: left;">MySQL Workbench</td>
+<td style="text-align: left;">Servidor MySQL</td>
+</tr>
+<tr>
+<td style="text-align: left;">Compartición de archivos</td>
+<td style="text-align: left;">Explorador de archivos</td>
+<td style="text-align: left;">Servidor de ficheros</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ventajas">Ventajas</h3>
+<ul>
+<li>Permite compartir recursos entre múltiples usuarios.</li>
+<li>Facilita la administración centralizada.</li>
+<li>Simplifica el mantenimiento de la información.</li>
+<li>Permite controlar la seguridad y los permisos desde el servidor.</li>
+<li>Facilita la escalabilidad del sistema.</li>
+</ul>
+<h3 id="inconvenientes">Inconvenientes</h3>
+<ul>
+<li>Si el servidor deja de funcionar, el servicio puede quedar inaccesible.</li>
+<li>El rendimiento depende de la red y de la capacidad del servidor.</li>
+<li>La administración puede resultar compleja en sistemas grandes.</li>
+</ul>
+<h3 id="21-arquitectura-cliente-servidor-en-aplicaciones-web">2.1 Arquitectura cliente-servidor en aplicaciones web</h3>
+<h4 id="cliente-web">Cliente web</h4>
+<p>El <strong>cliente web</strong> es el dispositivo o programa que utiliza el usuario para acceder a una aplicación web. En la mayoría de los casos, el cliente es un <strong>navegador web</strong>, que se encarga de solicitar información al servidor y mostrar la respuesta al usuario. También puede ser una aplicación móvil o cualquier otro programa capaz de comunicarse con un servidor web.</p>
+<p>Algunos ejemplos de clientes web son:</p>
+<ul>
+<li>Google Chrome</li>
+<li>Mozilla Firefox</li>
+<li>Microsoft Edge</li>
+<li>Safari</li>
+</ul>
+<p>Cuando un usuario escribe una dirección web o pulsa un enlace, el navegador envía una petición al servidor y espera una respuesta.</p>
+<h4 id="servidor-web">Servidor web</h4>
+<p>Un <strong>servidor web</strong> es el software encargado de recibir peticiones de los clientes web y devolver los recursos solicitados. Lo hace siguiendo el protocolo HTTP, que veremos más adelante. Entre sus funciones principales se encuentran:</p>
+<ul>
+<li>Recibir peticiones de los navegadores.</li>
+<li>Enviar páginas web.</li>
+<li>Servir imágenes, hojas de estilo y otros archivos.</li>
+<li>Redirigir peticiones.</li>
+<li>Colaborar con otros componentes para generar contenido dinámico.</li>
+</ul>
+<p>Los servidores web más utilizados son:</p>
+<ul>
+<li>Apache HTTP Server.</li>
+<li>Nginx.</li>
+<li>Microsoft IIS.</li>
+</ul>
+<p>Es importante no confundir el <strong>servidor web</strong>, que es un programa, con el <strong>servidor</strong>, que es la máquina donde se ejecuta dicho programa. Así, una misma máquina puede ejecutar varios servicios al mismo tiempo.</p>
+<h4 id="ejemplo-de-navegacion-web">Ejemplo de navegación web</h4>
+<p>Cuando un usuario accede a una página web se produce un intercambio de información entre el cliente web y el servidor web:</p>
+<ol>
+<li>El usuario escribe la dirección de una página web en el navegador.</li>
+<li>El navegador (cliente web) envía una petición al servidor.</li>
+<li>El servidor web recibe la petición y la gestiona.</li>
+<li>El servidor web devuelve la respuesta al cliente.</li>
+<li>El navegador interpreta la respuesta y muestra la página web al usuario.</li>
+</ol>
+<h2 id="3-comunicacion-en-la-web">3. Comunicación en la web</h2>
+<h3 id="31-recursos-web">3.1 Recursos web</h3>
+<p>Cuando un usuario accede a una página web, realmente está solicitando uno o varios <strong>recursos web</strong> ubicados en un servidor. Un recurso web es cualquier elemento que puede ser almacenado, localizado y enviado a través de una red para ser utilizado por una aplicación o un usuario.</p>
+<p><strong>¿Qué puede ser un recurso web?</strong><br />
+Algunos ejemplos de recursos web son:</p>
+<ul>
+<li>Páginas HTML.</li>
+<li>Imágenes.</li>
+<li>Hojas de estilo CSS.</li>
+<li>Archivos JavaScript.</li>
+<li>Vídeos.</li>
+<li>Archivos PDF.</li>
+<li>Documentos descargables.</li>
+<li>Datos almacenados en bases de datos.</li>
+<li>Contenido generado dinámicamente por una aplicación web.</li>
+</ul>
+<p>Por tanto, un recurso web no tiene por qué ser un archivo físico almacenado en el servidor. También puede ser información generada en el momento de atender una solicitud.</p>
+<p>Para que el navegador sepa cómo interpretar el recurso, el servidor web incluye en la respuesta el <strong>tipo de contenido (MIME Type)</strong>, indicando si se trata de un HTML, una imagen, un PDF, etc.</p>
+<h4 id="recursos-estaticos-y-dinamicos">Recursos estáticos y dinámicos</h4>
+<p>Los recursos web pueden clasificarse en dos grandes grupos:</p>
+<p><strong>Recursos estáticos</strong><br />
+Son aquellos cuyo contenido no cambia entre una solicitud y otra. El servidor simplemente localiza el recurso y lo envía al cliente.<br />
+Ejemplos:</p>
+<ul>
+<li>Un archivo HTML.</li>
+<li>Una imagen JPG o PNG.</li>
+<li>Un documento PDF.</li>
+<li>Un archivo CSS.<br />
+    Si dos usuarios solicitan el mismo recurso estático, ambos recibirán exactamente el mismo contenido.</li>
+</ul>
+<p><strong>Recursos dinámicos</strong><br />
+Son aquellos cuyo contenido se genera en el momento en que el usuario realiza una solicitud. Normalmente intervienen otros componentes además del servidor web: aplicaciones, bases de datos y servicios externos.<br />
+Ejemplos:</p>
+<ul>
+<li>La bandeja de entrada de un correo electrónico.</li>
+<li>Los mensajes de una red social.</li>
+<li>El catálogo de una tienda online.</li>
+<li>El contenido de Moodle después de iniciar sesión.<br />
+    Dos usuarios diferentes pueden recibir respuestas distintas aunque soliciten aparentemente la misma página.</li>
+</ul>
+<h4 id="una-pagina-web-esta-formada-por-varios-recursos">Una página web está formada por varios recursos</h4>
+<p>Cuando un usuario visita una página web, el navegador suele solicitar múltiples recursos. Por ejemplo, una página puede estar formada por:</p>
+<ul>
+<li><code>index.html</code><ul>
+<li><code>estilos.css</code></li>
+<li><code>logo.png</code></li>
+<li><code>menu.js</code></li>
+<li><code>fondo.jpg</code></li>
+</ul>
+</li>
+</ul>
+<p>Aunque el usuario vea una única página, el navegador realiza múltiples solicitudes para obtener todos los elementos necesarios. Por este motivo, el rendimiento de una página web depende en gran medida de: el número de recursos solicitados, su tamaño y el tiempo necesario para obtenerlos.</p>
+<h4 id="identificacion-de-recursos">Identificación de recursos</h4>
+<p>Cada recurso disponible en un servidor debe poder identificarse de forma única mediante una dirección. Por ejemplo:</p>
+<ul>
+<li><code>/imagenes/logo.png</code></li>
+<li><code>/documentos/horario.pdf</code></li>
+<li><code>/index.html</code><br />
+    Sin embargo, estas rutas solo tienen sentido dentro de un servidor concreto. Para localizar recursos a través de Internet se utilizan las URL.</li>
+</ul>
+<h3 id="32-url">3.2 URL</h3>
+<p>Las siglas URL provienen de <em>Uniform Resource Locator</em> (Localizador Uniforme de Recursos). Es una dirección que permite localizar un recurso en una red, normalmente Internet.</p>
+<p>Ejemplos de URL:</p>
+<ul>
+<li><code>https://www.aules.edu.gva.es/fp</code></li>
+<li><code>https://portal.edu.gva.es</code></li>
+<li><code>https://es.wikipedia.org/wiki/Internet</code></li>
+</ul>
+<h4 id="componentes-de-una-url">Componentes de una URL</h4>
+<p>Analizando el ejemplo: <code>https://aules.edu.gva.es:443/fp/login/index.php</code></p>
+<ol>
+<li><strong>Protocolo:</strong> Indica cómo se realizará la comunicación entre el cliente y el servidor. En el ejemplo: <code>https</code>. Otros protocolos habituales son: <code>http</code>, <code>ftp</code>.</li>
+<li><strong>Nombre del servidor o dominio:</strong> Identifica el servidor donde se encuentra el recurso solicitado. En el ejemplo: <code>aules.edu.gva.es</code>. Los usuarios utilizan nombres de dominio porque son más fáciles de recordar que las direcciones IP.</li>
+<li><strong>Puerto:</strong> Indica el servicio concreto al que debe conectarse el cliente dentro del servidor. En el ejemplo: <code>443</code>. Si el puerto no aparece explícitamente, el navegador utilizará el puerto predeterminado asociado al protocolo:<ul>
+<li>HTTP: Puerto 80</li>
+<li>HTTPS: Puerto 443</li>
+<li>FTP: Puerto 21</li>
+</ul>
+</li>
+<li><strong>Ruta:</strong> Indica la ubicación del recurso dentro del servidor. En el ejemplo: <code>/fp/login/</code>.</li>
+<li><strong>Recurso:</strong> Es el elemento concreto que se desea obtener. En el ejemplo: <code>index.php</code>. Puede ser una página HTML, una imagen, un PDF, un vídeo, un programa ejecutado en el servidor, etc.</li>
+</ol>
+<p><strong>Observación:</strong> En muchas ocasiones no es necesario indicar el nombre del recurso (ej. <code>https://www.wikipedia.org</code>). En estos casos el servidor suele devolver automáticamente una página predeterminada, como <code>index.html</code> o <code>index.php</code>, según su configuración.</p>
+<h3 id="33-resolucion-de-nombres-dns">3.3 Resolución de nombres (DNS)</h3>
+<p>Los equipos de una red no utilizan nombres para comunicarse, sino direcciones IP. Por ello es necesario el <strong>DNS (Domain Name System)</strong>, un sistema distribuido cuya función consiste en traducir nombres de dominio a direcciones IP y viceversa.</p>
+<p>Para optimizar el rendimiento, tanto el navegador como el sistema operativo almacenan las resoluciones en una <strong>caché DNS</strong>, evitando realizar la consulta completa en cada petición.</p>
+<h4 id="funcionamiento-basico-sin-cache">Funcionamiento básico (sin caché)</h4>
+<p>Cuando un usuario escribe una dirección web, se realizan los siguientes pasos:</p>
+<ol>
+<li>El usuario introduce una dirección web.</li>
+<li>El navegador identifica el nombre de dominio.</li>
+<li>Se consulta un servidor DNS.</li>
+<li>El servidor DNS devuelve la dirección IP asociada al dominio.</li>
+<li>El navegador se conecta a esa dirección IP.</li>
+<li>El servidor responde a la solicitud.</li>
+</ol>
+<p>Ejemplo: Para acceder a <code>https://aules.edu.gva.es</code>, el navegador consulta el DNS para obtener la IP asociada y así establecer la comunicación.</p>
+<p><img alt="" src="../../assets/images/ud01/Pasted%20image%2020260909173108.png" /></p>
+<p>Estructura de un nombre de dominio</p>
+<p>Está organizado de forma jerárquica. Ejemplo: <code>aules.edu.gva.es</code></p>
+<ul>
+<li><code>.es</code>: Dominio de nivel superior (España).</li>
+<li><code>.gva</code>: Organización.</li>
+<li><code>.edu</code>: Subdominio relacionado con educación.</li>
+<li><code>aules</code>: Servicio o equipo concreto.</li>
+</ul>
+<h4 id="comprobacion-de-la-resolucion-dns">Comprobación de la resolución DNS</h4>
+<p>Se pueden utilizar herramientas como <code>nslookup wikipedia.org</code> o <code>dig wikipedia.org</code> para conocer la IP asociada a un dominio.<br />
+Problemas habituales: el dominio no existe, el servidor DNS no responde, el registro DNS es incorrecto o la información en caché está desactualizada.</p>
+<h2 id="4-protocolos-de-comunicacion">4. Protocolos de comunicación</h2>
+<p>Un <strong>protocolo</strong> es un conjunto de reglas comunes que definen cómo se inicia una comunicación, cómo se intercambian los datos, qué formato tienen los mensajes, cómo se detectan errores y cómo finaliza la comunicación. Si dos equipos no utilizan el mismo protocolo, no podrán entenderse.</p>
+<h3 id="protocolos-y-servicios">Protocolos y servicios</h3>
+<p>Cada servicio de red utiliza protocolos específicos:</p>
+<ul>
+<li>Navegación web: HTTP, HTTPS.</li>
+<li>Correo electrónico: SMTP, POP3, IMAP.</li>
+<li>Transferencia de archivos: FTP.</li>
+<li>Resolución de nombres: DNS.</li>
+</ul>
+<h4 id="protocolos-en-capas">Protocolos en capas</h4>
+<p>Las comunicaciones se organizan en capas, donde cada una realiza una función concreta.</p>
+<ul>
+<li><strong>Protocolo IP (Internet Protocol):</strong> Permite identificar los equipos de una red mediante direcciones IP y encaminar los datos hasta su destino.</li>
+<li><strong>Protocolo TCP (Transmission Control Protocol):</strong> Proporciona una comunicación fiable. Controla que los datos lleguen correctamente, detecta errores, reenvía información perdida y mantiene la conexión.</li>
+</ul>
+<p>TCP e IP trabajan conjuntamente (<strong>TCP/IP</strong>): IP lleva los datos al destino y TCP asegura que lleguen completos y en el orden correcto.</p>
+<h3 id="http-y-https">HTTP y HTTPS</h3>
+<p>El <strong>HTTP (HyperText Transfer Protocol)</strong> es el protocolo utilizado por navegadores y servidores web para intercambiar información siguiendo un modelo de <strong>petición-respuesta</strong>.</p>
+<h4 id="peticiones-http-metodos">Peticiones HTTP (Métodos)</h4>
+<ul>
+<li><strong>GET:</strong> Solicita información al servidor (consultar páginas, obtener imágenes, descargar documentos). Ejemplo: <code>GET /index.html</code>.</li>
+<li><strong>POST:</strong> Envía información al servidor para que sea procesada (formularios, autenticación). Ejemplo: <code>POST /login</code>.</li>
+</ul>
+<h4 id="respuestas-http-codigos-de-estado">Respuestas HTTP (Códigos de estado)</h4>
+<ul>
+<li><strong>Respuestas correctas (2xx):</strong> <code>200 OK</code>, <code>201 Creado correctamente</code>.</li>
+<li><strong>Redirecciones (3xx):</strong> <code>301 Redirección permanente</code>, <code>302 Redirección temporal</code>.</li>
+<li><strong>Errores del cliente (4xx):</strong> <code>400 Solicitud incorrecta</code>, <code>401 No autorizado</code>, <code>403 Acceso prohibido</code>, <code>404 Recurso no encontrado</code>.</li>
+<li><strong>Errores del servidor (5xx):</strong> <code>500 Error interno del servidor</code>, <code>503 Servicio no disponible</code>.</li>
+</ul>
+<h4 id="https-hypertext-transfer-protocol-secure">HTTPS (HyperText Transfer Protocol Secure)</h4>
+<p>Funciona igual que HTTP, pero incorpora mecanismos de seguridad: los datos viajan cifrados, se evita que terceros lean la información, se verifica la identidad del servidor y se protege la integridad de los datos. Para ello, es necesario instalar un <strong>certificado digital</strong> en el servidor web.</p>
+<p><strong>Análisis de peticiones:</strong> Mediante las herramientas de desarrollador del navegador (F12 ➜ pestaña Red/Network), se pueden observar las URL solicitadas, los métodos, los códigos de estado, el tamaño y el tiempo de cada petición.</p>
+<h2 id="5-aplicaciones-web-modernas">5. Aplicaciones web modernas</h2>
+<h3 id="51-limitaciones-del-modelo-simple-cliente-servidor">5.1 Limitaciones del modelo simple cliente-servidor</h3>
+<p>El modelo simple es suficiente para recursos estáticos (HTML, CSS, JS, PDF), donde el servidor solo localiza el recurso y lo envía. Sin embargo, las aplicaciones modernas necesitan gestionar cuentas de usuario, validar credenciales, procesar formularios, almacenar información permanente y generar contenido personalizado.</p>
+<p><strong>Ejemplo real (Moodle):</strong> Dos alumnos acceden a la misma dirección, pero cada uno debe ver sus propios cursos, tareas y calificaciones. La respuesta no puede ser un archivo HTML estático; debe generarse dinámicamente.<br />
+Para lograrlo, el servidor debe recibir datos (ej. usuario y contraseña), comprobarlos en una base de datos, determinar permisos y generar la respuesta.</p>
+<h3 id="52-motores-de-aplicacion">5.2 Motores de aplicación</h3>
+<p>Cuando una aplicación necesita procesar información, utiliza un <strong>motor de aplicación</strong>, que es el software encargado de ejecutar la lógica de negocio. Sus funciones son: procesar solicitudes, ejecutar el código, validar datos, gestionar sesiones, consultar bases de datos y generar respuestas dinámicas.</p>
+<p><strong>Flujo de funcionamiento:</strong><br />
+Cliente web ➜ Servidor web ➜ Motor de aplicación ➜ Base de datos ➜ Motor de aplicación ➜ Servidor web ➜ Cliente web.</p>
+<p><strong>Tecnologías y Contenedores:</strong><br />
+Se utilizan lenguajes como PHP, Java, Python o JavaScript (Node.js). En Java, se usan <strong>contenedores de aplicaciones</strong> (como Apache Tomcat, WildFly o GlassFish) para ejecutar la aplicación, gestionar recursos y sesiones.</p>
+<p><strong>El caso de PHP:</strong> Tradicionalmente se integraba mediante <code>mod_php</code>, pero en instalaciones modernas se usa <strong>PHP-FPM</strong>, donde el motor de aplicación corre como un servicio independiente, mejorando el rendimiento y la escalabilidad.</p>
+<p><strong>Comparativa:</strong></p>
+<ul>
+<li>Servidor web: Recibe solicitudes y sirve recursos.</li>
+<li>Motor de aplicación: Ejecuta la lógica de negocio.</li>
+<li>Base de datos: Almacena información.</li>
+</ul>
+<h3 id="53-bases-de-datos">5.3 Bases de datos</h3>
+<p>Una <strong>base de datos</strong> es un conjunto organizado de información que permite almacenar, consultar y modificar datos de forma eficiente (usuarios, contraseñas, cursos, pedidos, etc.). Se gestionan mediante un <strong>SGBD (Sistema Gestor de Bases de Datos)</strong> como MariaDB, MySQL, PostgreSQL u Oracle.</p>
+<p>La base de datos no se comunica con el navegador, sino a través del motor de aplicación. Las operaciones habituales se conocen como <strong>CRUD</strong>:</p>
+<ul>
+<li><strong>Create (Crear):</strong> Registrar un nuevo usuario.</li>
+<li><strong>Read (Consultar):</strong> Listar productos.</li>
+<li><strong>Update (Modificar):</strong> Actualizar una contraseña.</li>
+<li><strong>Delete (Eliminar):</strong> Borrar una cuenta.</li>
+</ul>
+<p>Ejemplos: <strong>Moodle</strong> almacena usuarios, cursos y calificaciones; <strong>WordPress</strong> almacena entradas y comentarios; <strong>Nextcloud</strong> almacena usuarios y permisos de archivos.</p>
+<h3 id="54-arquitectura-multicapa">5.4 Arquitectura multicapa</h3>
+<p>Las aplicaciones modernas se dividen en tres capas lógicas:</p>
+<ol>
+<li><strong>Capa de Presentación:</strong> Interacción con el usuario (mostrar información, recoger datos).</li>
+<li><strong>Capa de Aplicación:</strong> Lógica de negocio (procesar solicitudes, aplicar reglas, coordinar datos).</li>
+<li><strong>Capa de Datos:</strong> Almacenamiento y recuperación de la información.</li>
+</ol>
+<p><strong>Flujo de información:</strong> Usuario ➜ Presentación ➜ Aplicación ➜ Datos (y viceversa).<br />
+Esta separación facilita el mantenimiento, favorece el trabajo en equipo, permite reutilizar componentes, reduce el impacto de los cambios y mejora la escalabilidad. Las capas pueden estar en la misma máquina o distribuidas en varios servidores.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+        
+          
+          <a href="../ud01b/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: UD1 - Entornos de Desarrollo y Servidores Web">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                UD1 - Entornos de Desarrollo y Servidores Web
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M247.1 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L179.2 256 41.9 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Fahueso/implantacionWebASIR" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["optimize", "content.code.copy", "search.suggest", "search.highlight", "navigation.top", "navigation.footer", "navigation.tabs", "navigation.tabs.sticky"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
