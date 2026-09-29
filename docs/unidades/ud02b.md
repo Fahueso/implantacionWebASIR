@@ -1,5 +1,5 @@
 
-# PARTE 2: EL BACKEND - EL MOTOR EN EL SERVIDOR
+# PARTE 2: EL BACKEND - El lado del servidor
 
 ## 11. El Paradigma del Lado del Servidor
 

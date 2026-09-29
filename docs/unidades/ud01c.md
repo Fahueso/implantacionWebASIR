@@ -82,7 +82,7 @@ Se gestiona mediante `systemctl` (`start`, `stop`, `restart`, `status`) y se com
 Para asegurar el servidor de base de datos, es obligatorio ejecutar el script de seguridad. El objetivo no es configurar una cuenta para el uso diario, sino **blindar el acceso administrativo** y eliminar vulnerabilidades por defecto:
 
 ```bash
-sudo mysql_secure_installation
+sudo mysql_secure_installation //o mariadb-secure_installation según sea la distribución.
 ```
 
 Este asistente permite:
@@ -101,10 +101,11 @@ Este asistente permite:
 Nunca debemos usar el usuario `root` en las aplicaciones. Creamos usuarios específicos:
 
 1. **Crear usuario:** `CREATE USER 'appweb'@'localhost' IDENTIFIED BY 'contraseña_segura';`
-2. **Asignar permisos:** `GRANT ALL PRIVILEGES ON tienda.* TO 'appweb'@'localhost';`
-3. **Aplicar cambios:** `FLUSH PRIVILEGES;`
-4. **Consultar:** `SHOW GRANTS FOR 'appweb'@'localhost';`
-5. **Eliminar:** `DROP USER 'appweb'@'localhost';`
+2. **Crear base de datos para demo:** `CREATE DATABASE tienda;`
+3. **Asignar permisos:** `GRANT ALL PRIVILEGES ON tienda.* TO 'appweb'@'localhost';`
+4. **Aplicar cambios:** `FLUSH PRIVILEGES;`
+5. **Consultar:** `SHOW GRANTS FOR 'appweb'@'localhost';`
+6. **Eliminar (si ferua necesario):** `DROP USER 'appweb'@'localhost';`
 
 ### Administración Visual con phpMyAdmin
 Se instala con `sudo apt install phpmyadmin`. Durante la instalación, seleccionamos `apache2` y configuramos `dbconfig-common`.
@@ -166,39 +167,8 @@ mysqli_close($conexion);
 ```
 
 
-## 3.7. Seguridad y Sentencias Preparadas (Estilo Procedimental)
 
-Para evitar la **Inyección SQL**, nunca concatenamos variables directamente en la consulta. Usamos sentencias preparadas, que separan el comando SQL de los datos.
-
-**Ejemplo de consulta segura con MySQLi procedimental:**
-```php
-<?php
-$conexion = mysqli_connect("localhost", "appweb", "contraseña_segura", "tienda");
-
-// 1. Preparar la sentencia con un marcador '?'
-$stmt = mysqli_prepare($conexion, "SELECT nombre, precio FROM productos WHERE nombre = ?");
-
-// 2. Vincular el parámetro ('s' indica que el dato es un string)
-$nombreBuscado = "Teclado";
-mysqli_stmt_bind_param($stmt, "s", $nombreBuscado);
-
-// 3. Ejecutar la sentencia
-mysqli_stmt_execute($stmt);
-
-// 4. Obtener el resultado
-$resultado = mysqli_stmt_get_result($stmt);
-
-while ($fila = mysqli_fetch_assoc($resultado)) {
-    echo "<p>" . $fila['nombre'] . " - " . $fila['precio'] . " €</p>";
-}
-
-mysqli_stmt_close($stmt);
-mysqli_close($conexion);
-?>
-```
-
-
-## 3.8. Metodología de Pruebas y Diagnóstico
+## 3.7. Metodología de Pruebas y Diagnóstico
 
 ### Pruebas Sistemáticas
 
@@ -217,29 +187,3 @@ mysqli_close($conexion);
 *   **Acceso denegado:** Revisar privilegios con `SHOW GRANTS FOR 'usuario'@'localhost';`.
 *   **Puerto 3306 ocupado:** Revisar con `sudo ss -tulpn | grep :3306`.
 
-
-## 3.9. Prueba de Integración Completa (Full Stack)
-
-Para validar todo el sistema:
-
-1.  **SQL:** Crear BD `prueba_lamp`, tabla `mensajes` e insertar un registro.
-2.  **Usuario:** Crear `lampuser` con privilegios sobre `prueba_lamp`.
-3.  **PHP (Procedimental):** Crear `/var/www/html/prueba_lamp.php`:
-```php
-<?php
-$conexion = mysqli_connect("localhost", "lampuser", "lamp1234", "prueba_lamp");
-
-if (!$conexion) {
-    die("Error de conexión: " . mysqli_connect_error());
-}
-
-$resultado = mysqli_query($conexion, "SELECT texto FROM mensajes");
-
-while ($fila = mysqli_fetch_assoc($resultado)) {
-    echo "<h1>" . htmlspecialchars($fila['texto']) . "</h1>";
-}
-
-mysqli_close($conexion);
-?>
-```
-Si el mensaje aparece en el navegador, el flujo **Cliente ➜ Apache ➜ PHP ➜ MariaDB** es correcto.

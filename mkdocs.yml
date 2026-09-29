@@ -6,6 +6,11 @@ nav:
     - UD1 - Aplicaciones web: unidades/ud01a.md
     - UD1 - Entornos de Desarrollo y Servidores Web: unidades/ud01b.md
     - UD1 - El Motor de Aplicación y la Base de Datos: unidades/ud01c.md
+    - UD2 - Repaso lenguaje de Marcas: unidades/ud02a.md
+    - UD2 - El lado del servidor: unidades/ud02b.md
+    - UD2 - PHP programación del lado del servidor:  unidades/ud02c.md
+
+
   - Ejercicios:
     - UD1 - Metodos HTTP: ejercicios/ud01/metodos.md
     - UD1 - Cliente Servidor: ejercicios/ud01/python.md
