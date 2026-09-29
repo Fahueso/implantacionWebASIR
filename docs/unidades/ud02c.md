@@ -7,7 +7,7 @@
 PHP (*PHP: Hypertext Preprocessor*) se ejecuta **en el servidor**, no en el navegador. El servidor procesa el código y envía al cliente solo el resultado (normalmente HTML). Por eso permite páginas **dinámicas**: mostrar datos de un usuario, procesar formularios, consultar una base de datos...
 
 ```
-Navegador --petición--> Servidor (ejecuta PHP) --HTML--> Navegador
+Navegador --> petición--> Servidor (ejecuta PHP) --> HTML--> Navegador
 ```
 
 **1.1 Entorno de desarrollo**
@@ -662,26 +662,92 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['nombre'])) {
 <?php
 session_start();
 
-// Al validar el login correctamente:
-// session_regenerate_id(true);
-// $_SESSION['usuario'] = "Admin";
+// Si ya está autenticado, lo mandamos al panel
+if (isset($_SESSION['usuario'])) {
+    header("Location: panel.php");
+    exit;
+}
 
-$limite = 1800; // 30 min
-if (isset($_SESSION['ultimo_acceso']) && time() - $_SESSION['ultimo_acceso'] > $limite) {
-    session_unset();
-    session_destroy();
+// Si llega el formulario
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $user = $_POST['user'] ?? '';
+    $pass = $_POST['pass'] ?? '';
+
+    // Ejemplo simple de validación
+    if ($user === 'admin' && $pass === '1234') {
+
+        // Seguridad: regenerar ID
+        session_regenerate_id(true);
+
+        $_SESSION['usuario'] = $user;
+        $_SESSION['ultimo_acceso'] = time();
+
+        header("Location: panel.php");
+        exit;
+    }
+
+    $error = "Credenciales incorrectas";
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Login</h2>
+
+    <?php if (isset($error)) echo "<p style='color:red'>$error</p>"; ?>
+
+    <form method="post">
+        Usuario: <input type="text" name="user"><br>
+        Contraseña: <input type="password" name="pass"><br>
+        <button type="submit">Entrar</button>
+    </form>
+</body>
+</html>
+
+```
+**Codigo de `panel.php`:
+```php
+<?php
+session_start();
+
+// Tiempo máximo de inactividad (30 min)
+$limite = 1800;
+
+// Si no está autenticado → login
+if (!isset($_SESSION['usuario'])) {
     header("Location: login.php");
     exit;
 }
+
+// Si existe último acceso y supera el límite → cerrar sesión
+if (isset($_SESSION['ultimo_acceso']) && time() - $_SESSION['ultimo_acceso'] > $limite) {
+
+    session_unset();
+    session_destroy();
+
+    header("Location: login.php");
+    exit;
+}
+
+// Actualizar último acceso
 $_SESSION['ultimo_acceso'] = time();
+?>
+
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Bienvenido, <?php echo htmlspecialchars($_SESSION['usuario']); ?></h2>
+
+    <p>Has iniciado sesión correctamente.</p>
+
+    <a href="logout.php">Cerrar sesión</a>
+</body>
+</html>
+
 ```
 
-**Contraseñas**: nunca en texto plano.
-
-```php
-$hash = password_hash($clave, PASSWORD_DEFAULT); // guardar en la BD
-if (password_verify($clave_introducida, $hash)) { /* correcta */ }
-```
 
 ---
 
@@ -722,22 +788,6 @@ try {
 }
 ```
 
-**10.3 Base de datos con PDO (introducción)**
-
-Usa **consultas preparadas**: evitan la inyección SQL.
-
-```php
-<?php
-$pdo = new PDO("mysql:host=localhost;dbname=miweb;charset=utf8mb4", "usuario", "clave", [
-    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-]);
-
-$stmt = $pdo->prepare("SELECT * FROM usuarios WHERE email = :email");
-$stmt->execute([":email" => $_POST['email']]);
-$usuario = $stmt->fetch(PDO::FETCH_ASSOC);
-```
-
-Nunca concatenes variables del usuario dentro de una consulta SQL.
 
 ---
 
