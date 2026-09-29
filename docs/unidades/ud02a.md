@@ -4,7 +4,7 @@
 
 
 ### 1.1 HTML: La Estructura
-El HTML define qué elementos hay en la página. Si queremos un botón, ponemos un botón. Si queremos un título, ponemos un título.
+El HTML define qué elementos hay en la página. Cada elemento tiene su propia etiqueta.
 
 
 
