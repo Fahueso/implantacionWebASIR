@@ -126,8 +126,32 @@ Este módulo permite que cada usuario del sistema tenga su propio espacio web in
 2. Localizar el bloque que contiene la directiva `<IfModule mod_userdir.c>` y **comentar** la línea `php_admin_value engine Off` añadiendo un `#` al principio: `# php_admin_value engine Off`
 3. Guardar los cambios y reiniciar el servidor: `sudo systemctl restart apache2`.
 
+## 2.7 El archivo .htaccess
 
-## 2.7. Seguridad y Control de Accesos
+El archivo `.htaccess` es un archivo de configuración distribuida. A diferencia del archivo principal de Apache (`apache2.conf` o los archivos en `sites-available`), el `.htaccess` permite aplicar configuraciones a un **directorio específico y a todas sus subcarpetas** sin necesidad de reiniciar el servidor.
+
+**Puntos clave:**
+*   **Ubicación:** Se coloca dentro de la carpeta que quieres proteger (ej. `/var/www/html/privado/.htaccess`).
+*   **Activación:** Para que Apache lea los archivos `.htaccess`, la directiva `AllowOverride` debe estar configurada como `All` (o al menos `AuthConfig`) en la configuración principal del servidor para ese directorio (bloque `Directory`).
+*   **Ventaja:** No requiere acceso root ni reiniciar el servicio para hacer cambios.
+*   **Desventaja:** Tiene un ligero impacto en el rendimiento ya que Apache debe buscar el archivo en cada petición.
+
+```text
+<Directory /var/www/html>
+    Options Indexes FollowSymLinks
+    
+    # Si pones 'None', el .htaccess de la carpeta será ignorado.
+    # Si pones 'AuthConfig', solo funcionará la parte de contraseñas.
+    # Si pones 'All', funcionará todo.
+    AllowOverride All 
+    
+    Require all granted
+</Directory>
+
+```
+
+
+## 2.8. Seguridad y Control de Accesos
 
 ### Autenticación y Autorización
 La **autenticación** verifica la identidad (¿quién eres?), mientras que la **autorización** define los permisos (¿qué puedes hacer?). 
@@ -138,6 +162,26 @@ La **Autenticación Básica** se implementa con `mod_auth_basic`. Primero creamo
 *   `AuthName "Mensaje de aviso"`
 *   `AuthUserFile /etc/apache2/.htpasswd`
 *   `Require valid-user` (o un usuario específico).
+
+Ejemplo en 000-default.conf para una subcarpeta llamada admin:
+```text
+<Directory "/var/www/html/admin">
+    AuthType Basic
+    AuthName "Acceso Restringido a Administradores"
+    AuthUserFile /etc/apache2/.htpasswd
+    Require valid-user
+</Directory>
+```
+
+Ejemplo en .htaccess para la misma subcarpeta. Como alternativa a la anterior sin necesidad de reiniciar.
+```text
+# Contenido del archivo .htaccess
+AuthType Basic
+AuthName "Acceso Restringido a Administradores"
+AuthUserFile /etc/apache2/.htpasswd
+Require valid-user
+```
+
 
 También podemos restringir el acceso por dirección IP usando la directiva `Require ip 192.168.1.0/24`.
 
@@ -156,7 +200,7 @@ Para que el servidor sea accesible, usamos `ufw`. Los perfiles disponibles son:
 **Regla de oro:** Siempre ejecutar `sudo ufw allow OpenSSH` antes de `sudo ufw enable` para evitar quedar bloqueados fuera del servidor.
 
 
-## 2.8. Plataformas Integradas y Documentación Profesional
+## 2.9. Plataformas Integradas y Documentación Profesional
 
 ### Alternativas de Despliegue
 Para agilizar el desarrollo, existen plataformas integradas:
@@ -168,7 +212,7 @@ Para agilizar el desarrollo, existen plataformas integradas:
 Documentar es un criterio de evaluación obligatorio. Una documentación profesional debe permitir que cualquier técnico reproduzca el sistema. Debe seguir una estructura: **Objetivo, Entorno, Procedimiento, Configuración, Comprobación e Incidencias**.
 
 
-## 2.9. Diagnóstico y Resolución de Problemas (Troubleshooting)
+## 2.10. Diagnóstico y Resolución de Problemas (Troubleshooting)
 
 Cuando un servidor web no responde o no muestra el contenido esperado, es fundamental seguir un proceso de descarte lógico para localizar el fallo.
 
