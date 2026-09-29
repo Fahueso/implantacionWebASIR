@@ -28,4 +28,4 @@ function menu(): int
 
 
 # 2. Entregables y Evaluación
-Sube a aules una carpeta comprimida con el código fuente, captura de consola y captura del navegador
+Sube a aules una carpeta comprimida con el código fuente y captura del navegador web corriendo el ejercicio.

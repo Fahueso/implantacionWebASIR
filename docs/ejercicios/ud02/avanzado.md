@@ -33,4 +33,4 @@ Amplia el programa anterior para tener en cuenta que la sesión debe finalizar t
 En cualquier caso la primera página mostrará un mensaje informando si se ha dado una expiración de sesión.
 
 # 5. Entregables y Evaluación
-Sube a aules una carpeta comprimida con el código fuente ycaptura del navegador
+Sube a aules una carpeta comprimida con el código fuente y captura del navegador web corriendo el ejercicio.

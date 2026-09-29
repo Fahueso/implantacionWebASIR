@@ -60,4 +60,4 @@ El número 20 sí es múltiplo de 20.
 Hemos necesitado 4 intentos hasta encontrar el número 20.
 ```
 # 2. Entregables y Evaluación
-Sube a aules una carpeta comprimida con el código fuente y captura de navegador web.
+Sube a aules una carpeta comprimida con el código fuente y captura del navegador web corriendo el ejercicio.

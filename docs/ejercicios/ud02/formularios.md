@@ -22,5 +22,4 @@ El fichero 2 dispondrá de un enlace para voler al fichero 1, con los elementos 
 Utiliza htmlspecialchars para limpiar siempre los datos recibidos del formulario. Valida los tipos de datos, ya que la nota ha de ser numérica.
 
 # 2. Entregables y Evaluación
-Sube a aules una carpeta comprimida con el código fuente y captura del navegador
- 
+Sube a aules una carpeta comprimida con el código fuente y captura del navegador web corriendo el ejercicio. 
