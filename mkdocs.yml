@@ -9,6 +9,15 @@ nav:
     - UD2 - Repaso lenguaje de Marcas: unidades/ud02a.md
     - UD2 - El lado del servidor: unidades/ud02b.md
     - UD2 - PHP programación del lado del servidor:  unidades/ud02c.md
+    - UD3 - Introducción a las Aplicaciones Dinámicas: unidades/ud03a.md
+    - UD3 - Conexión a MariaDB desde PHP: unidades/ud03b.md
+    - UD3 - Recuperación de Datos mediante SELECT: unidades/ud03c.md
+    - UD3 - Sentencias Preparadas: unidades/ud03d.md
+    - UD3 - Inserción de Registros mediante Sentencias Preparadas: unidades/ud03e.md
+    - UD3 - Modificación y Eliminación de Registros: unidades/ud03f.md
+    - UD3 - Consultas Multitabla y JOIN: unidades/ud03g.md
+    - UD3 - Gestión de Credenciales y Configuración: unidades/ud03h.md
+    
 
 
   - Ejercicios:
