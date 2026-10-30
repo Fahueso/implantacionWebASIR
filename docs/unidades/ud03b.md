@@ -2,22 +2,16 @@
 
 ## 2.1 La extensión mysqli
 
-PHP dispone de varias formas de acceder a bases de datos. Cuando trabajamos con MariaDB o MySQL, la opción más habitual es la extensión **mysqli** (*MySQL Improved*).
-
-Esta extensión proporciona funciones para:
+PHP dispone de varias formas de acceder a bases de datos. Con MariaDB o MySQL, la más habitual es la extensión **mysqli** (*MySQL Improved*). Proporciona funciones para:
 
 - Conectarse a un servidor MariaDB.
 - Ejecutar consultas SQL.
 - Recuperar resultados.
-- Insertar registros.
-- Modificar información.
-- Eliminar registros.
+- Insertar, modificar y eliminar registros.
 
-A lo largo de esta unidad utilizaremos esta extensión para todas las operaciones de acceso a datos.
+Usaremos `mysqli` en su estilo **procedural** (funciones `mysqli_*`) durante toda la unidad.
 
 ## 2.2 Parámetros necesarios para la conexión
-
-Para establecer una conexión con MariaDB necesitamos conocer varios datos:
 
 | Parámetro | Descripción |
 |-----------|-------------|
@@ -26,161 +20,154 @@ Para establecer una conexión con MariaDB necesitamos conocer varios datos:
 | Contraseña | Clave del usuario |
 | Base de datos | Base de datos con la que se trabajará |
 
-En muchos entornos de desarrollo, tanto el servidor web como MariaDB se ejecutan en la misma máquina. En ese caso suele utilizarse:
-
-```text
-localhost
-```
-
-como dirección del servidor.
+Cuando el servidor web y MariaDB están en la misma máquina, el servidor es `localhost`.
 
 ## 2.3 Primera conexión
 
-La función utilizada para abrir una conexión es:
+La función que abre una conexión es `mysqli_connect()`:
 
 ```php
-mysqli_connect()
+mysqli_connect(servidor, usuario, contraseña, base_de_datos);
 ```
 
-Su sintaxis básica es:
-
-```php
-mysqli_connect(
-    servidor,
-    usuario,
-    contraseña,
-    base_de_datos
-);
-```
-
-Por ejemplo:
+Ejemplo (solo para aprender; en el capítulo 8 veremos cómo evitar escribir la contraseña en el código):
 
 ```php
 <?php
 
 $conexion = mysqli_connect(
     "localhost",
-    "usuario",
-    "password",
+    "app_web",
+    "password_seguro",
     "empresa"
 );
-
-if (!$conexion) {
-
-    die(
-        "Error de conexión: "
-        . mysqli_connect_error()
-    );
-
-}
 
 echo "<h1>Conexión realizada correctamente</h1>";
 
 ?>
 ```
 
-Si la conexión se realiza correctamente, la variable `$conexion` contendrá toda la información necesaria para comunicarse con MariaDB.
+Si la conexión se realiza correctamente, `$conexion` contiene lo necesario para comunicarse con MariaDB.
 
-### Errores de conexión
+## 2.4 Errores de conexión: excepciones
 
-Una conexión puede fallar por diversos motivos:
+Una conexión puede fallar por varios motivos:
 
 - El servidor MariaDB está apagado.
-- El usuario no existe.
-- La contraseña es incorrecta.
+- El usuario no existe o la contraseña es incorrecta.
 - La base de datos no existe.
-- Existen problemas de red.
+- Problemas de red.
 
-Por este motivo siempre debemos comprobar el resultado de la conexión.
+### Qué ocurre en PHP 8.1 o superior
 
-La función:
-
-```php
-mysqli_connect_error()
-```
-
-devuelve una descripción del error producido, mientras que:
+Desde PHP 8.1, `mysqli` **lanza excepciones** (`mysqli_sql_exception`) cuando algo falla. Esto significa que el clásico código:
 
 ```php
-die()
+$conexion = mysqli_connect("localhost", "app_web", "mala_clave", "empresa");
+
+if (!$conexion) {                       // ← nunca se ejecuta
+    die("Error: " . mysqli_connect_error());
+}
 ```
 
-finaliza inmediatamente la ejecución del script.
+**no funciona como se esperaba**: si la conexión falla, PHP no devuelve `false`, sino que interrumpe el script con un *Fatal error: Uncaught mysqli_sql_exception*. Peor aún, con la configuración por defecto la traza del error puede mostrar en pantalla el usuario, el servidor e incluso la contraseña.
 
-## 2.4 Cierre de la conexión
-
-Cuando terminamos de trabajar con la base de datos es recomendable cerrar la conexión mediante:
-
-```php
-mysqli_close($conexion);
-```
-
-Por ejemplo:
+Vamos a trabajar **con excepciones**, que es la forma moderna y la que debes usar:
 
 ```php
 <?php
 
-$conexion = mysqli_connect(
-    "localhost",
-    "usuario",
-    "password",
-    "empresa"
-);
+// Activamos explícitamente el modo excepciones (es el comportamiento por defecto en PHP 8.1+,
+// pero conviene dejarlo escrito para que el código funcione igual en cualquier versión)
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
-if (!$conexion) {
+try {
 
-    die(
-        "Error de conexión"
-    );
+    $conexion = mysqli_connect("localhost", "app_web", "password_seguro", "empresa");
+
+    echo "Conexión correcta";
+
+} catch (mysqli_sql_exception $e) {
+
+    // Mensaje genérico para el usuario
+    echo "No se pudo conectar con la base de datos.";
+
+    // Detalle técnico solo para el administrador (queda en el log de errores del servidor)
+    error_log("Error de conexión: " . $e->getMessage());
 
 }
-
-echo "Conexión correcta";
-
-mysqli_close($conexion);
 
 ?>
 ```
 
-En aplicaciones sencillas el cierre suele realizarse automáticamente al finalizar el script, pero cerrarlo explícitamente es una buena práctica.
+Fíjate en dos ideas importantes:
 
-## 2.5 Reutilización del código de conexión
+- Al usuario final **nunca** se le muestra el mensaje técnico del error. Revela información útil para un atacante.
+- El detalle se guarda con `error_log()`, que escribe en el registro de errores del servidor (en Debian/Ubuntu: `/var/log/apache2/error.log`).
 
-Una aplicación web suele estar formada por numerosos archivos:
+> **Durante el desarrollo** puedes mostrar `$e->getMessage()` en pantalla para depurar más rápido, pero debes quitarlo antes de publicar la aplicación.
 
-```text
-index.php
-clientes.php
-insertar.php
-editar.php
-borrar.php
+### Recordatorio: `try / catch`
+
+```php
+try {
+    // código que puede fallar
+} catch (mysqli_sql_exception $e) {
+    // qué hacemos si falla
+}
 ```
 
-Todos ellos necesitarán conectarse a la misma base de datos.
+Si dentro del `try` se produce una excepción, PHP salta directamente al `catch`. Si no se produce, el `catch` se ignora.
 
-Copiar el mismo código en cada archivo dificultaría el mantenimiento. La solución consiste en centralizar la conexión en un único fichero.
+## 2.5 Cierre de la conexión
 
-Por ejemplo, podemos crear un archivo llamado `conexion.php`:
+Cuando terminamos de trabajar con la base de datos cerramos la conexión con `mysqli_close()`:
+
+```php
+mysqli_close($conexion);
+```
+
+En scripts sencillos PHP la cierra automáticamente al terminar, pero cerrarla explícitamente es una buena práctica.
+
+## 2.6 Juego de caracteres (charset)
+
+Después de conectar hay que indicar con qué codificación se comunicarán PHP y MariaDB. Si no lo hacemos, es muy probable que las tildes y la ñ se vean como `Ã±`, `Ã³`, etc.
+
+```php
+mysqli_set_charset($conexion, "utf8mb4");
+```
+
+`utf8mb4` es la codificación UTF-8 completa de MariaDB (incluye emojis y todos los caracteres). Debe coincidir con la codificación de las tablas (en el Anexo A se crean con `utf8mb4`) y con la de las páginas HTML (`<meta charset="UTF-8">`).
+
+## 2.7 Reutilización del código de conexión
+
+Una aplicación web suele estar formada por numerosos archivos. Todos necesitan conectarse a la misma base de datos. Copiar el código en cada archivo dificultaría el mantenimiento, así que lo **centralizamos** en un único fichero, `conexion.php`:
 
 ```php
 <?php
 
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+
 function conexion()
 {
 
-    $conexion = mysqli_connect(
-        "localhost",
-        "usuario",
-        "password",
-        "empresa"
-    );
+    try {
 
-    if (!$conexion) {
-
-        die(
-            "Error de conexión: "
-            . mysqli_connect_error()
+        $conexion = mysqli_connect(
+            "localhost",
+            "app_web",
+            "password_seguro",
+            "empresa"
         );
+
+        mysqli_set_charset($conexion, "utf8mb4");
+
+    } catch (mysqli_sql_exception $e) {
+
+        error_log("Error de conexión: " . $e->getMessage());
+
+        http_response_code(500);
+        die("Error interno: no se pudo conectar con la base de datos.");
 
     }
 
@@ -191,16 +178,16 @@ function conexion()
 ?>
 ```
 
-La función devuelve una conexión lista para ser utilizada.
+La función devuelve una conexión lista para usar (y ya configurada con el juego de caracteres correcto). Si algo falla, registra el motivo y detiene el script con un mensaje genérico.
 
-## 2.6 Utilización de la función de conexión
+## 2.8 Utilización de la función de conexión
 
-Cualquier página de la aplicación puede reutilizar la función anterior mediante `include`.
+Cualquier página puede reutilizarla con `require_once`:
 
 ```php
 <?php
 
-include "conexion.php";
+require_once "conexion.php";
 
 $conexion = conexion();
 
@@ -211,32 +198,50 @@ mysqli_close($conexion);
 ?>
 ```
 
-La principal ventaja es que todos los parámetros de conexión se mantienen en un único fichero.
+> **¿`include` o `require_once`?**
+> - `include` : si el fichero no existe, muestra un *warning* y **el script continúa**, para acabar fallando más adelante con un error confuso (`Call to undefined function conexion()`).
+> - `require` : si el fichero no existe, el script se detiene en ese punto.
+> - `require_once` : como `require`, pero evita cargar el mismo fichero dos veces (lo que daría un error por declarar la función `conexion()` repetida).
+>
+> Para ficheros imprescindibles como la conexión, usa siempre **`require_once`**.
 
-Si en el futuro cambia la contraseña, el nombre de la base de datos o el servidor, únicamente habrá que modificar un archivo.
+Todos los parámetros de conexión están en un único sitio: si cambia la contraseña, la base de datos o el servidor, solo hay que modificar un archivo.
 
-## 2.7 Estructura básica de una aplicación
+## 2.9 Estructura básica de una aplicación
 
-A medida que una aplicación crece resulta habitual separar cada responsabilidad en archivos diferentes.
-
-Por ejemplo:
+Conforme la aplicación crece conviene separar responsabilidades en archivos distintos:
 
 ```text
 proyecto/
-
 ├── conexion.php
 ├── index.php
 ├── clientes.php
 ├── insertar.php
-├── editar.php
-└── borrar.php
+├── actualizar.php
+└── eliminar.php
 ```
 
-Esta organización aporta varias ventajas:
+Ventajas:
 
 - Facilita el mantenimiento.
 - Favorece la reutilización de código.
 - Simplifica la localización de errores.
 - Facilita el trabajo en equipo.
 
-Durante el resto de la unidad seguiremos esta filosofía, manteniendo la conexión centralizada y reutilizando los componentes comunes siempre que sea posible.
+Esta es la estructura que usaremos en los capítulos 3 a 7. En el capítulo 8 la mejoraremos separando la configuración del código.
+
+---
+
+## Resumen
+
+- `mysqli_connect()` abre la conexión; `mysqli_close()` la cierra.
+- En PHP 8.1+ los errores de `mysqli` se notifican mediante **excepciones**: hay que usar `try / catch`, no `if (!$conexion)`.
+- Nunca mostramos al usuario el mensaje técnico del error; lo guardamos con `error_log()`.
+- Tras conectar se establece el juego de caracteres con `mysqli_set_charset($conexion, "utf8mb4")`.
+- La conexión se centraliza en `conexion.php` y se carga con `require_once`.
+
+## Actividades
+
+1. Crea `conexion.php` con tus datos y comprueba que funciona. Después escribe una contraseña incorrecta a propósito y observa qué ocurre. ¿Dónde puedes leer el detalle del error?
+2. Quita la línea `mysqli_set_charset(...)`, inserta un cliente llamado «Begoña» (lo haremos en el capítulo 5) y observa cómo se ve. Vuelve a ponerla.
+3. Explica con tus palabras la diferencia entre `include`, `require` y `require_once`, y qué ocurriría si `conexion.php` tuviera un error de sintaxis con cada uno de ellos.

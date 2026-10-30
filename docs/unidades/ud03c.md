@@ -2,103 +2,64 @@
 
 ## 3.1 Introducción
 
-Una vez establecida la conexión entre PHP y MariaDB, ya podemos recuperar información almacenada en la base de datos.
-
-La operación de lectura es una de las más utilizadas en cualquier aplicación web.
-
-Algunos ejemplos habituales son:
+Una vez establecida la conexión entre PHP y MariaDB ya podemos recuperar la información almacenada. La lectura es una de las operaciones más frecuentes de cualquier aplicación web:
 
 - Mostrar el catálogo de productos de una tienda online.
 - Listar los usuarios registrados de una plataforma.
 - Consultar incidencias de un sistema de soporte.
 - Visualizar reservas de una aplicación de gestión.
 
-Todas estas tareas tienen algo en común: necesitan obtener información desde una base de datos y mostrarla al usuario.
+Todas necesitan obtener datos de una base de datos y mostrarlos al usuario. Para ello usaremos consultas SQL de tipo `SELECT`.
 
-Para ello utilizaremos consultas SQL de tipo `SELECT`.
+> **Antes de empezar:** en esta unidad trabajamos con la base de datos `empresa` del Anexo A, con la tabla `clientes` (`id`, `nombre`, `telefono`).
 
 ---
 
-## 3.2 Ejecución de consultas con mysqli_query()
+## 3.2 Ejecución de consultas con `mysqli_query()`
 
-Una vez disponemos de una conexión activa, podemos ejecutar consultas SQL mediante la función:
-
-```php
-mysqli_query()
-```
-
-Su sintaxis es:
+Con una conexión activa podemos ejecutar consultas con `mysqli_query()`:
 
 ```php
-mysqli_query(
-    $conexion,
-    $consulta
-);
+mysqli_query($conexion, $consulta);
 ```
 
-Donde:
-
-- `$conexion` contiene la conexión abierta con MariaDB.
-- `$consulta` contiene una sentencia SQL.
-
-Por ejemplo:
+- `$conexion`: la conexión abierta con MariaDB.
+- `$consulta`: una sentencia SQL escrita como cadena de texto.
 
 ```php
 <?php
 
-include "conexion.php";
+require_once "conexion.php";
 
 $conexion = conexion();
 
-$sql = "SELECT * FROM clientes";
+$sql = "SELECT id, nombre, telefono FROM clientes";
 
-$resultado = mysqli_query(
-    $conexion,
-    $sql
-);
+$resultado = mysqli_query($conexion, $sql);
 
 ?>
 ```
 
-La consulta solicita todos los registros de la tabla `clientes`.
+> Si la consulta tiene un error (por ejemplo, un nombre de tabla mal escrito), `mysqli_query()` lanza una excepción `mysqli_sql_exception`, igual que vimos con la conexión. En un servidor real, `display_errors` debe estar en `Off` para que el usuario no vea ese detalle, y los errores quedan registrados en el log.
 
 ---
 
 ## 3.3 El resultado de una consulta
 
-La función `mysqli_query()` no devuelve directamente los registros.
-
-Devuelve un objeto resultado que contiene el conjunto de filas obtenido por MariaDB.
+`mysqli_query()` **no devuelve directamente los registros**: devuelve un objeto *resultado* que representa el conjunto de filas obtenido. Para leer cada fila usamos:
 
 ```php
-$resultado = mysqli_query(
-    $conexion,
-    $sql
-);
+mysqli_fetch_assoc($resultado)
 ```
 
-Para acceder a cada registro debemos recorrer ese resultado utilizando funciones específicas.
-
-La más habitual es:
-
-```php
-mysqli_fetch_assoc()
-```
-
-Esta función recupera una fila y la devuelve como un array asociativo.
-
-Por ejemplo, si la tabla contiene:
+Devuelve **una fila** como array asociativo (las claves son los nombres de las columnas). Cada nueva llamada devuelve la siguiente fila. Si la tabla contiene:
 
 | id | nombre | telefono |
-|----|---------|----------|
+|----|--------|----------|
 | 1 | Ana | 600111111 |
 
-al ejecutar:
-
 ```php
-$fila = mysqli_fetch_assoc(
-    $resultado
-);
+$fila = mysqli_fetch_assoc($resultado);
 ```
 
 obtendremos:
@@ -112,17 +73,13 @@ Array
 )
 ```
 
-Cada columna puede accederse mediante su nombre:
+y podremos acceder a cada dato por el nombre de su columna:
 
 ```php
-echo $fila["nombre"];
+echo $fila["nombre"];   // Ana
 ```
 
-Resultado:
-
-```text
-Ana
-```
+> **Importante:** cuando ya no quedan filas por leer (o cuando la consulta no devolvió ninguna), `mysqli_fetch_assoc()` devuelve `null`. Intentar usar `$fila["nombre"]` sobre `null` genera un *warning*. Siempre hay que comprobarlo (lo vemos en la sección siguiente).
 
 ---
 
@@ -130,46 +87,40 @@ Ana
 
 ### Un único registro
 
-Si sabemos que la consulta devolverá una única fila, podemos recuperarla directamente:
+Si esperamos como mucho una fila, la leemos una sola vez **y comprobamos que existe**:
 
 ```php
 <?php
 
-include "conexion.php";
+require_once "conexion.php";
 
 $conexion = conexion();
 
-$sql = "
-SELECT *
-FROM clientes
-WHERE id = 1
-";
+$sql = "SELECT id, nombre, telefono FROM clientes WHERE id = 1";
 
-$resultado = mysqli_query(
-    $conexion,
-    $sql
-);
+$resultado = mysqli_query($conexion, $sql);
 
-$fila = mysqli_fetch_assoc(
-    $resultado
-);
+$fila = mysqli_fetch_assoc($resultado);
 
-echo $fila["nombre"];
+if ($fila) {
 
+    echo $fila["nombre"];
+
+} else {
+
+    echo "No existe ningún cliente con ese identificador.";
+
+}
+
+mysqli_free_result($resultado);
 mysqli_close($conexion);
 
 ?>
 ```
 
-Salida:
-
-```text
-Ana
-```
-
 ### Múltiples registros
 
-Cuando una consulta devuelve varias filas utilizamos un bucle `while`.
+Si la consulta devuelve varias filas usamos un bucle `while`:
 
 ```php
 while ($fila = mysqli_fetch_assoc($resultado)) {
@@ -179,21 +130,60 @@ while ($fila = mysqli_fetch_assoc($resultado)) {
 }
 ```
 
-Cada llamada a `mysqli_fetch_assoc()` obtiene una nueva fila.
+Cada vuelta del bucle lee una fila nueva. Cuando no quedan más, `mysqli_fetch_assoc()` devuelve `null`, la condición del `while` se evalúa como falsa y el bucle termina por sí solo.
 
-Cuando ya no existen más registros, la función devuelve:
+### ¿Cuántas filas ha devuelto la consulta?
 
 ```php
-false
+$total = mysqli_num_rows($resultado);
 ```
 
-y el bucle finaliza automáticamente.
+Es útil para mostrar un mensaje del tipo «No hay clientes registrados»:
+
+```php
+if (mysqli_num_rows($resultado) === 0) {
+
+    echo "<p>No hay clientes registrados.</p>";
+
+}
+```
 
 ---
 
 ## 3.5 Mostrar resultados en HTML
 
-Normalmente los datos recuperados se integran dentro de páginas HTML.
+### Escapar los datos: `htmlspecialchars()`
+
+Antes de mostrar en una página un dato que viene de la base de datos hay que **escaparlo** con `htmlspecialchars()`.
+
+¿Por qué? Imagina que un usuario se registra con el nombre:
+
+```html
+<script>alert("Hola")</script>
+```
+
+Si hacemos `echo $fila["nombre"]`, el navegador de **todos los usuarios que vean el listado** ejecutará ese código JavaScript. Es un ataque llamado **XSS** (*Cross-Site Scripting*), que permite robar sesiones, redirigir a webs falsas o alterar la página.
+
+`htmlspecialchars()` convierte los caracteres especiales de HTML (`<`, `>`, `&`, `"`, `'`) en entidades inofensivas (`&lt;`, `&gt;`…), de modo que el navegador los **muestra como texto** en vez de interpretarlos como código:
+
+```php
+echo htmlspecialchars($fila["nombre"], ENT_QUOTES, "UTF-8");
+```
+
+Como lo vamos a escribir muchísimas veces, definimos una función corta. Añádela al final de `conexion.php` (antes del `?>`, si lo usas):
+
+```php
+function h($texto)
+{
+
+    return htmlspecialchars((string) $texto, ENT_QUOTES, "UTF-8");
+
+}
+```
+
+A partir de ahora, **todo dato que viene de la base de datos o del usuario y se imprime en HTML se escapa con `h()`**.
+
+> **Regla de oro:** `htmlspecialchars()` se aplica al **mostrar** (salida), no al guardar. En la base de datos se guarda el dato original, tal cual lo escribió el usuario.
 
 ### Lista HTML
 
@@ -204,9 +194,7 @@ Normalmente los datos recuperados se integran dentro de páginas HTML.
 
 while ($fila = mysqli_fetch_assoc($resultado)) {
 
-    echo "<li>";
-    echo $fila["nombre"];
-    echo "</li>";
+    echo "<li>" . h($fila["nombre"]) . "</li>";
 
 }
 
@@ -227,110 +215,9 @@ Resultado aproximado:
 
 ### Tabla HTML
 
-Una de las formas más habituales de presentar información procedente de una base de datos es mediante tablas.
+Una de las formas más habituales de presentar datos:
 
 ```php
-<table>
-
-<tr>
-    <th>ID</th>
-    <th>Nombre</th>
-    <th>Teléfono</th>
-</tr>
-
-<?php
-
-while ($fila = mysqli_fetch_assoc($resultado)) {
-
-    echo "<tr>";
-
-    echo "<td>";
-    echo $fila["id"];
-    echo "</td>";
-
-    echo "<td>";
-    echo $fila["nombre"];
-    echo "</td>";
-
-    echo "<td>";
-    echo $fila["telefono"];
-    echo "</td>";
-
-    echo "</tr>";
-
-}
-
-?>
-
-</table>
-```
-
----
-
-## 3.6 Liberación de recursos
-
-Cuando terminamos de trabajar con un resultado es recomendable liberar los recursos asociados.
-
-```php
-mysqli_free_result(
-    $resultado
-);
-```
-
-Posteriormente cerraremos la conexión:
-
-```php
-mysqli_close(
-    $conexion
-);
-```
-
-El orden habitual será:
-
-```php
-mysqli_free_result(
-    $resultado
-);
-
-mysqli_close(
-    $conexion
-);
-```
-
----
-
-## 3.7 Ejemplo completo
-
-El siguiente programa muestra todos los clientes almacenados en la base de datos.
-
-```php
-<?php
-
-include "conexion.php";
-
-$conexion = conexion();
-
-$sql = "SELECT * FROM clientes";
-
-$resultado = mysqli_query(
-    $conexion,
-    $sql
-);
-
-?>
-
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <title>Clientes</title>
-</head>
-
-<body>
-
-<h1>Listado de clientes</h1>
-
 <table border="1">
 
 <tr>
@@ -344,19 +231,9 @@ $resultado = mysqli_query(
 while ($fila = mysqli_fetch_assoc($resultado)) {
 
     echo "<tr>";
-
-    echo "<td>";
-    echo $fila["id"];
-    echo "</td>";
-
-    echo "<td>";
-    echo $fila["nombre"];
-    echo "</td>";
-
-    echo "<td>";
-    echo $fila["telefono"];
-    echo "</td>";
-
+    echo "<td>" . h($fila["id"]) . "</td>";
+    echo "<td>" . h($fila["nombre"]) . "</td>";
+    echo "<td>" . h($fila["telefono"]) . "</td>";
     echo "</tr>";
 
 }
@@ -364,113 +241,143 @@ while ($fila = mysqli_fetch_assoc($resultado)) {
 ?>
 
 </table>
+```
+
+---
+
+## 3.6 Liberación de recursos
+
+Al terminar de trabajar con un resultado conviene liberarlo y después cerrar la conexión:
+
+```php
+mysqli_free_result($resultado);
+
+mysqli_close($conexion);
+```
+
+---
+
+## 3.7 Ejemplo completo: `clientes.php`
+
+```php
+<?php
+
+require_once "conexion.php";
+
+$conexion = conexion();
+
+$sql = "SELECT id, nombre, telefono FROM clientes ORDER BY nombre";
+
+$resultado = mysqli_query($conexion, $sql);
+
+?>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Clientes</title>
+</head>
+
+<body>
+
+<h1>Listado de clientes</h1>
+
+<?php if (mysqli_num_rows($resultado) === 0) { ?>
+
+    <p>No hay clientes registrados.</p>
+
+<?php } else { ?>
+
+    <table border="1">
+
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Teléfono</th>
+        </tr>
+
+        <?php while ($fila = mysqli_fetch_assoc($resultado)) { ?>
+
+            <tr>
+                <td><?= h($fila["id"]) ?></td>
+                <td><?= h($fila["nombre"]) ?></td>
+                <td><?= h($fila["telefono"]) ?></td>
+            </tr>
+
+        <?php } ?>
+
+    </table>
+
+<?php } ?>
 
 </body>
 </html>
-
 <?php
 
-mysqli_free_result(
-    $resultado
-);
-
-mysqli_close(
-    $conexion
-);
+mysqli_free_result($resultado);
+mysqli_close($conexion);
 
 ?>
 ```
 
-Este ejemplo representa el flujo completo de lectura de información:
+> `<?= expresion ?>` es la forma abreviada de `<?php echo expresion; ?>`. Combinada con la sintaxis de llaves, permite mezclar PHP y HTML de forma legible.
+
+Este ejemplo recoge el flujo completo de lectura:
 
 1. Se abre la conexión.
-2. Se ejecuta una consulta SQL.
-3. Se recuperan los registros.
-4. Se genera HTML.
+2. Se ejecuta la consulta.
+3. Se recorren los registros.
+4. Se genera el HTML (escapando los datos).
 5. Se liberan los recursos.
 6. Se cierra la conexión.
 
 ---
 
-## 3.8 Filtrado de resultados
+## 3.8 Filtrado de resultados con `WHERE`
 
-Hasta ahora hemos recuperado todos los registros de una tabla:
+Normalmente solo queremos una parte de los datos. Para ello usamos las cláusulas `WHERE`, `ORDER BY` y `LIMIT`.
 
-```php
-$sql = "SELECT * FROM clientes";
-```
-
-En aplicaciones reales normalmente necesitaremos recuperar únicamente la información que nos interesa.
-
-Para ello utilizaremos cláusulas como:
-
-- `WHERE`
-- `ORDER BY`
-- `LIMIT`
-
-### Filtrado mediante WHERE
-
-La cláusula `WHERE` permite seleccionar únicamente los registros que cumplen una condición.
+`WHERE` selecciona únicamente los registros que cumplen una condición:
 
 ```sql
-SELECT *
+SELECT id, nombre, telefono
 FROM clientes
 WHERE id = 1;
 ```
 
-En PHP:
-
-```php
-$sql = "
-SELECT *
-FROM clientes
-WHERE id = 1
-";
-```
-
-También podemos filtrar por columnas de texto:
+También podemos filtrar por texto. Los valores de texto van **entre comillas simples** dentro de la sentencia SQL:
 
 ```sql
-SELECT *
+SELECT id, nombre, telefono
 FROM clientes
 WHERE nombre = 'Ana';
 ```
 
-```php
-$sql = "
-SELECT *
-FROM clientes
-WHERE nombre = 'Ana'
-";
-```
+Operadores de comparación habituales: `=`, `<>` (distinto), `<`, `>`, `<=`, `>=`, y combinaciones con `AND`, `OR` y `NOT`.
 
-Los valores de texto deben escribirse entre comillas simples dentro de la sentencia SQL.
+### Búsquedas parciales con `LIKE`
+
+Para buscar textos que **contengan** una cadena (en lugar de coincidir exactamente) se usa `LIKE` con el comodín `%` (cualquier número de caracteres):
+
+```sql
+-- Nombres que empiezan por "A"
+SELECT id, nombre FROM clientes WHERE nombre LIKE 'A%';
+
+-- Nombres que contienen "ar" en cualquier posición
+SELECT id, nombre FROM clientes WHERE nombre LIKE '%ar%';
+```
 
 ---
 
-## 3.9 Ordenación de resultados
-
-La cláusula `ORDER BY` permite ordenar los registros obtenidos.
-
-Por ejemplo:
+## 3.9 Ordenación con `ORDER BY`
 
 ```sql
-SELECT *
-FROM clientes
-ORDER BY nombre;
+SELECT id, nombre FROM clientes ORDER BY nombre;        -- ascendente (por defecto)
+SELECT id, nombre FROM clientes ORDER BY nombre DESC;   -- descendente
 ```
 
-El orden ascendente es el comportamiento predeterminado.
-
-Si queremos ordenar de forma descendente:
-
-```sql
-SELECT *
-FROM clientes
-ORDER BY nombre DESC;
-```
-
-Resultado aproximado:
+Resultado de la segunda consulta (aproximado):
 
 ```text
 Pedro
@@ -478,101 +385,116 @@ Marta
 Ana
 ```
 
+Se pueden indicar varios criterios: `ORDER BY apellidos, nombre`.
+
 ---
 
-## 3.10 Limitación de resultados
+## 3.10 Limitación con `LIMIT`
 
-En ocasiones necesitamos recuperar únicamente una parte de los registros.
-
-Para ello utilizamos la cláusula `LIMIT`.
+`LIMIT` devuelve solo una parte de los registros:
 
 ```sql
-SELECT *
-FROM clientes
-LIMIT 5;
+SELECT id, nombre FROM clientes ORDER BY id LIMIT 5;
 ```
 
-La consulta devolverá únicamente los cinco primeros registros.
+Devuelve únicamente los cinco primeros. Con dos números, `LIMIT desplazamiento, cantidad`, saltamos los primeros registros:
 
-En PHP:
-
-```php
-$sql = "
-SELECT *
-FROM clientes
-LIMIT 5
-";
+```sql
+SELECT id, nombre FROM clientes ORDER BY id LIMIT 5, 5;   -- del 6.º al 10.º
 ```
 
-Esta técnica resulta muy útil para crear sistemas de paginación.
+Es la base de los sistemas de **paginación**. Si usas `LIMIT` conviene añadir siempre `ORDER BY`; de lo contrario el orden de las filas no está garantizado.
 
 ---
 
 ## 3.11 Búsquedas desde formularios
 
-Una necesidad habitual consiste en permitir al usuario buscar información.
-
-Por ejemplo:
+Queremos que el usuario pueda buscar un cliente por su nombre:
 
 ```html
-<form method="GET">
+<form method="GET" action="buscar.php">
 
     Nombre:
+    <input type="text" name="nombre">
 
-    <input type="text"
-           name="nombre">
-
-    <input type="submit"
-           value="Buscar">
+    <input type="submit" value="Buscar">
 
 </form>
 ```
 
-Cuando el usuario envía el formulario, el dato estará disponible mediante:
+Al enviar el formulario, el dato llega en `$_GET["nombre"]`. **La primera vez que se carga la página, el formulario todavía no se ha enviado y esa clave no existe**, así que hay que comprobarlo con `isset()` (o con el operador `??`):
 
 ```php
-$nombre = $_GET["nombre"];
+$nombre = $_GET["nombre"] ?? "";
 ```
 
-Podemos utilizar dicho valor para construir una consulta:
+`??` significa: «usa `$_GET["nombre"]` si existe; si no, usa `""`».
+
+Una primera versión (¡**incorrecta**, la veremos enseguida por qué!) construiría la consulta así:
 
 ```php
-$sql = "
-SELECT *
-FROM clientes
-WHERE nombre = '$nombre'
-";
+//  NUNCA HAGAS ESTO 
+$nombre = $_GET["nombre"] ?? "";
 
-$resultado = mysqli_query(
-    $conexion,
-    $sql
-);
+$sql = "SELECT id, nombre, telefono FROM clientes WHERE nombre = '$nombre'";
+
+$resultado = mysqli_query($conexion, $sql);
 ```
 
-Posteriormente mostraremos los registros exactamente igual que en cualquier consulta `SELECT`.
+Funciona perfectamente cuando el usuario escribe `Ana`. El problema aparece cuando el usuario no escribe lo que esperamos.
 
 ---
 
-## 3.12 Un problema de seguridad
+## 3.12 Un grave problema de seguridad: la inyección SQL
 
-Las consultas anteriores funcionan correctamente, pero presentan un importante problema.
+Con el código anterior, el valor escrito por el usuario pasa **directamente a formar parte de la consulta SQL**. Veamos qué ocurre.
 
-```php
-$nombre = $_GET["nombre"];
+**Entrada normal:** el usuario escribe `Ana`.
 
-$sql = "
-SELECT *
-FROM clientes
-WHERE nombre = '$nombre'
-";
+```sql
+SELECT id, nombre, telefono FROM clientes WHERE nombre = 'Ana'
 ```
 
-El valor introducido por el usuario pasa directamente a formar parte de la consulta SQL.
+**Entrada maliciosa:** el usuario escribe `' OR '1'='1`.
 
-Esto significa que un usuario podría introducir datos especialmente diseñados para alterar el comportamiento de la consulta.
+```sql
+SELECT id, nombre, telefono FROM clientes WHERE nombre = '' OR '1'='1'
+```
 
-Esta vulnerabilidad recibe el nombre de **inyección SQL** (*SQL Injection*).
+La condición `'1'='1'` es siempre verdadera, así que la consulta devuelve **todos los clientes**. El usuario ha conseguido **cambiar el significado de la consulta**.
 
-Para evitar este problema utilizaremos **sentencias preparadas**, que permiten separar la consulta SQL de los datos proporcionados por el usuario.
+Es un ejemplo inofensivo. Con la misma técnica un atacante puede:
 
-En el siguiente capítulo aprenderemos a utilizarlas para construir aplicaciones más seguras y robustas.
+- Saltarse formularios de login (`' OR '1'='1' -- ` en el campo de usuario).
+- Leer tablas que no deberían ser accesibles (por ejemplo, la de usuarios y contraseñas).
+- Modificar o borrar datos.
+
+Esta vulnerabilidad se llama **inyección SQL** (*SQL Injection*) y lleva décadas entre las más graves y frecuentes de las aplicaciones web (aparece de forma recurrente en el *OWASP Top 10*).
+
+> **Idea clave:** el problema no es qué escribe el usuario, sino que **datos y código SQL se mezclan en la misma cadena**. La solución es mantenerlos separados.
+
+Eso es exactamente lo que hacen las **sentencias preparadas**, que estudiamos en el capítulo siguiente. Desde este momento, **nunca concatenaremos variables procedentes del usuario dentro de una consulta SQL**.
+
+---
+
+## Resumen
+
+| Función | Para qué sirve |
+|---------|----------------|
+| `mysqli_query()` | Ejecuta una consulta SQL |
+| `mysqli_fetch_assoc()` | Lee una fila como array asociativo (`null` si no hay más) |
+| `mysqli_num_rows()` | Cuenta las filas devueltas por un `SELECT` |
+| `mysqli_free_result()` | Libera la memoria del resultado |
+| `htmlspecialchars()` / `h()` | Escapa texto antes de mostrarlo en HTML (evita XSS) |
+
+- `WHERE` filtra, `ORDER BY` ordena y `LIMIT` limita; `LIKE` con `%` permite búsquedas parciales.
+- Hay que comprobar que la fila existe antes de usarla y que `$_GET` / `$_POST` contienen la clave esperada (`isset` o `??`).
+- **Todo dato que se imprime en HTML se escapa** (XSS).
+- **Nunca se concatenan datos del usuario en una consulta SQL** (inyección SQL).
+
+## Actividades
+
+1. Crea `clientes.php` con el listado completo y comprueba que las tildes se ven bien.
+2. Inserta (con el cliente de MariaDB) un cliente cuyo nombre sea `<b>Hacker</b>`. Muestra el listado con y sin `h()` y explica la diferencia.
+3. Crea `buscar.php` con el formulario de búsqueda **vulnerable** (solo en tu entorno de pruebas) y comprueba qué devuelve si escribes `' OR '1'='1`. Anota la consulta SQL final que se ejecuta.
+4. Escribe consultas SQL para: los 3 últimos clientes dados de alta; los clientes cuyo teléfono empieza por `600`; los clientes ordenados por nombre de Z a A.

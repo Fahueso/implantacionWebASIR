@@ -2,205 +2,149 @@
 
 ## 4.1 Introducción
 
-En el capítulo anterior hemos aprendido a recuperar información desde MariaDB mediante consultas SQL. En el tema anterior vimos cómo recibir datos desde GET.
-
-Por ejemplo:
+En el capítulo anterior vimos que concatenar datos del usuario dentro de una consulta SQL permite la **inyección SQL**:
 
 ```php
-$nombre = $_GET["nombre"];
+// ❌ VULNERABLE
+$nombre = $_GET["nombre"] ?? "";
 
-$sql = "
-SELECT *
-FROM clientes
-WHERE nombre = '$nombre'
-";
+$sql = "SELECT id, nombre FROM clientes WHERE nombre = '$nombre'";
 ```
 
-Aunque este código funciona correctamente, presenta un problema importante: el valor introducido por el usuario se incorpora directamente a la consulta SQL.
-
-Si un usuario introduce datos inesperados o maliciosos, la consulta podría comportarse de forma distinta a la prevista.
-
-Para evitar este problema utilizaremos **sentencias preparadas** (*prepared statements*), el mecanismo recomendado para trabajar con bases de datos desde PHP.
+La causa es que el dato del usuario se incorpora a la cadena SQL y MariaDB no puede distinguir qué parte es «código» y qué parte es «dato». Para evitarlo usaremos **sentencias preparadas** (*prepared statements*), el mecanismo recomendado para trabajar con bases de datos desde PHP.
 
 ---
 
 ## 4.2 ¿Qué es una sentencia preparada?
 
-Una sentencia preparada es una consulta SQL definida previamente que contiene marcadores de posición para los valores que se proporcionarán más adelante.
+Es una consulta SQL definida previamente que contiene **marcadores de posición** (`?`) en lugar de los valores. Los valores se envían **por separado**, después.
 
-Por ejemplo, en lugar de escribir:
-
-```sql
-SELECT *
-FROM clientes
-WHERE id = 5;
-```
-
-utilizamos:
+En lugar de:
 
 ```sql
-SELECT *
-FROM clientes
-WHERE id = ?;
+SELECT id, nombre FROM clientes WHERE id = 5;
 ```
 
-El símbolo `?` actúa como marcador de posición (*placeholder*).
+escribimos:
 
-Más adelante sustituiremos ese marcador por un valor real.
+```sql
+SELECT id, nombre FROM clientes WHERE id = ?;
+```
 
-Esta separación entre consulta y datos proporciona varias ventajas:
+Más adelante indicaremos qué valor ocupa ese `?`.
 
-- Mayor seguridad.
-- Menor riesgo de errores.
+### ¿Por qué es seguro?
+
+1. PHP envía a MariaDB la consulta con los `?`. MariaDB la analiza y fija su estructura.
+2. Después PHP envía los valores. MariaDB los trata **siempre como datos**, nunca como parte del SQL.
+
+Si el usuario escribe `' OR '1'='1`, MariaDB buscará literalmente un cliente cuyo nombre sea el texto `' OR '1'='1`. No encontrará ninguno, y no habrá inyección posible.
+
+Ventajas:
+
+- Seguridad frente a inyección SQL.
+- Menos errores con comillas y caracteres especiales (un cliente llamado `O'Brien` ya no rompe la consulta).
 - Código más legible.
-- Posibles optimizaciones internas del servidor de bases de datos.
+- Posibles optimizaciones internas si la misma consulta se ejecuta varias veces.
 
 ---
 
 ## 4.3 Flujo de trabajo
 
-El uso de sentencias preparadas sigue siempre el mismo proceso:
-
-1. Preparar la consulta.
-2. Asociar los parámetros.
-3. Ejecutar la consulta.
-4. Recuperar los resultados.
-
-Visualmente:
+Siempre es el mismo proceso:
 
 ```text
-Preparar
-    ↓
-Asociar parámetros
-    ↓
-Ejecutar
-    ↓
-Obtener resultados
+Preparar la consulta     mysqli_prepare()
+          ↓
+Asociar parámetros       mysqli_stmt_bind_param()
+          ↓
+Ejecutar                 mysqli_stmt_execute()
+          ↓
+Obtener resultados       mysqli_stmt_get_result()
 ```
 
-Aunque inicialmente parecen más complejas que las consultas simples, pronto veremos que siguen siempre el mismo patrón.
+Parece más largo que `mysqli_query()`, pero una vez aprendido el patrón es siempre igual.
 
 ---
 
 ## 4.4 Preparación de la consulta
 
-La preparación se realiza mediante:
-
-```php
-mysqli_prepare()
-```
-
-Ejemplo:
-
 ```php
 $stmt = mysqli_prepare(
     $conexion,
-    "SELECT *
+    "SELECT id, nombre, telefono
      FROM clientes
      WHERE id = ?"
 );
 ```
 
-En este ejemplo:
+- `$conexion`: la conexión activa.
+- `$stmt`: almacenará la sentencia preparada.
+- `?`: indica que más adelante se proporcionará un valor.
 
-- `$conexion` contiene la conexión activa.
-- `$stmt` almacenará la sentencia preparada.
-- `?` indica que posteriormente se proporcionará un valor.
+En este punto la consulta **todavía no se ha ejecutado**.
 
-En este punto la consulta todavía no se ha ejecutado.
+> **Los `?` no llevan comillas.** Se escribe `WHERE nombre = ?`, nunca `WHERE nombre = '?'`. MariaDB se encarga de poner el valor correctamente.
 
 ---
 
 ## 4.5 Asociación de parámetros
 
-Una vez preparada la consulta, debemos indicar qué valor ocupará cada marcador.
-
-Para ello utilizamos:
-
-```php
-mysqli_stmt_bind_param()
-```
-
-Por ejemplo:
+Con `mysqli_stmt_bind_param()` indicamos qué variable ocupará cada marcador:
 
 ```php
 $id = 1;
 
-mysqli_stmt_bind_param(
-    $stmt,
-    "i",
-    $id
-);
+mysqli_stmt_bind_param($stmt, "i", $id);
 ```
 
-El segundo parámetro indica el tipo de dato asociado.
+El segundo argumento es una cadena con **una letra por cada `?`**, que indica el tipo de dato:
 
-Los códigos más habituales son:
+| Código | Tipo | Ejemplo |
+|--------|------|---------|
+| `i` | Entero (*integer*) | `id`, edad, cantidad |
+| `d` | Decimal (*double*) | precio, nota media |
+| `s` | Cadena de texto (*string*) | nombre, teléfono, fechas |
+| `b` | Binario (*blob*) | imágenes, ficheros |
 
-| Código | Tipo |
-|---------|---------|
-| i | Integer |
-| d | Double |
-| s | String |
-| b | Binary |
+Reglas que **siempre** hay que cumplir (son los errores más habituales):
 
-Por ejemplo:
+1. **El número de letras debe coincidir con el número de `?`** y con el número de variables. Si no, PHP lanza un error.
+2. **El orden de las letras debe coincidir con el orden de los `?`**.
+3. **Hay que pasar variables, no valores literales.** `mysqli_stmt_bind_param($stmt, "i", 1)` produce un error; debe ser `$id = 1; mysqli_stmt_bind_param($stmt, "i", $id);`. (Los parámetros se pasan por referencia.)
 
-```php
-"i"
-```
-
-indica un número entero, mientras que:
-
-```php
-"s"
-```
-
-indica una cadena de texto.
+Un número de teléfono se declara como `s` aunque tenga solo dígitos: no vamos a hacer operaciones con él, y los ceros iniciales o el prefijo `+34` se perderían si fuera un entero.
 
 ---
 
 ## 4.6 Ejecución y recuperación de resultados
 
-Una vez asociados los parámetros ejecutamos la consulta:
-
 ```php
-mysqli_stmt_execute(
-    $stmt
-);
+mysqli_stmt_execute($stmt);
+
+$resultado = mysqli_stmt_get_result($stmt);
 ```
 
-Posteriormente obtenemos el resultado:
-
-```php
-$resultado =
-    mysqli_stmt_get_result(
-        $stmt
-    );
-```
-
-El objeto devuelto funciona exactamente igual que el obtenido mediante `mysqli_query()`.
-
-Por tanto, podemos recorrerlo utilizando:
+El objeto devuelto por `mysqli_stmt_get_result()` funciona **exactamente igual** que el que devolvía `mysqli_query()`, así que lo recorremos igual:
 
 ```php
 while ($fila = mysqli_fetch_assoc($resultado)) {
 
-    echo $fila["nombre"];
+    echo h($fila["nombre"]);
 
 }
 ```
 
+> `mysqli_stmt_get_result()` requiere el driver nativo `mysqlnd`, que viene incluido en las instalaciones normales de PHP.
+
 ---
 
-## 4.7 Ejemplo completo
-
-El siguiente ejemplo recupera un cliente utilizando su identificador.
+## 4.7 Ejemplo completo: obtener un cliente por su id
 
 ```php
 <?php
 
-include "conexion.php";
+require_once "conexion.php";
 
 $conexion = conexion();
 
@@ -208,44 +152,32 @@ $id = 1;
 
 $stmt = mysqli_prepare(
     $conexion,
-    "SELECT *
+    "SELECT id, nombre, telefono
      FROM clientes
      WHERE id = ?"
 );
 
-mysqli_stmt_bind_param(
-    $stmt,
-    "i",
-    $id
-);
+mysqli_stmt_bind_param($stmt, "i", $id);
 
-mysqli_stmt_execute(
-    $stmt
-);
+mysqli_stmt_execute($stmt);
 
-$resultado =
-    mysqli_stmt_get_result(
-        $stmt
-    );
+$resultado = mysqli_stmt_get_result($stmt);
 
-$fila =
-    mysqli_fetch_assoc(
-        $resultado
-    );
+$fila = mysqli_fetch_assoc($resultado);
 
-echo $fila["nombre"];
+if ($fila) {
 
-mysqli_free_result(
-    $resultado
-);
+    echo h($fila["nombre"]);
 
-mysqli_stmt_close(
-    $stmt
-);
+} else {
 
-mysqli_close(
-    $conexion
-);
+    echo "Cliente no encontrado.";
+
+}
+
+mysqli_free_result($resultado);
+mysqli_stmt_close($stmt);
+mysqli_close($conexion);
 
 ?>
 ```
@@ -254,154 +186,83 @@ mysqli_close(
 
 ## 4.8 Parámetros de texto y múltiples parámetros
 
-Las sentencias preparadas funcionan igualmente con cadenas de texto.
-
-Por ejemplo:
+Con cadenas de texto:
 
 ```php
 $nombre = "Ana";
 
 $stmt = mysqli_prepare(
     $conexion,
-    "SELECT *
+    "SELECT id, nombre, telefono
      FROM clientes
      WHERE nombre = ?"
 );
 
-mysqli_stmt_bind_param(
-    $stmt,
-    "s",
-    $nombre
-);
+mysqli_stmt_bind_param($stmt, "s", $nombre);
 ```
 
-También es posible utilizar varios parámetros.
-
-Consulta:
+Con varios parámetros:
 
 ```sql
-SELECT *
+SELECT id, nombre, telefono
 FROM clientes
 WHERE nombre = ?
 AND telefono = ?;
 ```
 
-Asociación de parámetros:
-
 ```php
-mysqli_stmt_bind_param(
-    $stmt,
-    "ss",
-    $nombre,
-    $telefono
-);
+mysqli_stmt_bind_param($stmt, "ss", $nombre, $telefono);
 ```
 
-La primera `s` corresponde a `$nombre` y la segunda a `$telefono`.
+La primera `s` corresponde a `$nombre` y la segunda a `$telefono`. El orden de los tipos debe coincidir exactamente con el orden de los marcadores.
 
-El orden de los tipos debe coincidir exactamente con el orden de los marcadores.
+Con tipos mezclados, por ejemplo `WHERE nombre = ? AND id > ?`:
+
+```php
+mysqli_stmt_bind_param($stmt, "si", $nombre, $id_minimo);
+```
 
 ---
 
 ## 4.9 Uso con formularios
 
-Las sentencias preparadas muestran toda su utilidad cuando trabajamos con datos introducidos por los usuarios.
-
-Supongamos el siguiente formulario:
-
-```html
-<form method="GET">
-
-    Nombre:
-
-    <input type="text"
-           name="nombre">
-
-    <input type="submit"
-           value="Buscar">
-
-</form>
-```
-
-Recuperamos el valor:
+Aquí es donde las sentencias preparadas demuestran su utilidad. Reescribimos la búsqueda del capítulo anterior, ahora de forma segura:
 
 ```php
-$nombre = $_GET["nombre"];
-```
+<?php
 
-Y ejecutamos la consulta:
+require_once "conexion.php";
 
-```php
+$conexion = conexion();
+
+$nombre = trim($_GET["nombre"] ?? "");
+
 $stmt = mysqli_prepare(
     $conexion,
-    "SELECT *
+    "SELECT id, nombre, telefono
      FROM clientes
      WHERE nombre = ?"
 );
 
-mysqli_stmt_bind_param(
-    $stmt,
-    "s",
-    $nombre
-);
+mysqli_stmt_bind_param($stmt, "s", $nombre);
 
-mysqli_stmt_execute(
-    $stmt
-);
+mysqli_stmt_execute($stmt);
+
+$resultado = mysqli_stmt_get_result($stmt);
+
+?>
 ```
 
-De esta forma el valor proporcionado por el usuario nunca se incorpora directamente a la sentencia SQL.
+El valor proporcionado por el usuario **nunca se incorpora directamente a la sentencia SQL**.
 
 ---
 
 ## 4.10 Recuperación de múltiples resultados
 
-Las sentencias preparadas también pueden devolver varios registros.
-
-Por ejemplo, supongamos que queremos mostrar todos los clientes cuyo nombre sea "Ana".
+Una sentencia preparada puede devolver varias filas. El resultado se recorre igual que cualquier otro:
 
 ```php
-$nombre = "Ana";
-
-$stmt = mysqli_prepare(
-    $conexion,
-    "SELECT *
-     FROM clientes
-     WHERE nombre = ?"
-);
-
-mysqli_stmt_bind_param(
-    $stmt,
-    "s",
-    $nombre
-);
-
-mysqli_stmt_execute(
-    $stmt
-);
-
-$resultado =
-    mysqli_stmt_get_result(
-        $stmt
-    );
-```
-
-El resultado puede recorrerse exactamente igual que cualquier consulta realizada mediante `mysqli_query()`.
-
-```php
-while ($fila = mysqli_fetch_assoc($resultado)) {
-
-    echo $fila["nombre"];
-
-    echo "<br>";
-
-}
-```
-
-También es habitual mostrar los datos dentro de una tabla HTML.
-
-```php
-<table>
+<table border="1">
 
 <tr>
     <th>ID</th>
@@ -414,19 +275,9 @@ También es habitual mostrar los datos dentro de una tabla HTML.
 while ($fila = mysqli_fetch_assoc($resultado)) {
 
     echo "<tr>";
-
-    echo "<td>";
-    echo $fila["id"];
-    echo "</td>";
-
-    echo "<td>";
-    echo $fila["nombre"];
-    echo "</td>";
-
-    echo "<td>";
-    echo $fila["telefono"];
-    echo "</td>";
-
+    echo "<td>" . h($fila["id"]) . "</td>";
+    echo "<td>" . h($fila["nombre"]) . "</td>";
+    echo "<td>" . h($fila["telefono"]) . "</td>";
     echo "</tr>";
 
 }
@@ -436,34 +287,104 @@ while ($fila = mysqli_fetch_assoc($resultado)) {
 </table>
 ```
 
-Observa que una vez obtenido el objeto `$resultado`, el tratamiento es exactamente igual que el aprendido en el tema anterior.
+---
+
+## 4.11 Búsquedas parciales con `LIKE`
+
+El buscador exacto resulta poco útil: nadie escribe el nombre completo. Para buscar «que contenga» combinamos `LIKE` con sentencias preparadas.
+
+**Los `%` van en el valor, no en la consulta.**
+
+```php
+$busqueda = trim($_GET["nombre"] ?? "");
+
+// Los comodines se añaden al VALOR
+$patron = "%" . $busqueda . "%";
+
+$stmt = mysqli_prepare(
+    $conexion,
+    "SELECT id, nombre, telefono
+     FROM clientes
+     WHERE nombre LIKE ?
+     ORDER BY nombre"
+);
+
+mysqli_stmt_bind_param($stmt, "s", $patron);
+
+mysqli_stmt_execute($stmt);
+
+$resultado = mysqli_stmt_get_result($stmt);
+```
+
+Un error muy común es escribir `LIKE '%?%'`: dentro de las comillas el `?` ya no es un marcador, sino un carácter literal, y la consulta fallará o no devolverá nada.
 
 ---
 
-## 4.11 Liberación de recursos
+## 4.12 Lo que las sentencias preparadas NO protegen
 
-Además de liberar el resultado y cerrar la conexión, también es recomendable cerrar la sentencia preparada.
+Los marcadores `?` solo pueden sustituir **valores** (los datos que van en `WHERE`, `VALUES`, `SET`, `LIMIT`…). **No se pueden usar para nombres de tablas, nombres de columnas ni la dirección de ordenación (`ASC` / `DESC`).**
 
-```php
-mysqli_stmt_close(
-    $stmt
-);
-```
-
-El orden habitual será:
+Esto **no funciona**:
 
 ```php
-mysqli_free_result(
-    $resultado
-);
-
-mysqli_stmt_close(
-    $stmt
-);
-
-mysqli_close(
-    $conexion
-);
+// ❌ No funciona: no se puede parametrizar el nombre de una columna
+"SELECT * FROM clientes ORDER BY ?"
 ```
 
-A partir de este momento utilizaremos sentencias preparadas siempre que una consulta incluya datos variables proporcionados por los usuarios.
+Si necesitas que el usuario elija el orden (por ejemplo, haciendo clic en la cabecera de una columna), no concatenes lo que llega por `$_GET`. Usa una **lista blanca** (*whitelist*): comprueba que el valor está entre los permitidos y utiliza tú el texto SQL:
+
+```php
+$columnas_permitidas = ["id", "nombre", "telefono"];
+
+$orden = $_GET["orden"] ?? "nombre";
+
+if (!in_array($orden, $columnas_permitidas, true)) {
+
+    $orden = "nombre";   // valor por defecto seguro
+
+}
+
+$sql = "SELECT id, nombre, telefono FROM clientes ORDER BY " . $orden;
+```
+
+Aquí se concatena `$orden`, pero es seguro porque solo puede valer uno de los tres textos de la lista, nunca algo que haya escrito el usuario.
+
+> **Resumen de seguridad:** sentencias preparadas para los **valores**, listas blancas para **identificadores**, y `htmlspecialchars()` para lo que se **muestra**.
+
+---
+
+## 4.13 Liberación de recursos
+
+Además de liberar el resultado y cerrar la conexión, se cierra la sentencia:
+
+```php
+mysqli_free_result($resultado);
+
+mysqli_stmt_close($stmt);
+
+mysqli_close($conexion);
+```
+
+A partir de ahora **utilizaremos sentencias preparadas siempre que una consulta incluya datos variables**.
+
+---
+
+## Resumen
+
+- Una sentencia preparada separa la **consulta** (con `?`) de los **datos**, eliminando la inyección SQL.
+- Flujo: `mysqli_prepare()` → `mysqli_stmt_bind_param()` → `mysqli_stmt_execute()` → `mysqli_stmt_get_result()`.
+- Tipos: `i` entero, `d` decimal, `s` texto, `b` binario. Una letra por cada `?`, en el mismo orden.
+- `bind_param` necesita **variables**, no literales.
+- Para `LIKE`, los `%` se añaden al valor (`"%" . $texto . "%"`).
+- Los `?` no sirven para nombres de columnas o tablas: usa una **lista blanca**.
+- Orden de cierre: `free_result` → `stmt_close` → `close`.
+
+## Actividades
+
+1. Reescribe `buscar.php` de forma segura y comprueba que `' OR '1'='1` ya no devuelve todos los clientes.
+2. Añade búsqueda parcial con `LIKE`. ¿Qué devuelve si el campo está vacío? ¿Te parece correcto?
+3. Haz que las cabeceras de la tabla de `clientes.php` sean enlaces (`?orden=nombre`) que ordenen por esa columna usando una lista blanca. Prueba a escribir en la URL `?orden=nombre;DROP TABLE clientes` y comprueba que no tiene efecto.
+4. Encuentra el error en cada uno:
+   a) `mysqli_stmt_bind_param($stmt, "s", "Ana");`
+   b) `WHERE nombre = ? AND telefono = ?` con `mysqli_stmt_bind_param($stmt, "s", $nombre, $telefono);`
+   c) `WHERE nombre LIKE '%?%'`
