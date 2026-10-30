@@ -29,6 +29,9 @@ nav:
     - UD2 - Funciones: ejercicios/ud02/funciones.md
     - UD2 - Sesiones y autenticación: ejercicios/ud02/avanzado.md
 
+  - Recursos:
+    - UD2 - Resumen PHP HTTP: recursos/hoja.md  
+
 
       
   - Inicio: index.md
