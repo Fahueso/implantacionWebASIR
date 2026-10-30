@@ -1,0 +1,2092 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://fahueso.github.io/implantacionWebASIR/unidades/ud03f/">
+      
+      
+        <link rel="prev" href="../ud03e/">
+      
+      
+        <link rel="next" href="../ud03g/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/camp.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>UD3 - Modificación y Eliminación de Registros - Implantación de aplicaciones Web ASIR</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="black">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#6-modificacion-y-eliminacion-de-registros" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Implantación de aplicaciones Web ASIR" class="md-header__button md-logo" aria-label="Implantación de aplicaciones Web ASIR" data-md-component="logo">
+      
+  <img src="../../assets/images/camp.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Implantación de aplicaciones Web ASIR
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              UD3 - Modificación y Eliminación de Registros
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="black"  aria-label="Modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="black"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l137.3-137.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Fahueso/implantacionWebASIR" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Fahueso/implantacionWebASIR
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../ud01a/" class="md-tabs__link">
+          
+  
+  
+  Unidades
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ejercicios/ud01/metodos/" class="md-tabs__link">
+          
+  
+  
+  Ejercicios
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../recursos/hoja/" class="md-tabs__link">
+          
+  
+  
+  Recursos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Implantación de aplicaciones Web ASIR" class="md-nav__button md-logo" aria-label="Implantación de aplicaciones Web ASIR" data-md-component="logo">
+      
+  <img src="../../assets/images/camp.png" alt="logo">
+
+    </a>
+    Implantación de aplicaciones Web ASIR
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Fahueso/implantacionWebASIR" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Fahueso/implantacionWebASIR
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unidades
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Unidades
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud01a/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD1 - Aplicaciones web
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud01b/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD1 - Entornos de Desarrollo y Servidores Web
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud01c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD1 - El Motor de Aplicación y la Base de Datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02a/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD2 - Repaso lenguaje de Marcas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02b/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD2 - El lado del servidor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD2 - PHP programación del lado del servidor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03a/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD3 - Introducción a las Aplicaciones Dinámicas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03b/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD3 - Conexión a MariaDB desde PHP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD3 - Recuperación de Datos mediante SELECT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD3 - Sentencias Preparadas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03e/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD3 - Inserción de Registros mediante Sentencias Preparadas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD3 - Modificación y Eliminación de Registros
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD3 - Modificación y Eliminación de Registros
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#61-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Introducción
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03g/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD3 - Consultas Multitabla y JOIN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03h/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD3 - Gestión de Credenciales y Configuración
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ejercicios
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ejercicios
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ejercicios/ud01/metodos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD1 - Metodos HTTP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ejercicios/ud01/python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD1 - Cliente Servidor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ejercicios/ud01/ajax/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD1 - Ajax
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ejercicios/ud02/introduccion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD2 - Introducción PHP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ejercicios/ud02/sintaxis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD2 - Sintaxis PHP y Estructuras
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ejercicios/ud02/funciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD2 - Funciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ejercicios/ud02/avanzado/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD2 - Sesiones y autenticación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recursos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Recursos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recursos/hoja/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD2 - Resumen PHP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#61-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Introducción
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="6-modificacion-y-eliminacion-de-registros">6. Modificación y Eliminación de Registros</h1>
+<h2 id="61-introduccion">6.1 Introducción</h2>
+<p>Ya sabemos <strong>leer</strong> (<code>SELECT</code>) e <strong>insertar</strong> (<code>INSERT</code>). Una aplicación real también debe permitir <strong>actualizar</strong> datos existentes y <strong>eliminar</strong> los que ya no son necesarios:</p>
+<ul>
+<li>Corregir el teléfono de un cliente.</li>
+<li>Cambiar el estado de una incidencia.</li>
+<li>Eliminar registros duplicados.</li>
+<li>Borrar usuarios dados de baja.</li>
+</ul>
+<p>Se hace con las sentencias <code>UPDATE</code> y <code>DELETE</code>, siempre con sentencias preparadas.</p>
+<hr />
+<h1 id="62-modificacion-de-registros">6.2 Modificación de registros</h1>
+<h2 id="621-la-sentencia-update">6.2.1 La sentencia UPDATE</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">tabla</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="k">SET</span><span class="w"> </span><span class="n">columna</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">valor</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">condicion</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">clientes</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="k">SET</span><span class="w"> </span><span class="n">telefono</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'600999999'</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p>Modifica el teléfono del cliente cuyo identificador es 3.</p>
+<h2 id="622-la-importancia-de-where">6.2.2 La importancia de WHERE</h2>
+<p><code>WHERE</code> determina <strong>qué registros</strong> se modifican. Esta consulta afecta a un solo cliente:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">clientes</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">telefono</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'600999999'</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p>pero esta, sin <code>WHERE</code>, <strong>modifica todos los registros de la tabla</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">clientes</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">telefono</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'600999999'</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p>Es uno de los errores más comunes (y más dolorosos) al trabajar con bases de datos.</p>
+<blockquote>
+<p><strong>Antes de ejecutar un <code>UPDATE</code> o un <code>DELETE</code>, comprueba siempre la cláusula <code>WHERE</code>.</strong> Un buen hábito al practicar es ejecutar primero un <code>SELECT</code> con la misma condición para ver qué filas se verán afectadas.</p>
+</blockquote>
+<h2 id="623-update-con-sentencias-preparadas">6.2.3 UPDATE con sentencias preparadas</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">clientes</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="k">SET</span><span class="w"> </span><span class="n">nombre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">?</span><span class="p">,</span><span class="w"> </span><span class="n">telefono</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">?</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">?</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span>
+<span class="normal"><a href="#__codelineno-5-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="x">$stmt = mysqli_prepare(</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="x">    $conexion,</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="x">    "UPDATE clientes</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="x">     SET nombre = ?,</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="x">         telefono = ?</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="x">     WHERE id = ?"</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="x">);</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a>
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="x">mysqli_stmt_bind_param($stmt, "ssi", $nombre, $telefono, $id);</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a>
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="x">mysqli_stmt_execute($stmt);</span>
+</code></pre></div></td></tr></table></div>
+<p>Los tipos: <code>nombre</code> → <code>s</code>, <code>telefono</code> → <code>s</code>, <code>id</code> → <code>i</code>. De ahí <code>"ssi"</code>. Recuerda que el orden de las letras sigue el orden de los <code>?</code>.</p>
+<h2 id="624-validar-el-identificador">6.2.4 Validar el identificador</h2>
+<p>El <code>id</code> llega desde la URL o desde un formulario, es decir, <strong>del usuario</strong>. Si es texto no numérico y lo asociamos con <code>"i"</code>, PHP lo convierte silenciosamente a <code>0</code> y la consulta se ejecuta igualmente sin sentido. Hay que validarlo antes:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span>
+<span class="normal"><a href="#__codelineno-6-5">5</a></span>
+<span class="normal"><a href="#__codelineno-6-6">6</a></span>
+<span class="normal"><a href="#__codelineno-6-7">7</a></span>
+<span class="normal"><a href="#__codelineno-6-8">8</a></span>
+<span class="normal"><a href="#__codelineno-6-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="x">$id = filter_var($_GET["id"] ?? "", FILTER_VALIDATE_INT);</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="x">if ($id === false || $id &lt; 1) {</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="x">    // id no válido: volver al listado</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="x">    header("Location: clientes.php");</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="x">    exit;</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a>
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="x">}</span>
+</code></pre></div></td></tr></table></div>
+<p><code>filter_var(..., FILTER_VALIDATE_INT)</code> devuelve el entero si el valor es un entero válido, y <code>false</code> en caso contrario.</p>
+<h2 id="625-flujo-habitual-de-edicion">6.2.5 Flujo habitual de edición</h2>
+<p>Editar un registro suele hacerse en dos pasos dentro de <code>actualizar.php</code>:</p>
+<ol>
+<li><strong>GET</strong> <code>actualizar.php?id=3</code> → se consulta el cliente y se muestra el formulario <strong>con sus datos actuales</strong>.</li>
+<li><strong>POST</strong> → se validan los datos, se ejecuta el <code>UPDATE</code> y se redirige (patrón PRG del capítulo anterior).</li>
+</ol>
+<p>Primero añadimos enlaces en el listado (<code>clientes.php</code>):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="x">&lt;td&gt;</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="x">    &lt;a href="actualizar.php?id=</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nx">h</span><span class="p">(</span><span class="nv">$fila</span><span class="p">[</span><span class="s2">"id"</span><span class="p">])</span> <span class="cp">?&gt;</span><span class="x">"&gt;Editar&lt;/a&gt;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="x">&lt;/td&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Y el fichero completo:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">  1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">  2</a></span>
+<span class="normal"><a href="#__codelineno-8-3">  3</a></span>
+<span class="normal"><a href="#__codelineno-8-4">  4</a></span>
+<span class="normal"><a href="#__codelineno-8-5">  5</a></span>
+<span class="normal"><a href="#__codelineno-8-6">  6</a></span>
+<span class="normal"><a href="#__codelineno-8-7">  7</a></span>
+<span class="normal"><a href="#__codelineno-8-8">  8</a></span>
+<span class="normal"><a href="#__codelineno-8-9">  9</a></span>
+<span class="normal"><a href="#__codelineno-8-10"> 10</a></span>
+<span class="normal"><a href="#__codelineno-8-11"> 11</a></span>
+<span class="normal"><a href="#__codelineno-8-12"> 12</a></span>
+<span class="normal"><a href="#__codelineno-8-13"> 13</a></span>
+<span class="normal"><a href="#__codelineno-8-14"> 14</a></span>
+<span class="normal"><a href="#__codelineno-8-15"> 15</a></span>
+<span class="normal"><a href="#__codelineno-8-16"> 16</a></span>
+<span class="normal"><a href="#__codelineno-8-17"> 17</a></span>
+<span class="normal"><a href="#__codelineno-8-18"> 18</a></span>
+<span class="normal"><a href="#__codelineno-8-19"> 19</a></span>
+<span class="normal"><a href="#__codelineno-8-20"> 20</a></span>
+<span class="normal"><a href="#__codelineno-8-21"> 21</a></span>
+<span class="normal"><a href="#__codelineno-8-22"> 22</a></span>
+<span class="normal"><a href="#__codelineno-8-23"> 23</a></span>
+<span class="normal"><a href="#__codelineno-8-24"> 24</a></span>
+<span class="normal"><a href="#__codelineno-8-25"> 25</a></span>
+<span class="normal"><a href="#__codelineno-8-26"> 26</a></span>
+<span class="normal"><a href="#__codelineno-8-27"> 27</a></span>
+<span class="normal"><a href="#__codelineno-8-28"> 28</a></span>
+<span class="normal"><a href="#__codelineno-8-29"> 29</a></span>
+<span class="normal"><a href="#__codelineno-8-30"> 30</a></span>
+<span class="normal"><a href="#__codelineno-8-31"> 31</a></span>
+<span class="normal"><a href="#__codelineno-8-32"> 32</a></span>
+<span class="normal"><a href="#__codelineno-8-33"> 33</a></span>
+<span class="normal"><a href="#__codelineno-8-34"> 34</a></span>
+<span class="normal"><a href="#__codelineno-8-35"> 35</a></span>
+<span class="normal"><a href="#__codelineno-8-36"> 36</a></span>
+<span class="normal"><a href="#__codelineno-8-37"> 37</a></span>
+<span class="normal"><a href="#__codelineno-8-38"> 38</a></span>
+<span class="normal"><a href="#__codelineno-8-39"> 39</a></span>
+<span class="normal"><a href="#__codelineno-8-40"> 40</a></span>
+<span class="normal"><a href="#__codelineno-8-41"> 41</a></span>
+<span class="normal"><a href="#__codelineno-8-42"> 42</a></span>
+<span class="normal"><a href="#__codelineno-8-43"> 43</a></span>
+<span class="normal"><a href="#__codelineno-8-44"> 44</a></span>
+<span class="normal"><a href="#__codelineno-8-45"> 45</a></span>
+<span class="normal"><a href="#__codelineno-8-46"> 46</a></span>
+<span class="normal"><a href="#__codelineno-8-47"> 47</a></span>
+<span class="normal"><a href="#__codelineno-8-48"> 48</a></span>
+<span class="normal"><a href="#__codelineno-8-49"> 49</a></span>
+<span class="normal"><a href="#__codelineno-8-50"> 50</a></span>
+<span class="normal"><a href="#__codelineno-8-51"> 51</a></span>
+<span class="normal"><a href="#__codelineno-8-52"> 52</a></span>
+<span class="normal"><a href="#__codelineno-8-53"> 53</a></span>
+<span class="normal"><a href="#__codelineno-8-54"> 54</a></span>
+<span class="normal"><a href="#__codelineno-8-55"> 55</a></span>
+<span class="normal"><a href="#__codelineno-8-56"> 56</a></span>
+<span class="normal"><a href="#__codelineno-8-57"> 57</a></span>
+<span class="normal"><a href="#__codelineno-8-58"> 58</a></span>
+<span class="normal"><a href="#__codelineno-8-59"> 59</a></span>
+<span class="normal"><a href="#__codelineno-8-60"> 60</a></span>
+<span class="normal"><a href="#__codelineno-8-61"> 61</a></span>
+<span class="normal"><a href="#__codelineno-8-62"> 62</a></span>
+<span class="normal"><a href="#__codelineno-8-63"> 63</a></span>
+<span class="normal"><a href="#__codelineno-8-64"> 64</a></span>
+<span class="normal"><a href="#__codelineno-8-65"> 65</a></span>
+<span class="normal"><a href="#__codelineno-8-66"> 66</a></span>
+<span class="normal"><a href="#__codelineno-8-67"> 67</a></span>
+<span class="normal"><a href="#__codelineno-8-68"> 68</a></span>
+<span class="normal"><a href="#__codelineno-8-69"> 69</a></span>
+<span class="normal"><a href="#__codelineno-8-70"> 70</a></span>
+<span class="normal"><a href="#__codelineno-8-71"> 71</a></span>
+<span class="normal"><a href="#__codelineno-8-72"> 72</a></span>
+<span class="normal"><a href="#__codelineno-8-73"> 73</a></span>
+<span class="normal"><a href="#__codelineno-8-74"> 74</a></span>
+<span class="normal"><a href="#__codelineno-8-75"> 75</a></span>
+<span class="normal"><a href="#__codelineno-8-76"> 76</a></span>
+<span class="normal"><a href="#__codelineno-8-77"> 77</a></span>
+<span class="normal"><a href="#__codelineno-8-78"> 78</a></span>
+<span class="normal"><a href="#__codelineno-8-79"> 79</a></span>
+<span class="normal"><a href="#__codelineno-8-80"> 80</a></span>
+<span class="normal"><a href="#__codelineno-8-81"> 81</a></span>
+<span class="normal"><a href="#__codelineno-8-82"> 82</a></span>
+<span class="normal"><a href="#__codelineno-8-83"> 83</a></span>
+<span class="normal"><a href="#__codelineno-8-84"> 84</a></span>
+<span class="normal"><a href="#__codelineno-8-85"> 85</a></span>
+<span class="normal"><a href="#__codelineno-8-86"> 86</a></span>
+<span class="normal"><a href="#__codelineno-8-87"> 87</a></span>
+<span class="normal"><a href="#__codelineno-8-88"> 88</a></span>
+<span class="normal"><a href="#__codelineno-8-89"> 89</a></span>
+<span class="normal"><a href="#__codelineno-8-90"> 90</a></span>
+<span class="normal"><a href="#__codelineno-8-91"> 91</a></span>
+<span class="normal"><a href="#__codelineno-8-92"> 92</a></span>
+<span class="normal"><a href="#__codelineno-8-93"> 93</a></span>
+<span class="normal"><a href="#__codelineno-8-94"> 94</a></span>
+<span class="normal"><a href="#__codelineno-8-95"> 95</a></span>
+<span class="normal"><a href="#__codelineno-8-96"> 96</a></span>
+<span class="normal"><a href="#__codelineno-8-97"> 97</a></span>
+<span class="normal"><a href="#__codelineno-8-98"> 98</a></span>
+<span class="normal"><a href="#__codelineno-8-99"> 99</a></span>
+<span class="normal"><a href="#__codelineno-8-100">100</a></span>
+<span class="normal"><a href="#__codelineno-8-101">101</a></span>
+<span class="normal"><a href="#__codelineno-8-102">102</a></span>
+<span class="normal"><a href="#__codelineno-8-103">103</a></span>
+<span class="normal"><a href="#__codelineno-8-104">104</a></span>
+<span class="normal"><a href="#__codelineno-8-105">105</a></span>
+<span class="normal"><a href="#__codelineno-8-106">106</a></span>
+<span class="normal"><a href="#__codelineno-8-107">107</a></span>
+<span class="normal"><a href="#__codelineno-8-108">108</a></span>
+<span class="normal"><a href="#__codelineno-8-109">109</a></span>
+<span class="normal"><a href="#__codelineno-8-110">110</a></span>
+<span class="normal"><a href="#__codelineno-8-111">111</a></span>
+<span class="normal"><a href="#__codelineno-8-112">112</a></span>
+<span class="normal"><a href="#__codelineno-8-113">113</a></span>
+<span class="normal"><a href="#__codelineno-8-114">114</a></span>
+<span class="normal"><a href="#__codelineno-8-115">115</a></span>
+<span class="normal"><a href="#__codelineno-8-116">116</a></span>
+<span class="normal"><a href="#__codelineno-8-117">117</a></span>
+<span class="normal"><a href="#__codelineno-8-118">118</a></span>
+<span class="normal"><a href="#__codelineno-8-119">119</a></span>
+<span class="normal"><a href="#__codelineno-8-120">120</a></span>
+<span class="normal"><a href="#__codelineno-8-121">121</a></span>
+<span class="normal"><a href="#__codelineno-8-122">122</a></span>
+<span class="normal"><a href="#__codelineno-8-123">123</a></span>
+<span class="normal"><a href="#__codelineno-8-124">124</a></span>
+<span class="normal"><a href="#__codelineno-8-125">125</a></span>
+<span class="normal"><a href="#__codelineno-8-126">126</a></span>
+<span class="normal"><a href="#__codelineno-8-127">127</a></span>
+<span class="normal"><a href="#__codelineno-8-128">128</a></span>
+<span class="normal"><a href="#__codelineno-8-129">129</a></span>
+<span class="normal"><a href="#__codelineno-8-130">130</a></span>
+<span class="normal"><a href="#__codelineno-8-131">131</a></span>
+<span class="normal"><a href="#__codelineno-8-132">132</a></span>
+<span class="normal"><a href="#__codelineno-8-133">133</a></span>
+<span class="normal"><a href="#__codelineno-8-134">134</a></span>
+<span class="normal"><a href="#__codelineno-8-135">135</a></span>
+<span class="normal"><a href="#__codelineno-8-136">136</a></span>
+<span class="normal"><a href="#__codelineno-8-137">137</a></span>
+<span class="normal"><a href="#__codelineno-8-138">138</a></span>
+<span class="normal"><a href="#__codelineno-8-139">139</a></span>
+<span class="normal"><a href="#__codelineno-8-140">140</a></span>
+<span class="normal"><a href="#__codelineno-8-141">141</a></span>
+<span class="normal"><a href="#__codelineno-8-142">142</a></span>
+<span class="normal"><a href="#__codelineno-8-143">143</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="nb">session_start</span><span class="p">();</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="k">require_once</span> <span class="s2">"conexion.php"</span><span class="p">;</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a>
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="nv">$conexion</span> <span class="o">=</span> <span class="nx">conexion</span><span class="p">();</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a>
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="c1">// El id viaja por la URL en el GET inicial y como campo oculto en el POST</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="nv">$id</span> <span class="o">=</span> <span class="nb">filter_var</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]</span> <span class="o">??</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]</span> <span class="o">??</span> <span class="s2">""</span><span class="p">,</span> <span class="nx">FILTER_VALIDATE_INT</span><span class="p">);</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11"></a>
+<a id="__codelineno-8-12" name="__codelineno-8-12"></a><span class="k">if</span> <span class="p">(</span><span class="nv">$id</span> <span class="o">===</span> <span class="k">false</span> <span class="o">||</span> <span class="nv">$id</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13"></a>
+<a id="__codelineno-8-14" name="__codelineno-8-14"></a>    <span class="nb">header</span><span class="p">(</span><span class="s2">"Location: clientes.php"</span><span class="p">);</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15"></a>    <span class="k">exit</span><span class="p">;</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16"></a>
+<a id="__codelineno-8-17" name="__codelineno-8-17"></a><span class="p">}</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18"></a>
+<a id="__codelineno-8-19" name="__codelineno-8-19"></a><span class="nv">$errores</span> <span class="o">=</span> <span class="p">[];</span>
+<a id="__codelineno-8-20" name="__codelineno-8-20"></a>
+<a id="__codelineno-8-21" name="__codelineno-8-21"></a><span class="k">if</span> <span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">"REQUEST_METHOD"</span><span class="p">]</span> <span class="o">===</span> <span class="s2">"POST"</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-8-22" name="__codelineno-8-22"></a>
+<a id="__codelineno-8-23" name="__codelineno-8-23"></a>    <span class="c1">// --- Procesar el formulario ---</span>
+<a id="__codelineno-8-24" name="__codelineno-8-24"></a>    <span class="nv">$nombre</span>   <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s2">"nombre"</span><span class="p">]</span> <span class="o">??</span> <span class="s2">""</span><span class="p">);</span>
+<a id="__codelineno-8-25" name="__codelineno-8-25"></a>    <span class="nv">$telefono</span> <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s2">"telefono"</span><span class="p">]</span> <span class="o">??</span> <span class="s2">""</span><span class="p">);</span>
+<a id="__codelineno-8-26" name="__codelineno-8-26"></a>
+<a id="__codelineno-8-27" name="__codelineno-8-27"></a>    <span class="k">if</span> <span class="p">(</span><span class="nv">$nombre</span> <span class="o">===</span> <span class="s2">""</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-8-28" name="__codelineno-8-28"></a>        <span class="nv">$errores</span><span class="p">[]</span> <span class="o">=</span> <span class="s2">"El nombre es obligatorio."</span><span class="p">;</span>
+<a id="__codelineno-8-29" name="__codelineno-8-29"></a>    <span class="p">}</span>
+<a id="__codelineno-8-30" name="__codelineno-8-30"></a>
+<a id="__codelineno-8-31" name="__codelineno-8-31"></a>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">ctype_digit</span><span class="p">(</span><span class="nv">$telefono</span><span class="p">)</span> <span class="o">||</span> <span class="nb">strlen</span><span class="p">(</span><span class="nv">$telefono</span><span class="p">)</span> <span class="o">!==</span> <span class="mi">9</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-8-32" name="__codelineno-8-32"></a>        <span class="nv">$errores</span><span class="p">[]</span> <span class="o">=</span> <span class="s2">"El teléfono debe tener 9 dígitos."</span><span class="p">;</span>
+<a id="__codelineno-8-33" name="__codelineno-8-33"></a>    <span class="p">}</span>
+<a id="__codelineno-8-34" name="__codelineno-8-34"></a>
+<a id="__codelineno-8-35" name="__codelineno-8-35"></a>    <span class="k">if</span> <span class="p">(</span><span class="nb">count</span><span class="p">(</span><span class="nv">$errores</span><span class="p">)</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-8-36" name="__codelineno-8-36"></a>
+<a id="__codelineno-8-37" name="__codelineno-8-37"></a>        <span class="nv">$stmt</span> <span class="o">=</span> <span class="nx">mysqli_prepare</span><span class="p">(</span>
+<a id="__codelineno-8-38" name="__codelineno-8-38"></a>            <span class="nv">$conexion</span><span class="p">,</span>
+<a id="__codelineno-8-39" name="__codelineno-8-39"></a>            <span class="s2">"UPDATE clientes SET nombre = ?, telefono = ? WHERE id = ?"</span>
+<a id="__codelineno-8-40" name="__codelineno-8-40"></a>        <span class="p">);</span>
+<a id="__codelineno-8-41" name="__codelineno-8-41"></a>
+<a id="__codelineno-8-42" name="__codelineno-8-42"></a>        <span class="nx">mysqli_stmt_bind_param</span><span class="p">(</span><span class="nv">$stmt</span><span class="p">,</span> <span class="s2">"ssi"</span><span class="p">,</span> <span class="nv">$nombre</span><span class="p">,</span> <span class="nv">$telefono</span><span class="p">,</span> <span class="nv">$id</span><span class="p">);</span>
+<a id="__codelineno-8-43" name="__codelineno-8-43"></a>
+<a id="__codelineno-8-44" name="__codelineno-8-44"></a>        <span class="k">try</span> <span class="p">{</span>
+<a id="__codelineno-8-45" name="__codelineno-8-45"></a>
+<a id="__codelineno-8-46" name="__codelineno-8-46"></a>            <span class="nx">mysqli_stmt_execute</span><span class="p">(</span><span class="nv">$stmt</span><span class="p">);</span>
+<a id="__codelineno-8-47" name="__codelineno-8-47"></a>
+<a id="__codelineno-8-48" name="__codelineno-8-48"></a>            <span class="nv">$filas</span> <span class="o">=</span> <span class="nx">mysqli_stmt_affected_rows</span><span class="p">(</span><span class="nv">$stmt</span><span class="p">);</span>
+<a id="__codelineno-8-49" name="__codelineno-8-49"></a>
+<a id="__codelineno-8-50" name="__codelineno-8-50"></a>            <span class="nx">mysqli_stmt_close</span><span class="p">(</span><span class="nv">$stmt</span><span class="p">);</span>
+<a id="__codelineno-8-51" name="__codelineno-8-51"></a>            <span class="nx">mysqli_close</span><span class="p">(</span><span class="nv">$conexion</span><span class="p">);</span>
+<a id="__codelineno-8-52" name="__codelineno-8-52"></a>
+<a id="__codelineno-8-53" name="__codelineno-8-53"></a>            <span class="nv">$_SESSION</span><span class="p">[</span><span class="s2">"mensaje"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nv">$filas</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-8-54" name="__codelineno-8-54"></a>                <span class="o">?</span> <span class="s2">"Cliente actualizado."</span>
+<a id="__codelineno-8-55" name="__codelineno-8-55"></a>                <span class="o">:</span> <span class="s2">"No se han producido cambios."</span><span class="p">;</span>
+<a id="__codelineno-8-56" name="__codelineno-8-56"></a>
+<a id="__codelineno-8-57" name="__codelineno-8-57"></a>            <span class="nb">header</span><span class="p">(</span><span class="s2">"Location: clientes.php"</span><span class="p">);</span>
+<a id="__codelineno-8-58" name="__codelineno-8-58"></a>            <span class="k">exit</span><span class="p">;</span>
+<a id="__codelineno-8-59" name="__codelineno-8-59"></a>
+<a id="__codelineno-8-60" name="__codelineno-8-60"></a>        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">mysqli_sql_exception</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-8-61" name="__codelineno-8-61"></a>
+<a id="__codelineno-8-62" name="__codelineno-8-62"></a>            <span class="nb">error_log</span><span class="p">(</span><span class="s2">"Error al actualizar cliente: "</span> <span class="o">.</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">());</span>
+<a id="__codelineno-8-63" name="__codelineno-8-63"></a>
+<a id="__codelineno-8-64" name="__codelineno-8-64"></a>            <span class="nv">$errores</span><span class="p">[]</span> <span class="o">=</span> <span class="s2">"No se pudo actualizar el cliente."</span><span class="p">;</span>
+<a id="__codelineno-8-65" name="__codelineno-8-65"></a>
+<a id="__codelineno-8-66" name="__codelineno-8-66"></a>        <span class="p">}</span>
+<a id="__codelineno-8-67" name="__codelineno-8-67"></a>
+<a id="__codelineno-8-68" name="__codelineno-8-68"></a>    <span class="p">}</span>
+<a id="__codelineno-8-69" name="__codelineno-8-69"></a>
+<a id="__codelineno-8-70" name="__codelineno-8-70"></a><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<a id="__codelineno-8-71" name="__codelineno-8-71"></a>
+<a id="__codelineno-8-72" name="__codelineno-8-72"></a>    <span class="c1">// --- Primera carga: leer los datos actuales ---</span>
+<a id="__codelineno-8-73" name="__codelineno-8-73"></a>    <span class="nv">$stmt</span> <span class="o">=</span> <span class="nx">mysqli_prepare</span><span class="p">(</span>
+<a id="__codelineno-8-74" name="__codelineno-8-74"></a>        <span class="nv">$conexion</span><span class="p">,</span>
+<a id="__codelineno-8-75" name="__codelineno-8-75"></a>        <span class="s2">"SELECT nombre, telefono FROM clientes WHERE id = ?"</span>
+<a id="__codelineno-8-76" name="__codelineno-8-76"></a>    <span class="p">);</span>
+<a id="__codelineno-8-77" name="__codelineno-8-77"></a>
+<a id="__codelineno-8-78" name="__codelineno-8-78"></a>    <span class="nx">mysqli_stmt_bind_param</span><span class="p">(</span><span class="nv">$stmt</span><span class="p">,</span> <span class="s2">"i"</span><span class="p">,</span> <span class="nv">$id</span><span class="p">);</span>
+<a id="__codelineno-8-79" name="__codelineno-8-79"></a>    <span class="nx">mysqli_stmt_execute</span><span class="p">(</span><span class="nv">$stmt</span><span class="p">);</span>
+<a id="__codelineno-8-80" name="__codelineno-8-80"></a>
+<a id="__codelineno-8-81" name="__codelineno-8-81"></a>    <span class="nv">$resultado</span> <span class="o">=</span> <span class="nx">mysqli_stmt_get_result</span><span class="p">(</span><span class="nv">$stmt</span><span class="p">);</span>
+<a id="__codelineno-8-82" name="__codelineno-8-82"></a>    <span class="nv">$cliente</span>   <span class="o">=</span> <span class="nx">mysqli_fetch_assoc</span><span class="p">(</span><span class="nv">$resultado</span><span class="p">);</span>
+<a id="__codelineno-8-83" name="__codelineno-8-83"></a>
+<a id="__codelineno-8-84" name="__codelineno-8-84"></a>    <span class="nx">mysqli_free_result</span><span class="p">(</span><span class="nv">$resultado</span><span class="p">);</span>
+<a id="__codelineno-8-85" name="__codelineno-8-85"></a>    <span class="nx">mysqli_stmt_close</span><span class="p">(</span><span class="nv">$stmt</span><span class="p">);</span>
+<a id="__codelineno-8-86" name="__codelineno-8-86"></a>
+<a id="__codelineno-8-87" name="__codelineno-8-87"></a>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$cliente</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-8-88" name="__codelineno-8-88"></a>
+<a id="__codelineno-8-89" name="__codelineno-8-89"></a>        <span class="nx">mysqli_close</span><span class="p">(</span><span class="nv">$conexion</span><span class="p">);</span>
+<a id="__codelineno-8-90" name="__codelineno-8-90"></a>
+<a id="__codelineno-8-91" name="__codelineno-8-91"></a>        <span class="nv">$_SESSION</span><span class="p">[</span><span class="s2">"mensaje"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"El cliente solicitado no existe."</span><span class="p">;</span>
+<a id="__codelineno-8-92" name="__codelineno-8-92"></a>
+<a id="__codelineno-8-93" name="__codelineno-8-93"></a>        <span class="nb">header</span><span class="p">(</span><span class="s2">"Location: clientes.php"</span><span class="p">);</span>
+<a id="__codelineno-8-94" name="__codelineno-8-94"></a>        <span class="k">exit</span><span class="p">;</span>
+<a id="__codelineno-8-95" name="__codelineno-8-95"></a>
+<a id="__codelineno-8-96" name="__codelineno-8-96"></a>    <span class="p">}</span>
+<a id="__codelineno-8-97" name="__codelineno-8-97"></a>
+<a id="__codelineno-8-98" name="__codelineno-8-98"></a>    <span class="nv">$nombre</span>   <span class="o">=</span> <span class="nv">$cliente</span><span class="p">[</span><span class="s2">"nombre"</span><span class="p">];</span>
+<a id="__codelineno-8-99" name="__codelineno-8-99"></a>    <span class="nv">$telefono</span> <span class="o">=</span> <span class="nv">$cliente</span><span class="p">[</span><span class="s2">"telefono"</span><span class="p">];</span>
+<a id="__codelineno-8-100" name="__codelineno-8-100"></a>
+<a id="__codelineno-8-101" name="__codelineno-8-101"></a><span class="p">}</span>
+<a id="__codelineno-8-102" name="__codelineno-8-102"></a>
+<a id="__codelineno-8-103" name="__codelineno-8-103"></a><span class="nx">mysqli_close</span><span class="p">(</span><span class="nv">$conexion</span><span class="p">);</span>
+<a id="__codelineno-8-104" name="__codelineno-8-104"></a>
+<a id="__codelineno-8-105" name="__codelineno-8-105"></a><span class="cp">?&gt;</span>
+<a id="__codelineno-8-106" name="__codelineno-8-106"></a><span class="x">&lt;!DOCTYPE html&gt;</span>
+<a id="__codelineno-8-107" name="__codelineno-8-107"></a><span class="x">&lt;html lang="es"&gt;</span>
+<a id="__codelineno-8-108" name="__codelineno-8-108"></a>
+<a id="__codelineno-8-109" name="__codelineno-8-109"></a><span class="x">&lt;head&gt;</span>
+<a id="__codelineno-8-110" name="__codelineno-8-110"></a><span class="x">    &lt;meta charset="UTF-8"&gt;</span>
+<a id="__codelineno-8-111" name="__codelineno-8-111"></a><span class="x">    &lt;title&gt;Editar cliente&lt;/title&gt;</span>
+<a id="__codelineno-8-112" name="__codelineno-8-112"></a><span class="x">&lt;/head&gt;</span>
+<a id="__codelineno-8-113" name="__codelineno-8-113"></a>
+<a id="__codelineno-8-114" name="__codelineno-8-114"></a><span class="x">&lt;body&gt;</span>
+<a id="__codelineno-8-115" name="__codelineno-8-115"></a>
+<a id="__codelineno-8-116" name="__codelineno-8-116"></a><span class="x">&lt;h1&gt;Editar cliente&lt;/h1&gt;</span>
+<a id="__codelineno-8-117" name="__codelineno-8-117"></a>
+<a id="__codelineno-8-118" name="__codelineno-8-118"></a><span class="cp">&lt;?php</span> <span class="k">foreach</span> <span class="p">(</span><span class="nv">$errores</span> <span class="k">as</span> <span class="nv">$error</span><span class="p">)</span> <span class="p">{</span> <span class="cp">?&gt;</span>
+<a id="__codelineno-8-119" name="__codelineno-8-119"></a><span class="x">    &lt;p style="color: red;"&gt;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nx">h</span><span class="p">(</span><span class="nv">$error</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="x">&lt;/p&gt;</span>
+<a id="__codelineno-8-120" name="__codelineno-8-120"></a><span class="cp">&lt;?php</span> <span class="p">}</span> <span class="cp">?&gt;</span>
+<a id="__codelineno-8-121" name="__codelineno-8-121"></a>
+<a id="__codelineno-8-122" name="__codelineno-8-122"></a><span class="x">&lt;form method="POST" action="actualizar.php"&gt;</span>
+<a id="__codelineno-8-123" name="__codelineno-8-123"></a>
+<a id="__codelineno-8-124" name="__codelineno-8-124"></a><span class="x">    &lt;input type="hidden" name="id" value="</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nx">h</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="x">"&gt;</span>
+<a id="__codelineno-8-125" name="__codelineno-8-125"></a>
+<a id="__codelineno-8-126" name="__codelineno-8-126"></a><span class="x">    &lt;p&gt;</span>
+<a id="__codelineno-8-127" name="__codelineno-8-127"></a><span class="x">        Nombre&lt;br&gt;</span>
+<a id="__codelineno-8-128" name="__codelineno-8-128"></a><span class="x">        &lt;input type="text" name="nombre" value="</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nx">h</span><span class="p">(</span><span class="nv">$nombre</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="x">"&gt;</span>
+<a id="__codelineno-8-129" name="__codelineno-8-129"></a><span class="x">    &lt;/p&gt;</span>
+<a id="__codelineno-8-130" name="__codelineno-8-130"></a>
+<a id="__codelineno-8-131" name="__codelineno-8-131"></a><span class="x">    &lt;p&gt;</span>
+<a id="__codelineno-8-132" name="__codelineno-8-132"></a><span class="x">        Teléfono&lt;br&gt;</span>
+<a id="__codelineno-8-133" name="__codelineno-8-133"></a><span class="x">        &lt;input type="text" name="telefono" value="</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nx">h</span><span class="p">(</span><span class="nv">$telefono</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="x">"&gt;</span>
+<a id="__codelineno-8-134" name="__codelineno-8-134"></a><span class="x">    &lt;/p&gt;</span>
+<a id="__codelineno-8-135" name="__codelineno-8-135"></a>
+<a id="__codelineno-8-136" name="__codelineno-8-136"></a><span class="x">    &lt;input type="submit" value="Actualizar"&gt;</span>
+<a id="__codelineno-8-137" name="__codelineno-8-137"></a>
+<a id="__codelineno-8-138" name="__codelineno-8-138"></a><span class="x">&lt;/form&gt;</span>
+<a id="__codelineno-8-139" name="__codelineno-8-139"></a>
+<a id="__codelineno-8-140" name="__codelineno-8-140"></a><span class="x">&lt;p&gt;&lt;a href="clientes.php"&gt;Cancelar&lt;/a&gt;&lt;/p&gt;</span>
+<a id="__codelineno-8-141" name="__codelineno-8-141"></a>
+<a id="__codelineno-8-142" name="__codelineno-8-142"></a><span class="x">&lt;/body&gt;</span>
+<a id="__codelineno-8-143" name="__codelineno-8-143"></a><span class="x">&lt;/html&gt;</span>
+</code></pre></div></td></tr></table></div>
+<blockquote>
+<p>Ten en cuenta que el <code>id</code> va en un campo <code>hidden</code>, pero <strong>un campo oculto lo puede modificar cualquiera</strong> desde las herramientas del navegador. Por eso el servidor lo vuelve a validar.</p>
+</blockquote>
+<h2 id="626-comprobacion-del-resultado-affected_rows">6.2.6 Comprobación del resultado: <code>affected_rows</code></h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="x">mysqli_stmt_affected_rows($stmt);</span>
+</code></pre></div></td></tr></table></div>
+<p>devuelve cuántas filas <strong>han cambiado</strong>. Hay un detalle importante en <code>UPDATE</code>:</p>
+<ul>
+<li>Si el registro existe y los nuevos valores son <strong>distintos</strong>, devuelve <code>1</code>.</li>
+<li>Si el registro existe pero los valores son <strong>idénticos a los que ya tenía</strong>, devuelve <code>0</code> (MariaDB no cambia nada).</li>
+<li>Si el registro no existe, también devuelve <code>0</code>.</li>
+</ul>
+<p>Por eso <strong><code>0</code> no significa necesariamente «no existe»</strong>. Mostrar «No se encontró el registro» cuando devuelve 0 puede ser falso: el usuario pudo guardar sin cambiar nada. En el ejemplo anterior comprobamos la existencia con un <code>SELECT</code> en la primera carga y, cuando devuelve 0, mostramos «No se han producido cambios».</p>
+<hr />
+<h1 id="63-eliminacion-de-registros">6.3 Eliminación de registros</h1>
+<h2 id="631-la-sentencia-delete">6.3.1 La sentencia DELETE</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">tabla</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">condicion</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">clientes</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="632-riesgos-de-delete">6.3.2 Riesgos de DELETE</h2>
+<p>El borrado es <strong>irreversible</strong>: el dato desaparece. Sin <code>WHERE</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">clientes</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p>se eliminan <strong>todos</strong> los registros de la tabla.</p>
+<blockquote>
+<p>En aplicaciones reales es frecuente no borrar físicamente, sino marcar el registro como inactivo (por ejemplo, con una columna <code>activo</code> o <code>fecha_baja</code>) para poder recuperarlo. Se conoce como <strong>borrado lógico</strong> (<em>soft delete</em>).</p>
+</blockquote>
+<h2 id="633-delete-con-sentencias-preparadas">6.3.3 DELETE con sentencias preparadas</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">clientes</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">?</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
+<span class="normal"><a href="#__codelineno-14-2">2</a></span>
+<span class="normal"><a href="#__codelineno-14-3">3</a></span>
+<span class="normal"><a href="#__codelineno-14-4">4</a></span>
+<span class="normal"><a href="#__codelineno-14-5">5</a></span>
+<span class="normal"><a href="#__codelineno-14-6">6</a></span>
+<span class="normal"><a href="#__codelineno-14-7">7</a></span>
+<span class="normal"><a href="#__codelineno-14-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="x">$stmt = mysqli_prepare(</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="x">    $conexion,</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="x">    "DELETE FROM clientes WHERE id = ?"</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="x">);</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5"></a>
+<a id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="x">mysqli_stmt_bind_param($stmt, "i", $id);</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7"></a>
+<a id="__codelineno-14-8" name="__codelineno-14-8"></a><span class="x">mysqli_stmt_execute($stmt);</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="634-eliminacion-desde-el-listado-usar-post-no-get">6.3.4 Eliminación desde el listado: usar POST, no GET</h2>
+<p>Es tentador poner en el listado un enlace <code>eliminar.php?id=3</code>. <strong>No lo hagas</strong>: un enlace es una petición GET y las peticiones GET las pueden lanzar cosas que no controlas: un navegador que precarga páginas, un buscador que rastrea la web, o una imagen maliciosa en otra página (<code>&lt;img src="…/eliminar.php?id=3"&gt;</code>).</p>
+<p><strong>Regla:</strong> las operaciones que modifican datos se hacen con <strong>POST</strong>. En el listado, cada fila lleva un pequeño formulario con botón:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
+<span class="normal"><a href="#__codelineno-15-2">2</a></span>
+<span class="normal"><a href="#__codelineno-15-3">3</a></span>
+<span class="normal"><a href="#__codelineno-15-4">4</a></span>
+<span class="normal"><a href="#__codelineno-15-5">5</a></span>
+<span class="normal"><a href="#__codelineno-15-6">6</a></span>
+<span class="normal"><a href="#__codelineno-15-7">7</a></span>
+<span class="normal"><a href="#__codelineno-15-8">8</a></span>
+<span class="normal"><a href="#__codelineno-15-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="x">&lt;td&gt;</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="x">    &lt;form method="POST" action="eliminar.php"</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="x">          onsubmit="return confirm('¿Desea eliminar este cliente?');"&gt;</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a>
+<a id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="x">        &lt;input type="hidden" name="id" value="</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nx">h</span><span class="p">(</span><span class="nv">$fila</span><span class="p">[</span><span class="s2">"id"</span><span class="p">])</span> <span class="cp">?&gt;</span><span class="x">"&gt;</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="x">        &lt;input type="submit" value="Eliminar"&gt;</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7"></a>
+<a id="__codelineno-15-8" name="__codelineno-15-8"></a><span class="x">    &lt;/form&gt;</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9"></a><span class="x">&lt;/td&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>La función <code>confirm()</code> de JavaScript reduce los borrados accidentales. Ojo: es una ayuda para el usuario, no una medida de seguridad; la lógica real siempre está en el servidor.</p>
+<blockquote>
+<p>Más adelante (en unidades de seguridad y autenticación) veremos que incluso un POST puede ser falsificado desde otra web (ataque <strong>CSRF</strong>) y cómo defenderse con <em>tokens</em>. Y, por supuesto, que solo los usuarios autorizados deberían poder borrar.</p>
+</blockquote>
+<h2 id="635-fichero-eliminarphp">6.3.5 Fichero <code>eliminar.php</code></h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-16-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-16-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-16-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-16-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-16-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-16-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-16-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-16-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-16-10">10</a></span>
+<span class="normal"><a href="#__codelineno-16-11">11</a></span>
+<span class="normal"><a href="#__codelineno-16-12">12</a></span>
+<span class="normal"><a href="#__codelineno-16-13">13</a></span>
+<span class="normal"><a href="#__codelineno-16-14">14</a></span>
+<span class="normal"><a href="#__codelineno-16-15">15</a></span>
+<span class="normal"><a href="#__codelineno-16-16">16</a></span>
+<span class="normal"><a href="#__codelineno-16-17">17</a></span>
+<span class="normal"><a href="#__codelineno-16-18">18</a></span>
+<span class="normal"><a href="#__codelineno-16-19">19</a></span>
+<span class="normal"><a href="#__codelineno-16-20">20</a></span>
+<span class="normal"><a href="#__codelineno-16-21">21</a></span>
+<span class="normal"><a href="#__codelineno-16-22">22</a></span>
+<span class="normal"><a href="#__codelineno-16-23">23</a></span>
+<span class="normal"><a href="#__codelineno-16-24">24</a></span>
+<span class="normal"><a href="#__codelineno-16-25">25</a></span>
+<span class="normal"><a href="#__codelineno-16-26">26</a></span>
+<span class="normal"><a href="#__codelineno-16-27">27</a></span>
+<span class="normal"><a href="#__codelineno-16-28">28</a></span>
+<span class="normal"><a href="#__codelineno-16-29">29</a></span>
+<span class="normal"><a href="#__codelineno-16-30">30</a></span>
+<span class="normal"><a href="#__codelineno-16-31">31</a></span>
+<span class="normal"><a href="#__codelineno-16-32">32</a></span>
+<span class="normal"><a href="#__codelineno-16-33">33</a></span>
+<span class="normal"><a href="#__codelineno-16-34">34</a></span>
+<span class="normal"><a href="#__codelineno-16-35">35</a></span>
+<span class="normal"><a href="#__codelineno-16-36">36</a></span>
+<span class="normal"><a href="#__codelineno-16-37">37</a></span>
+<span class="normal"><a href="#__codelineno-16-38">38</a></span>
+<span class="normal"><a href="#__codelineno-16-39">39</a></span>
+<span class="normal"><a href="#__codelineno-16-40">40</a></span>
+<span class="normal"><a href="#__codelineno-16-41">41</a></span>
+<span class="normal"><a href="#__codelineno-16-42">42</a></span>
+<span class="normal"><a href="#__codelineno-16-43">43</a></span>
+<span class="normal"><a href="#__codelineno-16-44">44</a></span>
+<span class="normal"><a href="#__codelineno-16-45">45</a></span>
+<span class="normal"><a href="#__codelineno-16-46">46</a></span>
+<span class="normal"><a href="#__codelineno-16-47">47</a></span>
+<span class="normal"><a href="#__codelineno-16-48">48</a></span>
+<span class="normal"><a href="#__codelineno-16-49">49</a></span>
+<span class="normal"><a href="#__codelineno-16-50">50</a></span>
+<span class="normal"><a href="#__codelineno-16-51">51</a></span>
+<span class="normal"><a href="#__codelineno-16-52">52</a></span>
+<span class="normal"><a href="#__codelineno-16-53">53</a></span>
+<span class="normal"><a href="#__codelineno-16-54">54</a></span>
+<span class="normal"><a href="#__codelineno-16-55">55</a></span>
+<span class="normal"><a href="#__codelineno-16-56">56</a></span>
+<span class="normal"><a href="#__codelineno-16-57">57</a></span>
+<span class="normal"><a href="#__codelineno-16-58">58</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a>
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="nb">session_start</span><span class="p">();</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a>
+<a id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="k">require_once</span> <span class="s2">"conexion.php"</span><span class="p">;</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6"></a>
+<a id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="c1">// Solo aceptamos POST</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8"></a><span class="k">if</span> <span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">"REQUEST_METHOD"</span><span class="p">]</span> <span class="o">!==</span> <span class="s2">"POST"</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9"></a>
+<a id="__codelineno-16-10" name="__codelineno-16-10"></a>    <span class="nb">header</span><span class="p">(</span><span class="s2">"Location: clientes.php"</span><span class="p">);</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11"></a>    <span class="k">exit</span><span class="p">;</span>
+<a id="__codelineno-16-12" name="__codelineno-16-12"></a>
+<a id="__codelineno-16-13" name="__codelineno-16-13"></a><span class="p">}</span>
+<a id="__codelineno-16-14" name="__codelineno-16-14"></a>
+<a id="__codelineno-16-15" name="__codelineno-16-15"></a><span class="nv">$id</span> <span class="o">=</span> <span class="nb">filter_var</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]</span> <span class="o">??</span> <span class="s2">""</span><span class="p">,</span> <span class="nx">FILTER_VALIDATE_INT</span><span class="p">);</span>
+<a id="__codelineno-16-16" name="__codelineno-16-16"></a>
+<a id="__codelineno-16-17" name="__codelineno-16-17"></a><span class="k">if</span> <span class="p">(</span><span class="nv">$id</span> <span class="o">===</span> <span class="k">false</span> <span class="o">||</span> <span class="nv">$id</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-16-18" name="__codelineno-16-18"></a>
+<a id="__codelineno-16-19" name="__codelineno-16-19"></a>    <span class="nv">$_SESSION</span><span class="p">[</span><span class="s2">"mensaje"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Identificador no válido."</span><span class="p">;</span>
+<a id="__codelineno-16-20" name="__codelineno-16-20"></a>
+<a id="__codelineno-16-21" name="__codelineno-16-21"></a>    <span class="nb">header</span><span class="p">(</span><span class="s2">"Location: clientes.php"</span><span class="p">);</span>
+<a id="__codelineno-16-22" name="__codelineno-16-22"></a>    <span class="k">exit</span><span class="p">;</span>
+<a id="__codelineno-16-23" name="__codelineno-16-23"></a>
+<a id="__codelineno-16-24" name="__codelineno-16-24"></a><span class="p">}</span>
+<a id="__codelineno-16-25" name="__codelineno-16-25"></a>
+<a id="__codelineno-16-26" name="__codelineno-16-26"></a><span class="nv">$conexion</span> <span class="o">=</span> <span class="nx">conexion</span><span class="p">();</span>
+<a id="__codelineno-16-27" name="__codelineno-16-27"></a>
+<a id="__codelineno-16-28" name="__codelineno-16-28"></a><span class="nv">$stmt</span> <span class="o">=</span> <span class="nx">mysqli_prepare</span><span class="p">(</span><span class="nv">$conexion</span><span class="p">,</span> <span class="s2">"DELETE FROM clientes WHERE id = ?"</span><span class="p">);</span>
+<a id="__codelineno-16-29" name="__codelineno-16-29"></a>
+<a id="__codelineno-16-30" name="__codelineno-16-30"></a><span class="nx">mysqli_stmt_bind_param</span><span class="p">(</span><span class="nv">$stmt</span><span class="p">,</span> <span class="s2">"i"</span><span class="p">,</span> <span class="nv">$id</span><span class="p">);</span>
+<a id="__codelineno-16-31" name="__codelineno-16-31"></a>
+<a id="__codelineno-16-32" name="__codelineno-16-32"></a><span class="k">try</span> <span class="p">{</span>
+<a id="__codelineno-16-33" name="__codelineno-16-33"></a>
+<a id="__codelineno-16-34" name="__codelineno-16-34"></a>    <span class="nx">mysqli_stmt_execute</span><span class="p">(</span><span class="nv">$stmt</span><span class="p">);</span>
+<a id="__codelineno-16-35" name="__codelineno-16-35"></a>
+<a id="__codelineno-16-36" name="__codelineno-16-36"></a>    <span class="k">if</span> <span class="p">(</span><span class="nx">mysqli_stmt_affected_rows</span><span class="p">(</span><span class="nv">$stmt</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-16-37" name="__codelineno-16-37"></a>
+<a id="__codelineno-16-38" name="__codelineno-16-38"></a>        <span class="nv">$_SESSION</span><span class="p">[</span><span class="s2">"mensaje"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Cliente eliminado."</span><span class="p">;</span>
+<a id="__codelineno-16-39" name="__codelineno-16-39"></a>
+<a id="__codelineno-16-40" name="__codelineno-16-40"></a>    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<a id="__codelineno-16-41" name="__codelineno-16-41"></a>
+<a id="__codelineno-16-42" name="__codelineno-16-42"></a>        <span class="nv">$_SESSION</span><span class="p">[</span><span class="s2">"mensaje"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"No existe ningún cliente con ese identificador."</span><span class="p">;</span>
+<a id="__codelineno-16-43" name="__codelineno-16-43"></a>
+<a id="__codelineno-16-44" name="__codelineno-16-44"></a>    <span class="p">}</span>
+<a id="__codelineno-16-45" name="__codelineno-16-45"></a>
+<a id="__codelineno-16-46" name="__codelineno-16-46"></a><span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">mysqli_sql_exception</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-16-47" name="__codelineno-16-47"></a>
+<a id="__codelineno-16-48" name="__codelineno-16-48"></a>    <span class="nb">error_log</span><span class="p">(</span><span class="s2">"Error al eliminar cliente: "</span> <span class="o">.</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">());</span>
+<a id="__codelineno-16-49" name="__codelineno-16-49"></a>
+<a id="__codelineno-16-50" name="__codelineno-16-50"></a>    <span class="nv">$_SESSION</span><span class="p">[</span><span class="s2">"mensaje"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"No se pudo eliminar el cliente."</span><span class="p">;</span>
+<a id="__codelineno-16-51" name="__codelineno-16-51"></a>
+<a id="__codelineno-16-52" name="__codelineno-16-52"></a><span class="p">}</span>
+<a id="__codelineno-16-53" name="__codelineno-16-53"></a>
+<a id="__codelineno-16-54" name="__codelineno-16-54"></a><span class="nx">mysqli_stmt_close</span><span class="p">(</span><span class="nv">$stmt</span><span class="p">);</span>
+<a id="__codelineno-16-55" name="__codelineno-16-55"></a><span class="nx">mysqli_close</span><span class="p">(</span><span class="nv">$conexion</span><span class="p">);</span>
+<a id="__codelineno-16-56" name="__codelineno-16-56"></a>
+<a id="__codelineno-16-57" name="__codelineno-16-57"></a><span class="nb">header</span><span class="p">(</span><span class="s2">"Location: clientes.php"</span><span class="p">);</span>
+<a id="__codelineno-16-58" name="__codelineno-16-58"></a><span class="k">exit</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p>En <code>DELETE</code>, <code>affected_rows</code> sí es fiable: es el número de filas eliminadas, de modo que <code>0</code> significa que no existía ese registro.</p>
+<hr />
+<h1 id="64-borrado-y-claves-foraneas">6.4 Borrado y claves foráneas</h1>
+<p>Cuando una tabla está relacionada con otra, MariaDB <strong>impide borrar un registro si hay otros que dependen de él</strong>. Con las tablas <code>grupos</code> y <code>alumnos</code> del capítulo 7, intentar borrar un grupo que tiene alumnos asignados produce este error:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a>Cannot delete or update a parent row: a foreign key constraint fails
+</code></pre></div></td></tr></table></div>
+<p>En PHP se trata de una excepción cuyo código es <code>1451</code>. Podemos capturarla para dar un mensaje útil:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-18-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-18-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-18-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-18-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-18-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-18-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-18-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-18-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-18-10">10</a></span>
+<span class="normal"><a href="#__codelineno-18-11">11</a></span>
+<span class="normal"><a href="#__codelineno-18-12">12</a></span>
+<span class="normal"><a href="#__codelineno-18-13">13</a></span>
+<span class="normal"><a href="#__codelineno-18-14">14</a></span>
+<span class="normal"><a href="#__codelineno-18-15">15</a></span>
+<span class="normal"><a href="#__codelineno-18-16">16</a></span>
+<span class="normal"><a href="#__codelineno-18-17">17</a></span>
+<span class="normal"><a href="#__codelineno-18-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="x">try {</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a>
+<a id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="x">    mysqli_stmt_execute($stmt);</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4"></a>
+<a id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="x">} catch (mysqli_sql_exception $e) {</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6"></a>
+<a id="__codelineno-18-7" name="__codelineno-18-7"></a><span class="x">    if ($e-&gt;getCode() === 1451) {</span>
+<a id="__codelineno-18-8" name="__codelineno-18-8"></a>
+<a id="__codelineno-18-9" name="__codelineno-18-9"></a><span class="x">        $_SESSION["mensaje"] = "No se puede eliminar el grupo porque tiene alumnos asignados.";</span>
+<a id="__codelineno-18-10" name="__codelineno-18-10"></a>
+<a id="__codelineno-18-11" name="__codelineno-18-11"></a><span class="x">    } else {</span>
+<a id="__codelineno-18-12" name="__codelineno-18-12"></a>
+<a id="__codelineno-18-13" name="__codelineno-18-13"></a><span class="x">        error_log($e-&gt;getMessage());</span>
+<a id="__codelineno-18-14" name="__codelineno-18-14"></a><span class="x">        $_SESSION["mensaje"] = "No se pudo eliminar el grupo.";</span>
+<a id="__codelineno-18-15" name="__codelineno-18-15"></a>
+<a id="__codelineno-18-16" name="__codelineno-18-16"></a><span class="x">    }</span>
+<a id="__codelineno-18-17" name="__codelineno-18-17"></a>
+<a id="__codelineno-18-18" name="__codelineno-18-18"></a><span class="x">}</span>
+</code></pre></div></td></tr></table></div>
+<p>El comportamiento se define al crear la clave foránea con <code>ON DELETE</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Opción</th>
+<th>Efecto al borrar el registro «padre» (el grupo)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>RESTRICT</code> (por defecto)</td>
+<td>Impide el borrado si hay registros relacionados</td>
+</tr>
+<tr>
+<td><code>CASCADE</code></td>
+<td>Borra también los registros relacionados (¡los alumnos!)</td>
+</tr>
+<tr>
+<td><code>SET NULL</code></td>
+<td>Deja <code>NULL</code> en la clave foránea de los alumnos</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">grupo_id</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">grupos</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">DELETE</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="k">NULL</span>
+</code></pre></div></td></tr></table></div>
+<p>La elección depende de las reglas de negocio: borrar un grupo ¿debe borrar a sus alumnos? Casi nunca. <code>CASCADE</code> es potente pero peligroso: úsalo con mucho cuidado.</p>
+<hr />
+<h2 id="65-resumen">6.5 Resumen</h2>
+<table>
+<thead>
+<tr>
+<th>Operación</th>
+<th>Sentencia SQL</th>
+<th>Método HTTP</th>
+<th><code>affected_rows</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Update</td>
+<td><code>UPDATE</code></td>
+<td>POST</td>
+<td>Filas <strong>modificadas</strong> (0 si no hay cambios <em>o</em> no existe)</td>
+</tr>
+<tr>
+<td>Delete</td>
+<td><code>DELETE</code></td>
+<td>POST</td>
+<td>Filas <strong>eliminadas</strong> (0 si no existe)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Valida el <code>id</code> con <code>filter_var(..., FILTER_VALIDATE_INT)</code>.</li>
+<li><strong>Siempre</strong> <code>WHERE</code> en <code>UPDATE</code> y <code>DELETE</code>.</li>
+<li>Editar = leer los datos (GET) + formulario + <code>UPDATE</code> (POST) + redirección.</li>
+<li>Borrar siempre con POST, nunca con un enlace GET.</li>
+<li>Un <code>DELETE</code> puede fallar por claves foráneas (error <code>1451</code>): se captura y se informa.</li>
+<li>Todas las operaciones con datos variables se realizan con sentencias preparadas.</li>
+</ul>
+<h2 id="actividades">Actividades</h2>
+<ol>
+<li>Completa la aplicación de clientes: listado con botones <strong>Editar</strong> y <strong>Eliminar</strong>, formulario de alta y de edición.</li>
+<li>Edita un cliente y pulsa «Actualizar» sin cambiar nada. ¿Qué mensaje sale y por qué?</li>
+<li>Abre <code>actualizar.php?id=abc</code> y <code>actualizar.php?id=99999</code>. ¿Cómo se comporta la aplicación? Modifica el campo oculto <code>id</code> desde las herramientas del navegador (F12) y envía el formulario: ¿qué ocurre?</li>
+<li>Quita el <code>WHERE</code> de un <code>UPDATE</code> en una copia de pruebas de la tabla y observa el resultado (¡nunca en la tabla real!).</li>
+<li>Con las tablas <code>grupos</code> y <code>alumnos</code>, intenta borrar el grupo <code>ASIR</code> y gestiona el error. Cambia la clave foránea a <code>ON DELETE SET NULL</code> y repite la prueba.</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="../ud03e/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: UD3 - Inserción de Registros mediante Sentencias Preparadas">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l137.3-137.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                UD3 - Inserción de Registros mediante Sentencias Preparadas
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../ud03g/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: UD3 - Consultas Multitabla y JOIN">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                UD3 - Consultas Multitabla y JOIN
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M247.1 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L179.2 256 41.9 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Fahueso/implantacionWebASIR" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["optimize", "content.code.copy", "search.suggest", "search.highlight", "navigation.top", "navigation.footer", "navigation.tabs", "navigation.tabs.sticky"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+    
+  </body>
+</html>

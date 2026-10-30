@@ -1,0 +1,2626 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://fahueso.github.io/implantacionWebASIR/recursos/hoja/">
+      
+      
+        <link rel="prev" href="../../ejercicios/ud02/avanzado/">
+      
+      
+        <link rel="next" href="../..">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/camp.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>UD2 - Resumen PHP - Implantación de aplicaciones Web ASIR</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="black">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#php-hoja-de-snippets-para-el-examen" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Implantación de aplicaciones Web ASIR" class="md-header__button md-logo" aria-label="Implantación de aplicaciones Web ASIR" data-md-component="logo">
+      
+  <img src="../../assets/images/camp.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Implantación de aplicaciones Web ASIR
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              UD2 - Resumen PHP
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="black"  aria-label="Modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="black"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l137.3-137.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Fahueso/implantacionWebASIR" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Fahueso/implantacionWebASIR
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../unidades/ud01a/" class="md-tabs__link">
+          
+  
+  
+  Unidades
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ejercicios/ud01/metodos/" class="md-tabs__link">
+          
+  
+  
+  Ejercicios
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Recursos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Implantación de aplicaciones Web ASIR" class="md-nav__button md-logo" aria-label="Implantación de aplicaciones Web ASIR" data-md-component="logo">
+      
+  <img src="../../assets/images/camp.png" alt="logo">
+
+    </a>
+    Implantación de aplicaciones Web ASIR
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Fahueso/implantacionWebASIR" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Fahueso/implantacionWebASIR
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unidades
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Unidades
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../unidades/ud01a/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD1 - Aplicaciones web
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../unidades/ud01b/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD1 - Entornos de Desarrollo y Servidores Web
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../unidades/ud01c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD1 - El Motor de Aplicación y la Base de Datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../unidades/ud02a/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD2 - Repaso lenguaje de Marcas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../unidades/ud02b/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD2 - El lado del servidor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../unidades/ud02c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD2 - PHP programación del lado del servidor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../unidades/ud03a/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD3 - Introducción a las Aplicaciones Dinámicas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../unidades/ud03b/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD3 - Conexión a MariaDB desde PHP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../unidades/ud03c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD3 - Recuperación de Datos mediante SELECT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../unidades/ud03d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD3 - Sentencias Preparadas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../unidades/ud03e/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD3 - Inserción de Registros mediante Sentencias Preparadas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../unidades/ud03f/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD3 - Modificación y Eliminación de Registros
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../unidades/ud03g/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD3 - Consultas Multitabla y JOIN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../unidades/ud03h/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD3 - Gestión de Credenciales y Configuración
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ejercicios
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ejercicios
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ejercicios/ud01/metodos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD1 - Metodos HTTP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ejercicios/ud01/python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD1 - Cliente Servidor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ejercicios/ud01/ajax/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD1 - Ajax
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ejercicios/ud02/introduccion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD2 - Introducción PHP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ejercicios/ud02/sintaxis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD2 - Sintaxis PHP y Estructuras
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ejercicios/ud02/funciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD2 - Funciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ejercicios/ud02/avanzado/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD2 - Sesiones y autenticación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recursos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Recursos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD2 - Resumen PHP
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD2 - Resumen PHP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-ejecucion-y-estructura-basica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Ejecución y estructura básica
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-variables-tipos-y-constantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Variables, tipos y constantes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-operadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Operadores
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-cadenas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Cadenas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-estructuras-de-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Estructuras de control
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Arrays
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Arrays">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#indexados-claves-numericas-desde-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Indexados (claves numéricas desde 0)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asociativos-clave-valor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Asociativos (clave =&gt; valor)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comprobar-si-existe-una-clave" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comprobar si existe una clave
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#depurar-arrays-echo-no-imprime-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Depurar arrays (echo NO imprime arrays)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-funciones-include-y-require" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Funciones, include y require
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-formularios-y-superglobales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Formularios y superglobales
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Formularios y superglobales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-datos-en-la-url-busquedas-filtros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET (datos en la URL: búsquedas, filtros)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-datos-en-el-cuerpo-contrasenas-altas-modificaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST (datos en el cuerpo: contraseñas, altas, modificaciones)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enviar-el-formulario-a-otro-archivo-atributo-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enviar el formulario a OTRO archivo (atributo action)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-sesiones-y-autenticacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Sesiones y autenticación
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Sesiones y autenticación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loginphp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        login.php
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#panelphp-pagina-protegida-caducidad-por-inactividad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        panel.php (página protegida + caducidad por inactividad)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-trampas-tipicas-de-examen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Trampas típicas de examen
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-ejecucion-y-estructura-basica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Ejecución y estructura básica
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-variables-tipos-y-constantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Variables, tipos y constantes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-operadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Operadores
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-cadenas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Cadenas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-estructuras-de-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Estructuras de control
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Arrays
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Arrays">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#indexados-claves-numericas-desde-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Indexados (claves numéricas desde 0)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asociativos-clave-valor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Asociativos (clave =&gt; valor)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comprobar-si-existe-una-clave" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comprobar si existe una clave
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#depurar-arrays-echo-no-imprime-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Depurar arrays (echo NO imprime arrays)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-funciones-include-y-require" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Funciones, include y require
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-formularios-y-superglobales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Formularios y superglobales
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Formularios y superglobales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-datos-en-la-url-busquedas-filtros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET (datos en la URL: búsquedas, filtros)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-datos-en-el-cuerpo-contrasenas-altas-modificaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST (datos en el cuerpo: contraseñas, altas, modificaciones)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enviar-el-formulario-a-otro-archivo-atributo-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enviar el formulario a OTRO archivo (atributo action)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-sesiones-y-autenticacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Sesiones y autenticación
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Sesiones y autenticación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loginphp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        login.php
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#panelphp-pagina-protegida-caducidad-por-inactividad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        panel.php (página protegida + caducidad por inactividad)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-trampas-tipicas-de-examen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Trampas típicas de examen
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="php-hoja-de-snippets-para-el-examen">PHP: hoja de snippets para el examen</h1>
+<h2 id="1-ejecucion-y-estructura-basica">1. Ejecución y estructura básica</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>php<span class="w"> </span>-v<span class="w">                  </span><span class="c1"># comprobar versión instalada</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>php<span class="w"> </span>-S<span class="w"> </span>localhost:8000<span class="w">   </span><span class="c1"># servidor embebido (SOLO desarrollo), desde la carpeta del proyecto</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>php<span class="w"> </span>archivo.php<span class="w">         </span><span class="c1"># ejecutar un script en consola</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="nb">phpinfo</span><span class="p">();</span>              <span class="c1">// versión, extensiones y config (NO dejarla en producción)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span>
+<span class="normal"><a href="#__codelineno-2-6">6</a></span>
+<span class="normal"><a href="#__codelineno-2-7">7</a></span>
+<span class="normal"><a href="#__codelineno-2-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="x">&lt;!doctype html&gt;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="x">&lt;html lang="es"&gt;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="x">&lt;head&gt;&lt;meta charset="utf-8"&gt;&lt;title&gt;Ejemplo&lt;/title&gt;&lt;/head&gt;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="x">&lt;body&gt;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="x">  </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="s2">"&lt;h1&gt;¡Hola Mundo!&lt;/h1&gt;"</span><span class="p">;</span> <span class="cp">?&gt;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="x">  &lt;p&gt;Atajo: </span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$nombre</span> <span class="cp">?&gt;</span><span class="x">&lt;/p&gt;   &lt;!-- equivale a </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$nombre</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"> --&gt;</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="x">&lt;/body&gt;</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="x">&lt;/html&gt;</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span>
+<span class="normal"><a href="#__codelineno-3-4">4</a></span>
+<span class="normal"><a href="#__codelineno-3-5">5</a></span>
+<span class="normal"><a href="#__codelineno-3-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="c1">// Un archivo SOLO con PHP NO lleva "?&gt;" al final (evita espacios que rompen cabeceras)</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="c1">// comentario de una línea</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="c1"># también de una línea</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="cm">/* varias</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="cm">   líneas */</span>
+</code></pre></div></td></tr></table></div>
+<hr />
+<h2 id="2-variables-tipos-y-constantes">2. Variables, tipos y constantes</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span>
+<span class="normal"><a href="#__codelineno-4-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="nv">$nombre</span> <span class="o">=</span> <span class="s2">"Carlos"</span><span class="p">;</span>  <span class="c1">// string</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="nv">$edad</span>   <span class="o">=</span> <span class="mi">25</span><span class="p">;</span>        <span class="c1">// int</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="nv">$precio</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">;</span>       <span class="c1">// float</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="nv">$activo</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>      <span class="c1">// bool (true se muestra "1", false se muestra "")</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="nv">$nada</span>   <span class="o">=</span> <span class="k">null</span><span class="p">;</span>      <span class="c1">// null</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="nv">$lista</span>  <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span> <span class="c1">// array</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="c1">// Las variables empiezan por $ y distinguen MAYÚSCULAS/minúsculas</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="nb">gettype</span><span class="p">(</span><span class="nv">$edad</span><span class="p">);</span>      <span class="c1">// "integer"  (float da "double", bool da "boolean")</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="nb">var_dump</span><span class="p">(</span><span class="nv">$edad</span><span class="p">);</span>     <span class="c1">// tipo + valor (ideal para depurar)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span>
+<span class="normal"><a href="#__codelineno-5-5">5</a></span>
+<span class="normal"><a href="#__codelineno-5-6">6</a></span>
+<span class="normal"><a href="#__codelineno-5-7">7</a></span>
+<span class="normal"><a href="#__codelineno-5-8">8</a></span>
+<span class="normal"><a href="#__codelineno-5-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="c1">// Casting: (int) (float) (string) (bool) (array)</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="nv">$dato</span> <span class="o">=</span> <span class="s2">"123"</span><span class="p">;</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="nv">$dato</span> <span class="o">=</span> <span class="p">(</span><span class="nx">int</span><span class="p">)</span><span class="nv">$dato</span><span class="p">;</span>        <span class="c1">// ahora es int</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="c1">// Constantes</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="nb">define</span><span class="p">(</span><span class="s2">"PAIS"</span><span class="p">,</span> <span class="s2">"España"</span><span class="p">);</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="k">const</span> <span class="no">IVA</span> <span class="o">=</span> <span class="mf">0.21</span><span class="p">;</span>          <span class="c1">// alternativa moderna</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="k">echo</span> <span class="s2">"País: "</span> <span class="o">.</span> <span class="nx">PAIS</span><span class="p">;</span>      <span class="c1">// las constantes NO llevan $</span>
+</code></pre></div></td></tr></table></div>
+<hr />
+<h2 id="3-operadores">3. Operadores</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-6-10">10</a></span>
+<span class="normal"><a href="#__codelineno-6-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="c1">// Aritméticos: + - * / % (módulo) ** (potencia)</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="nv">$a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="nv">$b</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="k">echo</span> <span class="nv">$a</span> <span class="o">+</span> <span class="nv">$b</span><span class="p">;</span>   <span class="c1">// 13</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="k">echo</span> <span class="nv">$a</span> <span class="o">/</span> <span class="nv">$b</span><span class="p">;</span>   <span class="c1">// 3.3333...</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="k">echo</span> <span class="nv">$a</span> <span class="o">%</span> <span class="nv">$b</span><span class="p">;</span>   <span class="c1">// 1</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="k">echo</span> <span class="nv">$a</span> <span class="o">**</span> <span class="nv">$b</span><span class="p">;</span>  <span class="c1">// 1000</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a>
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="c1">// Asignación compuesta: += -= *= /= .=</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="nv">$c</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="nv">$c</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">;</span>   <span class="c1">// 7</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="nv">$txt</span> <span class="o">=</span> <span class="s2">"Hola"</span><span class="p">;</span> <span class="nv">$txt</span> <span class="o">.=</span> <span class="s2">" mundo"</span><span class="p">;</span> <span class="c1">// concatena sobre sí misma</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-7-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="c1">// Comparación</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="nv">$a</span> <span class="o">==</span> <span class="nv">$b</span>     <span class="c1">// igual en valor (convierte tipos: cuidado)</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="nv">$a</span> <span class="o">===</span> <span class="nv">$b</span>    <span class="c1">// igual en valor Y tipo  ← USAR POR DEFECTO</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="nv">$a</span> <span class="o">!=</span> <span class="nv">$b</span>     <span class="c1">// distinto</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="nv">$a</span> <span class="o">!==</span> <span class="nv">$b</span>    <span class="c1">// no idéntico</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="nv">$a</span> <span class="o">&lt;=&gt;</span> <span class="nv">$b</span>    <span class="c1">// nave espacial: devuelve -1, 0 o 1</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a>
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="c1">// Null coalescing: valor por defecto si no existe o es null</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="nv">$nombre</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">'nombre'</span><span class="p">]</span> <span class="o">??</span> <span class="s2">"invitado"</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">2</a></span>
+<span class="normal"><a href="#__codelineno-8-3">3</a></span>
+<span class="normal"><a href="#__codelineno-8-4">4</a></span>
+<span class="normal"><a href="#__codelineno-8-5">5</a></span>
+<span class="normal"><a href="#__codelineno-8-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="c1">// Lógicos: &amp;&amp; (AND)  || (OR)  ! (NOT)   → usar símbolos, "and"/"or" tienen menor precedencia</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="nv">$x</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span> <span class="nv">$y</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="nv">$x</span> <span class="o">&amp;&amp;</span> <span class="nv">$y</span><span class="p">;</span>   <span class="c1">// false</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="nv">$x</span> <span class="o">||</span> <span class="nv">$y</span><span class="p">;</span>   <span class="c1">// true</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="o">!</span><span class="nv">$x</span><span class="p">;</span>        <span class="c1">// false</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span>
+<span class="normal"><a href="#__codelineno-9-3">3</a></span>
+<span class="normal"><a href="#__codelineno-9-4">4</a></span>
+<span class="normal"><a href="#__codelineno-9-5">5</a></span>
+<span class="normal"><a href="#__codelineno-9-6">6</a></span>
+<span class="normal"><a href="#__codelineno-9-7">7</a></span>
+<span class="normal"><a href="#__codelineno-9-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="c1">// Incremento / decremento</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="nv">$z</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="k">echo</span> <span class="o">++</span><span class="nv">$z</span><span class="p">;</span>  <span class="c1">// 6 → PRE: incrementa y luego devuelve</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="k">echo</span> <span class="nv">$z</span><span class="o">++</span><span class="p">;</span>  <span class="c1">// 6 → POST: devuelve y luego incrementa (z pasa a 7)</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="k">echo</span> <span class="nv">$z</span><span class="p">;</span>    <span class="c1">// 7</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="k">echo</span> <span class="o">--</span><span class="nv">$z</span><span class="p">;</span>  <span class="c1">// 6</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="k">echo</span> <span class="nv">$z</span><span class="o">--</span><span class="p">;</span>  <span class="c1">// 6 (z pasa a 5)</span>
+</code></pre></div></td></tr></table></div>
+<hr />
+<h2 id="4-cadenas">4. Cadenas</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span>
+<span class="normal"><a href="#__codelineno-10-3">3</a></span>
+<span class="normal"><a href="#__codelineno-10-4">4</a></span>
+<span class="normal"><a href="#__codelineno-10-5">5</a></span>
+<span class="normal"><a href="#__codelineno-10-6">6</a></span>
+<span class="normal"><a href="#__codelineno-10-7">7</a></span>
+<span class="normal"><a href="#__codelineno-10-8">8</a></span>
+<span class="normal"><a href="#__codelineno-10-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="nv">$nombre</span> <span class="o">=</span> <span class="s2">"Francisco"</span><span class="p">;</span> <span class="nv">$edad</span> <span class="o">=</span> <span class="mi">40</span><span class="p">;</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="k">echo</span> <span class="s2">"Hola </span><span class="si">$nombre</span><span class="s2">, tienes </span><span class="si">$edad</span><span class="s2"> años."</span><span class="p">;</span>          <span class="c1">// comillas DOBLES: interpolan variables y \n \t \" \\</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="k">echo</span> <span class="s1">'Hola $nombre'</span><span class="p">;</span>                              <span class="c1">// comillas SIMPLES: texto literal (solo \' y \\)</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="k">echo</span> <span class="s1">'Hola '</span> <span class="o">.</span> <span class="nv">$nombre</span> <span class="o">.</span> <span class="s1">', tienes '</span> <span class="o">.</span> <span class="nv">$edad</span><span class="p">;</span>     <span class="c1">// el punto concatena</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="k">echo</span> <span class="s2">"Con llaves: </span><span class="si">{</span><span class="nv">$nombre</span><span class="si">}</span><span class="s2">s"</span><span class="p">;</span>                    <span class="c1">// las llaves delimitan la variable</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="k">echo</span> <span class="s2">"Array: </span><span class="si">{</span><span class="nv">$persona</span><span class="p">[</span><span class="s1">'edad'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">;</span>                 <span class="c1">// en arrays asociativos dentro de "": llaves</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="k">echo</span> <span class="s2">"&lt;pre&gt;Línea1</span><span class="se">\n\t</span><span class="s2">Línea2&lt;/pre&gt;"</span><span class="p">;</span>               <span class="c1">// &lt;pre&gt; hace visibles \n y \t en el navegador</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span>
+<span class="normal"><a href="#__codelineno-11-3">3</a></span>
+<span class="normal"><a href="#__codelineno-11-4">4</a></span>
+<span class="normal"><a href="#__codelineno-11-5">5</a></span>
+<span class="normal"><a href="#__codelineno-11-6">6</a></span>
+<span class="normal"><a href="#__codelineno-11-7">7</a></span>
+<span class="normal"><a href="#__codelineno-11-8">8</a></span>
+<span class="normal"><a href="#__codelineno-11-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="c1">// Funciones de cadena frecuentes</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="nb">strlen</span><span class="p">(</span><span class="nv">$t</span><span class="p">);</span>                       <span class="c1">// longitud</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="nb">strtoupper</span><span class="p">(</span><span class="nv">$t</span><span class="p">);</span> <span class="nb">strtolower</span><span class="p">(</span><span class="nv">$t</span><span class="p">);</span>   <span class="c1">// mayúsculas / minúsculas</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="nb">str_replace</span><span class="p">(</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"e"</span><span class="p">,</span> <span class="nv">$t</span><span class="p">);</span>        <span class="c1">// reemplazar</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="nb">substr</span><span class="p">(</span><span class="nv">$t</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>                 <span class="c1">// subcadena (inicio, longitud)</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="nb">trim</span><span class="p">(</span><span class="nv">$t</span><span class="p">);</span>                         <span class="c1">// quita espacios de los extremos</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="nb">explode</span><span class="p">(</span><span class="s2">","</span><span class="p">,</span> <span class="s2">"a,b,c"</span><span class="p">);</span>            <span class="c1">// texto → array</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="nb">implode</span><span class="p">(</span><span class="s2">", "</span><span class="p">,</span> <span class="nv">$array</span><span class="p">);</span>            <span class="c1">// array → texto</span>
+</code></pre></div></td></tr></table></div>
+<hr />
+<h2 id="5-estructuras-de-control">5. Estructuras de control</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-12-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-12-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-12-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-12-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-12-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-12-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-12-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-12-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-12-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="c1">// if / elseif / else</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="nv">$edad</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span> <span class="nv">$es_estudiante</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="k">if</span> <span class="p">(</span><span class="nv">$edad</span> <span class="o">&lt;</span> <span class="mi">18</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a>    <span class="k">echo</span> <span class="s2">"Menor de edad"</span><span class="p">;</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="p">}</span> <span class="k">elseif</span> <span class="p">(</span><span class="nv">$es_estudiante</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7"></a>    <span class="k">echo</span> <span class="s2">"Adulto estudiante"</span><span class="p">;</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9"></a>    <span class="k">echo</span> <span class="s2">"Adulto"</span><span class="p">;</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-13-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-13-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-13-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-13-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-13-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-13-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-13-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-13-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-13-10">10</a></span>
+<span class="normal"><a href="#__codelineno-13-11">11</a></span>
+<span class="normal"><a href="#__codelineno-13-12">12</a></span>
+<span class="normal"><a href="#__codelineno-13-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="c1">// switch: compara con varios casos; "break" evita caer al siguiente</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="k">switch</span> <span class="p">(</span><span class="nv">$dia</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a>    <span class="k">case</span> <span class="s2">"lunes"</span><span class="o">:</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a>        <span class="k">echo</span> <span class="s2">"Empezamos la semana"</span><span class="p">;</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6"></a>        <span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7"></a>    <span class="k">case</span> <span class="s2">"sábado"</span><span class="o">:</span>     <span class="c1">// casos apilados: comparten código</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8"></a>    <span class="k">case</span> <span class="s2">"domingo"</span><span class="o">:</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9"></a>        <span class="k">echo</span> <span class="s2">"Fin de semana"</span><span class="p">;</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10"></a>        <span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11"></a>    <span class="k">default</span><span class="o">:</span>
+<a id="__codelineno-13-12" name="__codelineno-13-12"></a>        <span class="k">echo</span> <span class="s2">"Día no reconocido"</span><span class="p">;</span>
+<a id="__codelineno-13-13" name="__codelineno-13-13"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-14-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-14-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-14-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-14-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-14-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-14-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-14-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-14-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-14-10">10</a></span>
+<span class="normal"><a href="#__codelineno-14-11">11</a></span>
+<span class="normal"><a href="#__codelineno-14-12">12</a></span>
+<span class="normal"><a href="#__codelineno-14-13">13</a></span>
+<span class="normal"><a href="#__codelineno-14-14">14</a></span>
+<span class="normal"><a href="#__codelineno-14-15">15</a></span>
+<span class="normal"><a href="#__codelineno-14-16">16</a></span>
+<span class="normal"><a href="#__codelineno-14-17">17</a></span>
+<span class="normal"><a href="#__codelineno-14-18">18</a></span>
+<span class="normal"><a href="#__codelineno-14-19">19</a></span>
+<span class="normal"><a href="#__codelineno-14-20">20</a></span>
+<span class="normal"><a href="#__codelineno-14-21">21</a></span>
+<span class="normal"><a href="#__codelineno-14-22">22</a></span>
+<span class="normal"><a href="#__codelineno-14-23">23</a></span>
+<span class="normal"><a href="#__codelineno-14-24">24</a></span>
+<span class="normal"><a href="#__codelineno-14-25">25</a></span>
+<span class="normal"><a href="#__codelineno-14-26">26</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="c1">// for: repeticiones conocidas</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="k">for</span> <span class="p">(</span><span class="nv">$n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nv">$n</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">;</span> <span class="nv">$n</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span> <span class="k">echo</span> <span class="nv">$n</span> <span class="o">.</span> <span class="s2">"&lt;br&gt;"</span><span class="p">;</span> <span class="p">}</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a>
+<a id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="c1">// for con decremento: cuenta atrás (la condición pasa a ser &gt;= y el paso es --)</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="k">for</span> <span class="p">(</span><span class="nv">$n</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="nv">$n</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">;</span> <span class="nv">$n</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span> <span class="k">echo</span> <span class="nv">$n</span> <span class="o">.</span> <span class="s2">"&lt;br&gt;"</span><span class="p">;</span> <span class="p">}</span>       <span class="c1">// 5 4 3 2 1</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7"></a>
+<a id="__codelineno-14-8" name="__codelineno-14-8"></a><span class="c1">// for con paso distinto de 1: usa asignación compuesta</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9"></a><span class="k">for</span> <span class="p">(</span><span class="nv">$n</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="nv">$n</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$n</span> <span class="o">-=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span> <span class="k">echo</span> <span class="nv">$n</span> <span class="o">.</span> <span class="s2">"&lt;br&gt;"</span><span class="p">;</span> <span class="p">}</span>   <span class="c1">// 10 8 6 4 2 0</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10"></a><span class="k">for</span> <span class="p">(</span><span class="nv">$n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$n</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">;</span> <span class="nv">$n</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span> <span class="k">echo</span> <span class="nv">$n</span> <span class="o">.</span> <span class="s2">"&lt;br&gt;"</span><span class="p">;</span> <span class="p">}</span>   <span class="c1">// 0 2 4 6 8 10</span>
+<a id="__codelineno-14-11" name="__codelineno-14-11"></a>
+<a id="__codelineno-14-12" name="__codelineno-14-12"></a>
+<a id="__codelineno-14-13" name="__codelineno-14-13"></a><span class="c1">// while: repite MIENTRAS la condición sea cierta (puede no ejecutarse nunca)</span>
+<a id="__codelineno-14-14" name="__codelineno-14-14"></a><span class="nv">$i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-14-15" name="__codelineno-14-15"></a><span class="k">while</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span> <span class="k">echo</span> <span class="nv">$i</span><span class="o">++</span> <span class="o">.</span> <span class="s2">"&lt;br&gt;"</span><span class="p">;</span> <span class="p">}</span>
+<a id="__codelineno-14-16" name="__codelineno-14-16"></a>
+<a id="__codelineno-14-17" name="__codelineno-14-17"></a><span class="c1">// do-while: se ejecuta AL MENOS UNA VEZ</span>
+<a id="__codelineno-14-18" name="__codelineno-14-18"></a><span class="nv">$n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-14-19" name="__codelineno-14-19"></a><span class="k">do</span> <span class="p">{</span> <span class="k">echo</span> <span class="nv">$n</span><span class="o">++</span> <span class="o">.</span> <span class="s2">"&lt;br&gt;"</span><span class="p">;</span> <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nv">$n</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">);</span>
+<a id="__codelineno-14-20" name="__codelineno-14-20"></a>
+<a id="__codelineno-14-21" name="__codelineno-14-21"></a><span class="c1">// break termina el bucle; continue salta a la siguiente iteración</span>
+<a id="__codelineno-14-22" name="__codelineno-14-22"></a><span class="k">for</span> <span class="p">(</span><span class="nv">$n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nv">$n</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">;</span> <span class="nv">$n</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-14-23" name="__codelineno-14-23"></a>    <span class="k">if</span> <span class="p">(</span><span class="nv">$n</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span> <span class="k">break</span><span class="p">;</span> <span class="p">}</span>      <span class="c1">// sale del bucle</span>
+<a id="__codelineno-14-24" name="__codelineno-14-24"></a>    <span class="k">if</span> <span class="p">(</span><span class="nv">$n</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span> <span class="k">continue</span><span class="p">;</span> <span class="p">}</span>   <span class="c1">// se salta el 3</span>
+<a id="__codelineno-14-25" name="__codelineno-14-25"></a>    <span class="k">echo</span> <span class="nv">$n</span><span class="p">;</span>
+<a id="__codelineno-14-26" name="__codelineno-14-26"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<hr />
+<h2 id="6-arrays">6. Arrays</h2>
+<h3 id="indexados-claves-numericas-desde-0">Indexados (claves numéricas desde 0)</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-15-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-15-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-15-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-15-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-15-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-15-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-15-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-15-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-15-10">10</a></span>
+<span class="normal"><a href="#__codelineno-15-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="nv">$colores</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Rojo"</span><span class="p">,</span> <span class="s2">"Verde"</span><span class="p">,</span> <span class="s2">"Azul"</span><span class="p">];</span>   <span class="c1">// [0] [1] [2]</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="k">echo</span> <span class="nv">$colores</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>          <span class="c1">// Rojo</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="k">echo</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$colores</span><span class="p">);</span>      <span class="c1">// 3</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5"></a>
+<a id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="nv">$colores</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Amarillo"</span><span class="p">;</span>               <span class="c1">// modificar</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="nv">$colores</span><span class="p">[]</span> <span class="o">=</span> <span class="s2">"Negro"</span><span class="p">;</span>                   <span class="c1">// añadir al final</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8"></a><span class="nb">array_push</span><span class="p">(</span><span class="nv">$colores</span><span class="p">,</span> <span class="s2">"Blanco"</span><span class="p">,</span> <span class="s2">"Gris"</span><span class="p">);</span> <span class="c1">// añadir varios al final</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9"></a><span class="nb">array_pop</span><span class="p">(</span><span class="nv">$colores</span><span class="p">);</span>                    <span class="c1">// elimina el ÚLTIMO</span>
+<a id="__codelineno-15-10" name="__codelineno-15-10"></a><span class="nb">array_shift</span><span class="p">(</span><span class="nv">$colores</span><span class="p">);</span>                  <span class="c1">// elimina el PRIMERO (y reindexa)</span>
+<a id="__codelineno-15-11" name="__codelineno-15-11"></a><span class="nb">unset</span><span class="p">(</span><span class="nv">$colores</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>                     <span class="c1">// elimina SIN reindexar (quedan huecos)</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Recorrer un array indexado</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-16-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-16-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-16-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-16-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-16-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-16-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-16-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-16-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-16-10">10</a></span>
+<span class="normal"><a href="#__codelineno-16-11">11</a></span>
+<span class="normal"><a href="#__codelineno-16-12">12</a></span>
+<span class="normal"><a href="#__codelineno-16-13">13</a></span>
+<span class="normal"><a href="#__codelineno-16-14">14</a></span>
+<span class="normal"><a href="#__codelineno-16-15">15</a></span>
+<span class="normal"><a href="#__codelineno-16-16">16</a></span>
+<span class="normal"><a href="#__codelineno-16-17">17</a></span>
+<span class="normal"><a href="#__codelineno-16-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="nv">$colores</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Rojo"</span><span class="p">,</span> <span class="s2">"Verde"</span><span class="p">,</span> <span class="s2">"Azul"</span><span class="p">];</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a>
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="c1">// foreach solo con valores (lo más cómodo)</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="k">foreach</span> <span class="p">(</span><span class="nv">$colores</span> <span class="k">as</span> <span class="nv">$color</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6"></a>    <span class="k">echo</span> <span class="s2">"Color: </span><span class="si">$color</span><span class="s2"> &lt;br&gt;"</span><span class="p">;</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="p">}</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8"></a>
+<a id="__codelineno-16-9" name="__codelineno-16-9"></a><span class="c1">// for clásico: el último índice es count() - 1</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10"></a><span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$colores</span><span class="p">);</span> <span class="nv">$i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11"></a>    <span class="k">echo</span> <span class="nv">$colores</span><span class="p">[</span><span class="nv">$i</span><span class="p">]</span> <span class="o">.</span> <span class="s2">"&lt;br&gt;"</span><span class="p">;</span>
+<a id="__codelineno-16-12" name="__codelineno-16-12"></a><span class="p">}</span>
+<a id="__codelineno-16-13" name="__codelineno-16-13"></a>
+<a id="__codelineno-16-14" name="__codelineno-16-14"></a><span class="c1">// al revés</span>
+<a id="__codelineno-16-15" name="__codelineno-16-15"></a><span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$colores</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-16-16" name="__codelineno-16-16"></a>    <span class="k">echo</span> <span class="nv">$colores</span><span class="p">[</span><span class="nv">$i</span><span class="p">]</span> <span class="o">.</span> <span class="s2">"&lt;br&gt;"</span><span class="p">;</span>             <span class="c1">// Azul, Verde, Rojo</span>
+<a id="__codelineno-16-17" name="__codelineno-16-17"></a><span class="p">}</span>
+<a id="__codelineno-16-18" name="__codelineno-16-18"></a><span class="c1">// CUIDADO: tras unset() hay huecos y el for con $colores[$i] da aviso → usa foreach o array_values()</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="asociativos-clave-valor">Asociativos (clave =&gt; valor)</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-17-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-17-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-17-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-17-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-17-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-17-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-17-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-17-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-17-10">10</a></span>
+<span class="normal"><a href="#__codelineno-17-11">11</a></span>
+<span class="normal"><a href="#__codelineno-17-12">12</a></span>
+<span class="normal"><a href="#__codelineno-17-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="nv">$persona</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a>    <span class="s2">"nombre"</span> <span class="o">=&gt;</span> <span class="s2">"Ana"</span><span class="p">,</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4"></a>    <span class="s2">"edad"</span>   <span class="o">=&gt;</span> <span class="mi">25</span><span class="p">,</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5"></a>    <span class="s2">"ciudad"</span> <span class="o">=&gt;</span> <span class="s2">"Valencia"</span><span class="p">,</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="p">];</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="k">echo</span> <span class="nv">$persona</span><span class="p">[</span><span class="s2">"nombre"</span><span class="p">];</span>                <span class="c1">// Ana</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8"></a><span class="k">echo</span> <span class="s2">"Tienes </span><span class="si">{</span><span class="nv">$persona</span><span class="p">[</span><span class="s1">'edad'</span><span class="p">]</span><span class="si">}</span><span class="s2"> años"</span><span class="p">;</span>  <span class="c1">// dentro de "" usar llaves</span>
+<a id="__codelineno-17-9" name="__codelineno-17-9"></a>
+<a id="__codelineno-17-10" name="__codelineno-17-10"></a><span class="nv">$persona</span><span class="p">[</span><span class="s2">"edad"</span><span class="p">]</span>  <span class="o">=</span> <span class="mi">26</span><span class="p">;</span>                 <span class="c1">// modificar</span>
+<a id="__codelineno-17-11" name="__codelineno-17-11"></a><span class="nv">$persona</span><span class="p">[</span><span class="s2">"email"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"ana@mail.com"</span><span class="p">;</span>     <span class="c1">// añadir clave nueva</span>
+<a id="__codelineno-17-12" name="__codelineno-17-12"></a><span class="nb">unset</span><span class="p">(</span><span class="nv">$persona</span><span class="p">[</span><span class="s2">"ciudad"</span><span class="p">]);</span>              <span class="c1">// eliminar</span>
+<a id="__codelineno-17-13" name="__codelineno-17-13"></a><span class="c1">// Mantienen el orden de inserción; una clave repetida SOBRESCRIBE la anterior</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Recorrer un array asociativo</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-18-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-18-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-18-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-18-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-18-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-18-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-18-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-18-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-18-10">10</a></span>
+<span class="normal"><a href="#__codelineno-18-11">11</a></span>
+<span class="normal"><a href="#__codelineno-18-12">12</a></span>
+<span class="normal"><a href="#__codelineno-18-13">13</a></span>
+<span class="normal"><a href="#__codelineno-18-14">14</a></span>
+<span class="normal"><a href="#__codelineno-18-15">15</a></span>
+<span class="normal"><a href="#__codelineno-18-16">16</a></span>
+<span class="normal"><a href="#__codelineno-18-17">17</a></span>
+<span class="normal"><a href="#__codelineno-18-18">18</a></span>
+<span class="normal"><a href="#__codelineno-18-19">19</a></span>
+<span class="normal"><a href="#__codelineno-18-20">20</a></span>
+<span class="normal"><a href="#__codelineno-18-21">21</a></span>
+<span class="normal"><a href="#__codelineno-18-22">22</a></span>
+<span class="normal"><a href="#__codelineno-18-23">23</a></span>
+<span class="normal"><a href="#__codelineno-18-24">24</a></span>
+<span class="normal"><a href="#__codelineno-18-25">25</a></span>
+<span class="normal"><a href="#__codelineno-18-26">26</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="nv">$persona</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"nombre"</span> <span class="o">=&gt;</span> <span class="s2">"Ana"</span><span class="p">,</span> <span class="s2">"edad"</span> <span class="o">=&gt;</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">"ciudad"</span> <span class="o">=&gt;</span> <span class="s2">"Valencia"</span><span class="p">];</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3"></a>
+<a id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="c1">// foreach con clave =&gt; valor (lo habitual)</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="k">foreach</span> <span class="p">(</span><span class="nv">$persona</span> <span class="k">as</span> <span class="nv">$campo</span> <span class="o">=&gt;</span> <span class="nv">$valor</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6"></a>    <span class="k">echo</span> <span class="s2">"</span><span class="si">$campo</span><span class="s2">: </span><span class="si">$valor</span><span class="s2"> &lt;br&gt;"</span><span class="p">;</span>             <span class="c1">// nombre: Ana, edad: 25, ciudad: Valencia</span>
+<a id="__codelineno-18-7" name="__codelineno-18-7"></a><span class="p">}</span>
+<a id="__codelineno-18-8" name="__codelineno-18-8"></a>
+<a id="__codelineno-18-9" name="__codelineno-18-9"></a><span class="c1">// solo valores</span>
+<a id="__codelineno-18-10" name="__codelineno-18-10"></a><span class="k">foreach</span> <span class="p">(</span><span class="nv">$persona</span> <span class="k">as</span> <span class="nv">$valor</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-18-11" name="__codelineno-18-11"></a>    <span class="k">echo</span> <span class="s2">"</span><span class="si">$valor</span><span class="s2"> &lt;br&gt;"</span><span class="p">;</span>
+<a id="__codelineno-18-12" name="__codelineno-18-12"></a><span class="p">}</span>
+<a id="__codelineno-18-13" name="__codelineno-18-13"></a>
+<a id="__codelineno-18-14" name="__codelineno-18-14"></a><span class="c1">// solo claves</span>
+<a id="__codelineno-18-15" name="__codelineno-18-15"></a><span class="k">foreach</span> <span class="p">(</span><span class="nb">array_keys</span><span class="p">(</span><span class="nv">$persona</span><span class="p">)</span> <span class="k">as</span> <span class="nv">$campo</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-18-16" name="__codelineno-18-16"></a>    <span class="k">echo</span> <span class="s2">"</span><span class="si">$campo</span><span class="s2"> &lt;br&gt;"</span><span class="p">;</span>
+<a id="__codelineno-18-17" name="__codelineno-18-17"></a><span class="p">}</span>
+<a id="__codelineno-18-18" name="__codelineno-18-18"></a>
+<a id="__codelineno-18-19" name="__codelineno-18-19"></a><span class="c1">// como tabla HTML</span>
+<a id="__codelineno-18-20" name="__codelineno-18-20"></a><span class="k">echo</span> <span class="s2">"&lt;table border='1'&gt;"</span><span class="p">;</span>
+<a id="__codelineno-18-21" name="__codelineno-18-21"></a><span class="k">foreach</span> <span class="p">(</span><span class="nv">$persona</span> <span class="k">as</span> <span class="nv">$campo</span> <span class="o">=&gt;</span> <span class="nv">$valor</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-18-22" name="__codelineno-18-22"></a>    <span class="k">echo</span> <span class="s2">"&lt;tr&gt;&lt;th&gt;</span><span class="si">$campo</span><span class="s2">&lt;/th&gt;&lt;td&gt;</span><span class="si">$valor</span><span class="s2">&lt;/td&gt;&lt;/tr&gt;"</span><span class="p">;</span>
+<a id="__codelineno-18-23" name="__codelineno-18-23"></a><span class="p">}</span>
+<a id="__codelineno-18-24" name="__codelineno-18-24"></a><span class="k">echo</span> <span class="s2">"&lt;/table&gt;"</span><span class="p">;</span>
+<a id="__codelineno-18-25" name="__codelineno-18-25"></a>
+<a id="__codelineno-18-26" name="__codelineno-18-26"></a><span class="c1">// CUIDADO: un for con $persona[0] NO funciona, las claves son textos → usa foreach</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="comprobar-si-existe-una-clave">Comprobar si existe una clave</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span>
+<span class="normal"><a href="#__codelineno-19-2">2</a></span>
+<span class="normal"><a href="#__codelineno-19-3">3</a></span>
+<span class="normal"><a href="#__codelineno-19-4">4</a></span>
+<span class="normal"><a href="#__codelineno-19-5">5</a></span>
+<span class="normal"><a href="#__codelineno-19-6">6</a></span>
+<span class="normal"><a href="#__codelineno-19-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="nb">isset</span><span class="p">(</span><span class="nv">$persona</span><span class="p">[</span><span class="s2">"telefono"</span><span class="p">]);</span>                  <span class="c1">// existe Y no es null</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="nb">array_key_exists</span><span class="p">(</span><span class="s2">"edad"</span><span class="p">,</span> <span class="nv">$persona</span><span class="p">);</span>           <span class="c1">// existe (aunque valga null)</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="nv">$tel</span> <span class="o">=</span> <span class="nv">$persona</span><span class="p">[</span><span class="s2">"telefono"</span><span class="p">]</span> <span class="o">??</span> <span class="s2">"sin teléfono"</span><span class="p">;</span> <span class="c1">// valor por defecto</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="nb">in_array</span><span class="p">(</span><span class="s2">"Ana"</span><span class="p">,</span> <span class="nv">$persona</span><span class="p">);</span>                    <span class="c1">// busca un VALOR</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6"></a><span class="nb">array_keys</span><span class="p">(</span><span class="nv">$persona</span><span class="p">);</span>                         <span class="c1">// devuelve las claves</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7"></a><span class="nb">array_values</span><span class="p">(</span><span class="nv">$persona</span><span class="p">);</span>                       <span class="c1">// devuelve los valores</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="depurar-arrays-echo-no-imprime-arrays">Depurar arrays (echo NO imprime arrays)</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span>
+<span class="normal"><a href="#__codelineno-20-2">2</a></span>
+<span class="normal"><a href="#__codelineno-20-3">3</a></span>
+<span class="normal"><a href="#__codelineno-20-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="k">echo</span> <span class="s2">"&lt;pre&gt;"</span><span class="p">;</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="nb">print_r</span><span class="p">(</span><span class="nv">$notas</span><span class="p">);</span>     <span class="c1">// o var_dump($notas)</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="k">echo</span> <span class="s2">"&lt;/pre&gt;"</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<hr />
+<h2 id="7-funciones-include-y-require">7. Funciones, include y require</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-21-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-21-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-21-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-21-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-21-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-21-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-21-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-21-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-21-10">10</a></span>
+<span class="normal"><a href="#__codelineno-21-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="c1">// Función con tipos, valor por defecto y retorno</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="k">function</span> <span class="nf">saludo</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$nombre</span> <span class="o">=</span> <span class="s2">"invitado"</span><span class="p">)</span><span class="o">:</span> <span class="nx">string</span> <span class="p">{</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4"></a>    <span class="k">return</span> <span class="s2">"Hola, </span><span class="si">$nombre</span><span class="s2">!"</span><span class="p">;</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="p">}</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6"></a><span class="k">echo</span> <span class="s2">"&lt;p&gt;"</span> <span class="o">.</span> <span class="nx">saludo</span><span class="p">(</span><span class="s2">"María"</span><span class="p">)</span> <span class="o">.</span> <span class="s2">"&lt;/p&gt;"</span><span class="p">;</span>
+<a id="__codelineno-21-7" name="__codelineno-21-7"></a>
+<a id="__codelineno-21-8" name="__codelineno-21-8"></a><span class="c1">// strict_types: sumar("5", 2) daría error con declare(strict_types=1)</span>
+<a id="__codelineno-21-9" name="__codelineno-21-9"></a><span class="k">function</span> <span class="nf">sumar</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$a</span><span class="p">,</span> <span class="nx">int</span> <span class="nv">$b</span><span class="p">)</span><span class="o">:</span> <span class="nx">int</span> <span class="p">{</span> <span class="k">return</span> <span class="nv">$a</span> <span class="o">+</span> <span class="nv">$b</span><span class="p">;</span> <span class="p">}</span>
+<a id="__codelineno-21-10" name="__codelineno-21-10"></a>
+<a id="__codelineno-21-11" name="__codelineno-21-11"></a><span class="c1">// Ámbito local: las variables de fuera NO se ven dentro; se pasan como parámetros</span>
+</code></pre></div></td></tr></table></div>
+<table>
+<thead>
+<tr>
+<th>Instrucción</th>
+<th>Si el archivo no existe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>include</code></td>
+<td>Aviso (<em>warning</em>); el script continúa</td>
+</tr>
+<tr>
+<td><code>require</code></td>
+<td>Error fatal; el script se detiene</td>
+</tr>
+<tr>
+<td><code>include_once</code> / <code>require_once</code></td>
+<td>Igual, pero no recarga un archivo ya incluido</td>
+</tr>
+</tbody>
+</table>
+<p><code>require_once</code> para lo imprescindible (config, funciones); <code>include</code> para partes opcionales.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span>
+<span class="normal"><a href="#__codelineno-22-2">2</a></span>
+<span class="normal"><a href="#__codelineno-22-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="cp">&lt;?php</span> <span class="k">require</span> <span class="s2">"cabecera.php"</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">   &lt;!-- inicio del HTML, menú --&gt;</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="x">  &lt;h1&gt;Página de inicio&lt;/h1&gt;</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="cp">&lt;?php</span> <span class="k">require</span> <span class="s2">"pie.php"</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">        &lt;!-- cierre del HTML --&gt;</span>
+</code></pre></div></td></tr></table></div>
+<hr />
+<h2 id="8-formularios-y-superglobales">8. Formularios y superglobales</h2>
+<p>Superglobales: <code>$_GET</code>, <code>$_POST</code>, <code>$_SERVER</code>, <code>$_SESSION</code>, <code>$_COOKIE</code>, <code>$_FILES</code> (arrays accesibles desde cualquier ámbito).</p>
+<h3 id="get-datos-en-la-url-busquedas-filtros">GET (datos en la URL: búsquedas, filtros)</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-23-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-23-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-23-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-23-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-23-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-23-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-23-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-23-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-23-10">10</a></span>
+<span class="normal"><a href="#__codelineno-23-11">11</a></span>
+<span class="normal"><a href="#__codelineno-23-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="nv">$mensaje</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3"></a><span class="k">if</span> <span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">"REQUEST_METHOD"</span><span class="p">]</span> <span class="o">===</span> <span class="s2">"GET"</span> <span class="o">&amp;&amp;</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">'nombre'</span><span class="p">]))</span> <span class="p">{</span>  <span class="c1">// método Y campo existe</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4"></a>    <span class="nv">$nombre</span> <span class="o">=</span> <span class="nb">htmlspecialchars</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">'nombre'</span><span class="p">]);</span>  <span class="c1">// escapar AL MOSTRAR (evita XSS)</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5"></a>    <span class="nv">$mensaje</span> <span class="o">=</span> <span class="s2">"Hola, </span><span class="si">$nombre</span><span class="s2">!"</span><span class="p">;</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6"></a><span class="p">}</span>
+<a id="__codelineno-23-7" name="__codelineno-23-7"></a><span class="cp">?&gt;</span>
+<a id="__codelineno-23-8" name="__codelineno-23-8"></a><span class="x">&lt;form method="get"&gt;</span>
+<a id="__codelineno-23-9" name="__codelineno-23-9"></a><span class="x">  Nombre: &lt;input type="text" name="nombre" required&gt;</span>
+<a id="__codelineno-23-10" name="__codelineno-23-10"></a><span class="x">  &lt;input type="submit" value="Enviar"&gt;</span>
+<a id="__codelineno-23-11" name="__codelineno-23-11"></a><span class="x">&lt;/form&gt;</span>
+<a id="__codelineno-23-12" name="__codelineno-23-12"></a><span class="x">&lt;p&gt;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$mensaje</span> <span class="cp">?&gt;</span><span class="x">&lt;/p&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="post-datos-en-el-cuerpo-contrasenas-altas-modificaciones">POST (datos en el cuerpo: contraseñas, altas, modificaciones)</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-24-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-24-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-24-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-24-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-24-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-24-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-24-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-24-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-24-10">10</a></span>
+<span class="normal"><a href="#__codelineno-24-11">11</a></span>
+<span class="normal"><a href="#__codelineno-24-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="nv">$mensaje</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3"></a><span class="k">if</span> <span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">"REQUEST_METHOD"</span><span class="p">]</span> <span class="o">===</span> <span class="s2">"POST"</span> <span class="o">&amp;&amp;</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">'nombre'</span><span class="p">]))</span> <span class="p">{</span>  <span class="c1">// método Y campo existe</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4"></a>    <span class="nv">$nombre</span> <span class="o">=</span> <span class="nb">htmlspecialchars</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">'nombre'</span><span class="p">]);</span>
+<a id="__codelineno-24-5" name="__codelineno-24-5"></a>    <span class="nv">$mensaje</span> <span class="o">=</span> <span class="s2">"Hola, </span><span class="si">$nombre</span><span class="s2">!"</span><span class="p">;</span>
+<a id="__codelineno-24-6" name="__codelineno-24-6"></a><span class="p">}</span>
+<a id="__codelineno-24-7" name="__codelineno-24-7"></a><span class="cp">?&gt;</span>
+<a id="__codelineno-24-8" name="__codelineno-24-8"></a><span class="x">&lt;form method="post"&gt;</span>
+<a id="__codelineno-24-9" name="__codelineno-24-9"></a><span class="x">  Nombre: &lt;input type="text" name="nombre" required&gt;</span>
+<a id="__codelineno-24-10" name="__codelineno-24-10"></a><span class="x">  &lt;input type="submit" value="Enviar"&gt;</span>
+<a id="__codelineno-24-11" name="__codelineno-24-11"></a><span class="x">&lt;/form&gt;</span>
+<a id="__codelineno-24-12" name="__codelineno-24-12"></a><span class="x">&lt;p&gt;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$mensaje</span> <span class="cp">?&gt;</span><span class="x">&lt;/p&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="enviar-el-formulario-a-otro-archivo-atributo-action">Enviar el formulario a OTRO archivo (atributo <code>action</code>)</h3>
+<p><code>action</code> indica a qué archivo se envían los datos. Sin <code>action</code>, el formulario se envía a sí mismo. El atributo <code>name</code> de cada campo es la clave que luego se lee en <code>$_GET</code> / <code>$_POST</code>.</p>
+<p><strong>formulario.php</strong> (solo el formulario)</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-25-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-25-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-25-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-25-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-25-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-25-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-25-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-25-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-25-10">10</a></span>
+<span class="normal"><a href="#__codelineno-25-11">11</a></span>
+<span class="normal"><a href="#__codelineno-25-12">12</a></span>
+<span class="normal"><a href="#__codelineno-25-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="x">&lt;!-- GET: los datos viajan en la URL → procesar.php?nombre=Ana&amp;edad=25 --&gt;</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="x">&lt;form action="procesar.php" method="get"&gt;</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3"></a><span class="x">  Nombre: &lt;input type="text" name="nombre" required&gt;</span>
+<a id="__codelineno-25-4" name="__codelineno-25-4"></a><span class="x">  Edad:   &lt;input type="number" name="edad"&gt;</span>
+<a id="__codelineno-25-5" name="__codelineno-25-5"></a><span class="x">  &lt;input type="submit" value="Enviar por GET"&gt;</span>
+<a id="__codelineno-25-6" name="__codelineno-25-6"></a><span class="x">&lt;/form&gt;</span>
+<a id="__codelineno-25-7" name="__codelineno-25-7"></a>
+<a id="__codelineno-25-8" name="__codelineno-25-8"></a><span class="x">&lt;!-- POST: los datos van en el cuerpo de la petición (no se ven en la URL) --&gt;</span>
+<a id="__codelineno-25-9" name="__codelineno-25-9"></a><span class="x">&lt;form action="procesar.php" method="post"&gt;</span>
+<a id="__codelineno-25-10" name="__codelineno-25-10"></a><span class="x">  Nombre: &lt;input type="text" name="nombre" required&gt;</span>
+<a id="__codelineno-25-11" name="__codelineno-25-11"></a><span class="x">  Edad:   &lt;input type="number" name="edad"&gt;</span>
+<a id="__codelineno-25-12" name="__codelineno-25-12"></a><span class="x">  &lt;input type="submit" value="Enviar por POST"&gt;</span>
+<a id="__codelineno-25-13" name="__codelineno-25-13"></a><span class="x">&lt;/form&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>procesar.php</strong> (recibe los datos del formulario)</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-26-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-26-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-26-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-26-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-26-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-26-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-26-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-26-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-26-10">10</a></span>
+<span class="normal"><a href="#__codelineno-26-11">11</a></span>
+<span class="normal"><a href="#__codelineno-26-12">12</a></span>
+<span class="normal"><a href="#__codelineno-26-13">13</a></span>
+<span class="normal"><a href="#__codelineno-26-14">14</a></span>
+<span class="normal"><a href="#__codelineno-26-15">15</a></span>
+<span class="normal"><a href="#__codelineno-26-16">16</a></span>
+<span class="normal"><a href="#__codelineno-26-17">17</a></span>
+<span class="normal"><a href="#__codelineno-26-18">18</a></span>
+<span class="normal"><a href="#__codelineno-26-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2"></a><span class="c1">// Distinguir cómo ha llegado la petición Y comprobar con isset que el campo existe</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3"></a><span class="k">if</span> <span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">"REQUEST_METHOD"</span><span class="p">]</span> <span class="o">===</span> <span class="s2">"POST"</span> <span class="o">&amp;&amp;</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">'nombre'</span><span class="p">]))</span> <span class="p">{</span>
+<a id="__codelineno-26-4" name="__codelineno-26-4"></a>    <span class="nv">$nombre</span> <span class="o">=</span> <span class="nb">htmlspecialchars</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">'nombre'</span><span class="p">]);</span>         <span class="c1">// escapar al mostrar</span>
+<a id="__codelineno-26-5" name="__codelineno-26-5"></a>    <span class="nv">$edad</span>   <span class="o">=</span> <span class="p">(</span><span class="nx">int</span><span class="p">)(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">'edad'</span><span class="p">]</span> <span class="o">??</span> <span class="mi">0</span><span class="p">);</span>                 <span class="c1">// casting: llega SIEMPRE como string</span>
+<a id="__codelineno-26-6" name="__codelineno-26-6"></a>    <span class="k">echo</span> <span class="s2">"&lt;p&gt;POST → </span><span class="si">$nombre</span><span class="s2">, </span><span class="si">$edad</span><span class="s2"> años&lt;/p&gt;"</span><span class="p">;</span>
+<a id="__codelineno-26-7" name="__codelineno-26-7"></a>
+<a id="__codelineno-26-8" name="__codelineno-26-8"></a><span class="p">}</span> <span class="k">elseif</span> <span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">"REQUEST_METHOD"</span><span class="p">]</span> <span class="o">===</span> <span class="s2">"GET"</span> <span class="o">&amp;&amp;</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">'nombre'</span><span class="p">]))</span> <span class="p">{</span>
+<a id="__codelineno-26-9" name="__codelineno-26-9"></a>    <span class="nv">$nombre</span> <span class="o">=</span> <span class="nb">htmlspecialchars</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">'nombre'</span><span class="p">]);</span>
+<a id="__codelineno-26-10" name="__codelineno-26-10"></a>    <span class="nv">$edad</span>   <span class="o">=</span> <span class="p">(</span><span class="nx">int</span><span class="p">)(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">'edad'</span><span class="p">]</span> <span class="o">??</span> <span class="mi">0</span><span class="p">);</span>
+<a id="__codelineno-26-11" name="__codelineno-26-11"></a>    <span class="k">echo</span> <span class="s2">"&lt;p&gt;GET → </span><span class="si">$nombre</span><span class="s2">, </span><span class="si">$edad</span><span class="s2"> años&lt;/p&gt;"</span><span class="p">;</span>
+<a id="__codelineno-26-12" name="__codelineno-26-12"></a>
+<a id="__codelineno-26-13" name="__codelineno-26-13"></a><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<a id="__codelineno-26-14" name="__codelineno-26-14"></a>    <span class="c1">// Método correcto pero falta el campo, o se ha entrado al archivo directamente</span>
+<a id="__codelineno-26-15" name="__codelineno-26-15"></a>    <span class="nb">header</span><span class="p">(</span><span class="s2">"Location: formulario.php"</span><span class="p">);</span>
+<a id="__codelineno-26-16" name="__codelineno-26-16"></a>    <span class="k">exit</span><span class="p">;</span>                                                 <span class="c1">// siempre exit tras header</span>
+<a id="__codelineno-26-17" name="__codelineno-26-17"></a><span class="p">}</span>
+<a id="__codelineno-26-18" name="__codelineno-26-18"></a><span class="cp">?&gt;</span>
+<a id="__codelineno-26-19" name="__codelineno-26-19"></a><span class="x">&lt;a href="formulario.php"&gt;Volver&lt;/a&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Un enlace también puede mandar datos por GET sin formulario: <code>&lt;a href="procesar.php?nombre=Ana&amp;edad=25"&gt;Enviar&lt;/a&gt;</code>.</p>
+<p><strong>Seguridad básica</strong>
+- POST <strong>no cifra</strong>: para datos sensibles hace falta <strong>HTTPS</strong>.
+- <strong>Nunca confíes en el usuario</strong>: valida en el servidor (<code>required</code> del HTML se puede saltar).
+- <code>htmlspecialchars()</code> <strong>al mostrar</strong> datos (evita XSS).
+- Formularios que modifican datos: añadir <strong>token CSRF</strong>.</p>
+<hr />
+<h2 id="9-sesiones-y-autenticacion">9. Sesiones y autenticación</h2>
+<p>HTTP no guarda estado (<em>stateless</em>); la sesión usa una cookie con un identificador.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-27-1">1</a></span>
+<span class="normal"><a href="#__codelineno-27-2">2</a></span>
+<span class="normal"><a href="#__codelineno-27-3">3</a></span>
+<span class="normal"><a href="#__codelineno-27-4">4</a></span>
+<span class="normal"><a href="#__codelineno-27-5">5</a></span>
+<span class="normal"><a href="#__codelineno-27-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2"></a><span class="nb">session_start</span><span class="p">();</span>                       <span class="c1">// PRIMERO, antes de cualquier salida HTML</span>
+<a id="__codelineno-27-3" name="__codelineno-27-3"></a><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'nombre'</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Carlos"</span><span class="p">;</span>        <span class="c1">// guardar datos</span>
+<a id="__codelineno-27-4" name="__codelineno-27-4"></a><span class="k">echo</span> <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'nombre'</span><span class="p">];</span>              <span class="c1">// leer datos</span>
+<a id="__codelineno-27-5" name="__codelineno-27-5"></a><span class="nb">session_unset</span><span class="p">();</span>                       <span class="c1">// vacía las variables de sesión</span>
+<a id="__codelineno-27-6" name="__codelineno-27-6"></a><span class="nb">session_destroy</span><span class="p">();</span>                     <span class="c1">// destruye la sesión</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="loginphp">login.php</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-28-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-28-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-28-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-28-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-28-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-28-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-28-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-28-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-28-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-28-10">10</a></span>
+<span class="normal"><a href="#__codelineno-28-11">11</a></span>
+<span class="normal"><a href="#__codelineno-28-12">12</a></span>
+<span class="normal"><a href="#__codelineno-28-13">13</a></span>
+<span class="normal"><a href="#__codelineno-28-14">14</a></span>
+<span class="normal"><a href="#__codelineno-28-15">15</a></span>
+<span class="normal"><a href="#__codelineno-28-16">16</a></span>
+<span class="normal"><a href="#__codelineno-28-17">17</a></span>
+<span class="normal"><a href="#__codelineno-28-18">18</a></span>
+<span class="normal"><a href="#__codelineno-28-19">19</a></span>
+<span class="normal"><a href="#__codelineno-28-20">20</a></span>
+<span class="normal"><a href="#__codelineno-28-21">21</a></span>
+<span class="normal"><a href="#__codelineno-28-22">22</a></span>
+<span class="normal"><a href="#__codelineno-28-23">23</a></span>
+<span class="normal"><a href="#__codelineno-28-24">24</a></span>
+<span class="normal"><a href="#__codelineno-28-25">25</a></span>
+<span class="normal"><a href="#__codelineno-28-26">26</a></span>
+<span class="normal"><a href="#__codelineno-28-27">27</a></span>
+<span class="normal"><a href="#__codelineno-28-28">28</a></span>
+<span class="normal"><a href="#__codelineno-28-29">29</a></span>
+<span class="normal"><a href="#__codelineno-28-30">30</a></span>
+<span class="normal"><a href="#__codelineno-28-31">31</a></span>
+<span class="normal"><a href="#__codelineno-28-32">32</a></span>
+<span class="normal"><a href="#__codelineno-28-33">33</a></span>
+<span class="normal"><a href="#__codelineno-28-34">34</a></span>
+<span class="normal"><a href="#__codelineno-28-35">35</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2"></a><span class="nb">session_start</span><span class="p">();</span>
+<a id="__codelineno-28-3" name="__codelineno-28-3"></a>
+<a id="__codelineno-28-4" name="__codelineno-28-4"></a><span class="c1">// Si ya está autenticado, al panel</span>
+<a id="__codelineno-28-5" name="__codelineno-28-5"></a><span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'usuario'</span><span class="p">]))</span> <span class="p">{</span>
+<a id="__codelineno-28-6" name="__codelineno-28-6"></a>    <span class="nb">header</span><span class="p">(</span><span class="s2">"Location: panel.php"</span><span class="p">);</span>
+<a id="__codelineno-28-7" name="__codelineno-28-7"></a>    <span class="k">exit</span><span class="p">;</span>                               <span class="c1">// SIEMPRE exit tras header("Location")</span>
+<a id="__codelineno-28-8" name="__codelineno-28-8"></a><span class="p">}</span>
+<a id="__codelineno-28-9" name="__codelineno-28-9"></a>
+<a id="__codelineno-28-10" name="__codelineno-28-10"></a><span class="k">if</span> <span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'REQUEST_METHOD'</span><span class="p">]</span> <span class="o">===</span> <span class="s1">'POST'</span> <span class="o">&amp;&amp;</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">'user'</span><span class="p">],</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">'pass'</span><span class="p">]))</span> <span class="p">{</span>  <span class="c1">// método Y campos existen</span>
+<a id="__codelineno-28-11" name="__codelineno-28-11"></a>    <span class="nv">$user</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">'user'</span><span class="p">];</span>
+<a id="__codelineno-28-12" name="__codelineno-28-12"></a>    <span class="nv">$pass</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">'pass'</span><span class="p">];</span>
+<a id="__codelineno-28-13" name="__codelineno-28-13"></a>
+<a id="__codelineno-28-14" name="__codelineno-28-14"></a>    <span class="k">if</span> <span class="p">(</span><span class="nv">$user</span> <span class="o">===</span> <span class="s1">'admin'</span> <span class="o">&amp;&amp;</span> <span class="nv">$pass</span> <span class="o">===</span> <span class="s1">'1234'</span><span class="p">)</span> <span class="p">{</span>   <span class="c1">// validación de ejemplo</span>
+<a id="__codelineno-28-15" name="__codelineno-28-15"></a>        <span class="nb">session_regenerate_id</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>               <span class="c1">// SOLO al hacer login (evita fijación de sesión)</span>
+<a id="__codelineno-28-16" name="__codelineno-28-16"></a>        <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'usuario'</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$user</span><span class="p">;</span>
+<a id="__codelineno-28-17" name="__codelineno-28-17"></a>        <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'ultimo_acceso'</span><span class="p">]</span> <span class="o">=</span> <span class="nb">time</span><span class="p">();</span>       <span class="c1">// para controlar inactividad</span>
+<a id="__codelineno-28-18" name="__codelineno-28-18"></a>        <span class="nb">header</span><span class="p">(</span><span class="s2">"Location: panel.php"</span><span class="p">);</span>
+<a id="__codelineno-28-19" name="__codelineno-28-19"></a>        <span class="k">exit</span><span class="p">;</span>
+<a id="__codelineno-28-20" name="__codelineno-28-20"></a>    <span class="p">}</span>
+<a id="__codelineno-28-21" name="__codelineno-28-21"></a>    <span class="nv">$error</span> <span class="o">=</span> <span class="s2">"Credenciales incorrectas"</span><span class="p">;</span>
+<a id="__codelineno-28-22" name="__codelineno-28-22"></a><span class="p">}</span>
+<a id="__codelineno-28-23" name="__codelineno-28-23"></a><span class="cp">?&gt;</span>
+<a id="__codelineno-28-24" name="__codelineno-28-24"></a><span class="x">&lt;!DOCTYPE html&gt;</span>
+<a id="__codelineno-28-25" name="__codelineno-28-25"></a><span class="x">&lt;html&gt;</span>
+<a id="__codelineno-28-26" name="__codelineno-28-26"></a><span class="x">&lt;body&gt;</span>
+<a id="__codelineno-28-27" name="__codelineno-28-27"></a><span class="x">    &lt;h2&gt;Login&lt;/h2&gt;</span>
+<a id="__codelineno-28-28" name="__codelineno-28-28"></a><span class="x">    </span><span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$error</span><span class="p">))</span> <span class="k">echo</span> <span class="s2">"&lt;p style='color:red'&gt;</span><span class="si">$error</span><span class="s2">&lt;/p&gt;"</span><span class="p">;</span> <span class="cp">?&gt;</span>
+<a id="__codelineno-28-29" name="__codelineno-28-29"></a><span class="x">    &lt;form method="post"&gt;</span>
+<a id="__codelineno-28-30" name="__codelineno-28-30"></a><span class="x">        Usuario: &lt;input type="text" name="user"&gt;&lt;br&gt;</span>
+<a id="__codelineno-28-31" name="__codelineno-28-31"></a><span class="x">        Contraseña: &lt;input type="password" name="pass"&gt;&lt;br&gt;</span>
+<a id="__codelineno-28-32" name="__codelineno-28-32"></a><span class="x">        &lt;button type="submit"&gt;Entrar&lt;/button&gt;</span>
+<a id="__codelineno-28-33" name="__codelineno-28-33"></a><span class="x">    &lt;/form&gt;</span>
+<a id="__codelineno-28-34" name="__codelineno-28-34"></a><span class="x">&lt;/body&gt;</span>
+<a id="__codelineno-28-35" name="__codelineno-28-35"></a><span class="x">&lt;/html&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="panelphp-pagina-protegida-caducidad-por-inactividad">panel.php (página protegida + caducidad por inactividad)</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-29-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-29-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-29-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-29-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-29-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-29-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-29-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-29-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-29-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-29-10">10</a></span>
+<span class="normal"><a href="#__codelineno-29-11">11</a></span>
+<span class="normal"><a href="#__codelineno-29-12">12</a></span>
+<span class="normal"><a href="#__codelineno-29-13">13</a></span>
+<span class="normal"><a href="#__codelineno-29-14">14</a></span>
+<span class="normal"><a href="#__codelineno-29-15">15</a></span>
+<span class="normal"><a href="#__codelineno-29-16">16</a></span>
+<span class="normal"><a href="#__codelineno-29-17">17</a></span>
+<span class="normal"><a href="#__codelineno-29-18">18</a></span>
+<span class="normal"><a href="#__codelineno-29-19">19</a></span>
+<span class="normal"><a href="#__codelineno-29-20">20</a></span>
+<span class="normal"><a href="#__codelineno-29-21">21</a></span>
+<span class="normal"><a href="#__codelineno-29-22">22</a></span>
+<span class="normal"><a href="#__codelineno-29-23">23</a></span>
+<span class="normal"><a href="#__codelineno-29-24">24</a></span>
+<span class="normal"><a href="#__codelineno-29-25">25</a></span>
+<span class="normal"><a href="#__codelineno-29-26">26</a></span>
+<span class="normal"><a href="#__codelineno-29-27">27</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2"></a><span class="nb">session_start</span><span class="p">();</span>
+<a id="__codelineno-29-3" name="__codelineno-29-3"></a><span class="nv">$limite</span> <span class="o">=</span> <span class="mi">1800</span><span class="p">;</span>                          <span class="c1">// 30 min de inactividad máxima</span>
+<a id="__codelineno-29-4" name="__codelineno-29-4"></a>
+<a id="__codelineno-29-5" name="__codelineno-29-5"></a><span class="c1">// No autenticado → login</span>
+<a id="__codelineno-29-6" name="__codelineno-29-6"></a><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'usuario'</span><span class="p">]))</span> <span class="p">{</span>
+<a id="__codelineno-29-7" name="__codelineno-29-7"></a>    <span class="nb">header</span><span class="p">(</span><span class="s2">"Location: login.php"</span><span class="p">);</span>
+<a id="__codelineno-29-8" name="__codelineno-29-8"></a>    <span class="k">exit</span><span class="p">;</span>
+<a id="__codelineno-29-9" name="__codelineno-29-9"></a><span class="p">}</span>
+<a id="__codelineno-29-10" name="__codelineno-29-10"></a>
+<a id="__codelineno-29-11" name="__codelineno-29-11"></a><span class="c1">// Inactividad superada → cerrar sesión</span>
+<a id="__codelineno-29-12" name="__codelineno-29-12"></a><span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'ultimo_acceso'</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="nb">time</span><span class="p">()</span> <span class="o">-</span> <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'ultimo_acceso'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nv">$limite</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-29-13" name="__codelineno-29-13"></a>    <span class="nb">session_unset</span><span class="p">();</span>
+<a id="__codelineno-29-14" name="__codelineno-29-14"></a>    <span class="nb">session_destroy</span><span class="p">();</span>
+<a id="__codelineno-29-15" name="__codelineno-29-15"></a>    <span class="nb">header</span><span class="p">(</span><span class="s2">"Location: login.php"</span><span class="p">);</span>
+<a id="__codelineno-29-16" name="__codelineno-29-16"></a>    <span class="k">exit</span><span class="p">;</span>
+<a id="__codelineno-29-17" name="__codelineno-29-17"></a><span class="p">}</span>
+<a id="__codelineno-29-18" name="__codelineno-29-18"></a>
+<a id="__codelineno-29-19" name="__codelineno-29-19"></a><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'ultimo_acceso'</span><span class="p">]</span> <span class="o">=</span> <span class="nb">time</span><span class="p">();</span>     <span class="c1">// renovar último acceso</span>
+<a id="__codelineno-29-20" name="__codelineno-29-20"></a><span class="cp">?&gt;</span>
+<a id="__codelineno-29-21" name="__codelineno-29-21"></a><span class="x">&lt;!DOCTYPE html&gt;</span>
+<a id="__codelineno-29-22" name="__codelineno-29-22"></a><span class="x">&lt;html&gt;</span>
+<a id="__codelineno-29-23" name="__codelineno-29-23"></a><span class="x">&lt;body&gt;</span>
+<a id="__codelineno-29-24" name="__codelineno-29-24"></a><span class="x">    &lt;h2&gt;Bienvenido, </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nb">htmlspecialchars</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'usuario'</span><span class="p">]);</span> <span class="cp">?&gt;</span><span class="x">&lt;/h2&gt;</span>
+<a id="__codelineno-29-25" name="__codelineno-29-25"></a><span class="x">    &lt;a href="logout.php"&gt;Cerrar sesión&lt;/a&gt;</span>
+<a id="__codelineno-29-26" name="__codelineno-29-26"></a><span class="x">&lt;/body&gt;</span>
+<a id="__codelineno-29-27" name="__codelineno-29-27"></a><span class="x">&lt;/html&gt;</span>
+</code></pre></div></td></tr></table></div>
+<hr />
+<h2 id="10-trampas-tipicas-de-examen">10. Trampas típicas de examen</h2>
+<ul>
+<li><code>==</code> convierte tipos, <code>===</code> no → usa <code>===</code>.</li>
+<li><code>++$z</code> incrementa <strong>antes</strong> de devolver; <code>$z++</code> <strong>después</strong>.</li>
+<li><code>echo</code> no imprime arrays → <code>print_r</code> / <code>var_dump</code>.</li>
+<li>Comillas simples <strong>no</strong> interpolan; dobles <strong>sí</strong>.</li>
+<li><code>isset</code> es <code>false</code> si vale <code>null</code>; <code>array_key_exists</code> es <code>true</code> aunque valga <code>null</code>.</li>
+<li><code>session_start()</code> antes de cualquier salida HTML.</li>
+<li><code>session_regenerate_id(true)</code> solo en el login, no en cada petición.</li>
+<li>Tras <code>header("Location: ...")</code> siempre <code>exit;</code>.</li>
+<li><code>htmlspecialchars()</code> al <strong>mostrar</strong>; validar siempre en el <strong>servidor</strong>.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="../../ejercicios/ud02/avanzado/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: UD2 - Sesiones y autenticación">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l137.3-137.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                UD2 - Sesiones y autenticación
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../.." class="md-footer__link md-footer__link--next" aria-label="Siguiente: Inicio">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                Inicio
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M247.1 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L179.2 256 41.9 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Fahueso/implantacionWebASIR" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["optimize", "content.code.copy", "search.suggest", "search.highlight", "navigation.top", "navigation.footer", "navigation.tabs", "navigation.tabs.sticky"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+    
+  </body>
+</html>

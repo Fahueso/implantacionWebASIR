@@ -1,0 +1,2460 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://fahueso.github.io/implantacionWebASIR/unidades/ud03c/">
+      
+      
+        <link rel="prev" href="../ud03b/">
+      
+      
+        <link rel="next" href="../ud03d/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/camp.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>UD3 - Recuperación de Datos mediante SELECT - Implantación de aplicaciones Web ASIR</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="black">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#3-recuperacion-de-datos-mediante-select" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Implantación de aplicaciones Web ASIR" class="md-header__button md-logo" aria-label="Implantación de aplicaciones Web ASIR" data-md-component="logo">
+      
+  <img src="../../assets/images/camp.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Implantación de aplicaciones Web ASIR
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              UD3 - Recuperación de Datos mediante SELECT
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="black"  aria-label="Modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="black"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l137.3-137.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Fahueso/implantacionWebASIR" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Fahueso/implantacionWebASIR
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../ud01a/" class="md-tabs__link">
+          
+  
+  
+  Unidades
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ejercicios/ud01/metodos/" class="md-tabs__link">
+          
+  
+  
+  Ejercicios
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../recursos/hoja/" class="md-tabs__link">
+          
+  
+  
+  Recursos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Implantación de aplicaciones Web ASIR" class="md-nav__button md-logo" aria-label="Implantación de aplicaciones Web ASIR" data-md-component="logo">
+      
+  <img src="../../assets/images/camp.png" alt="logo">
+
+    </a>
+    Implantación de aplicaciones Web ASIR
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Fahueso/implantacionWebASIR" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Fahueso/implantacionWebASIR
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unidades
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Unidades
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud01a/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD1 - Aplicaciones web
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud01b/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD1 - Entornos de Desarrollo y Servidores Web
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud01c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD1 - El Motor de Aplicación y la Base de Datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02a/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD2 - Repaso lenguaje de Marcas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02b/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD2 - El lado del servidor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud02c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD2 - PHP programación del lado del servidor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03a/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD3 - Introducción a las Aplicaciones Dinámicas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03b/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD3 - Conexión a MariaDB desde PHP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD3 - Recuperación de Datos mediante SELECT
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD3 - Recuperación de Datos mediante SELECT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#31-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Introducción
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-ejecucion-de-consultas-con-mysqli_query" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Ejecución de consultas con mysqli_query()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-el-resultado-de-una-consulta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 El resultado de una consulta
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-recuperacion-de-registros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Recuperación de registros
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4 Recuperación de registros">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#un-unico-registro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Un único registro
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiples-registros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Múltiples registros
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuantas-filas-ha-devuelto-la-consulta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Cuántas filas ha devuelto la consulta?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#35-mostrar-resultados-en-html" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 Mostrar resultados en HTML
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.5 Mostrar resultados en HTML">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#escapar-los-datos-htmlspecialchars" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Escapar los datos: htmlspecialchars()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lista-html" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lista HTML
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tabla-html" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tabla HTML
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#36-liberacion-de-recursos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 Liberación de recursos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#37-ejemplo-completo-clientesphp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.7 Ejemplo completo: clientes.php
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#38-filtrado-de-resultados-con-where" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.8 Filtrado de resultados con WHERE
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.8 Filtrado de resultados con WHERE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#busquedas-parciales-con-like" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Búsquedas parciales con LIKE
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#39-ordenacion-con-order-by" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.9 Ordenación con ORDER BY
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#310-limitacion-con-limit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.10 Limitación con LIMIT
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#311-busquedas-desde-formularios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.11 Búsquedas desde formularios
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#312-un-grave-problema-de-seguridad-la-inyeccion-sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.12 Un grave problema de seguridad: la inyección SQL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resumen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resumen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actividades
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD3 - Sentencias Preparadas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03e/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD3 - Inserción de Registros mediante Sentencias Preparadas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03f/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD3 - Modificación y Eliminación de Registros
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03g/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD3 - Consultas Multitabla y JOIN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud03h/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD3 - Gestión de Credenciales y Configuración
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ejercicios
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ejercicios
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ejercicios/ud01/metodos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD1 - Metodos HTTP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ejercicios/ud01/python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD1 - Cliente Servidor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ejercicios/ud01/ajax/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD1 - Ajax
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ejercicios/ud02/introduccion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD2 - Introducción PHP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ejercicios/ud02/sintaxis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD2 - Sintaxis PHP y Estructuras
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ejercicios/ud02/funciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD2 - Funciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ejercicios/ud02/avanzado/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD2 - Sesiones y autenticación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recursos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Recursos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recursos/hoja/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD2 - Resumen PHP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#31-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Introducción
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-ejecucion-de-consultas-con-mysqli_query" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Ejecución de consultas con mysqli_query()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-el-resultado-de-una-consulta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 El resultado de una consulta
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-recuperacion-de-registros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Recuperación de registros
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4 Recuperación de registros">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#un-unico-registro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Un único registro
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiples-registros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Múltiples registros
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuantas-filas-ha-devuelto-la-consulta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Cuántas filas ha devuelto la consulta?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#35-mostrar-resultados-en-html" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 Mostrar resultados en HTML
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.5 Mostrar resultados en HTML">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#escapar-los-datos-htmlspecialchars" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Escapar los datos: htmlspecialchars()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lista-html" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lista HTML
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tabla-html" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tabla HTML
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#36-liberacion-de-recursos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 Liberación de recursos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#37-ejemplo-completo-clientesphp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.7 Ejemplo completo: clientes.php
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#38-filtrado-de-resultados-con-where" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.8 Filtrado de resultados con WHERE
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.8 Filtrado de resultados con WHERE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#busquedas-parciales-con-like" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Búsquedas parciales con LIKE
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#39-ordenacion-con-order-by" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.9 Ordenación con ORDER BY
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#310-limitacion-con-limit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.10 Limitación con LIMIT
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#311-busquedas-desde-formularios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.11 Búsquedas desde formularios
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#312-un-grave-problema-de-seguridad-la-inyeccion-sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.12 Un grave problema de seguridad: la inyección SQL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resumen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resumen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actividades
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="3-recuperacion-de-datos-mediante-select">3. Recuperación de Datos mediante SELECT</h1>
+<h2 id="31-introduccion">3.1 Introducción</h2>
+<p>Una vez establecida la conexión entre PHP y MariaDB ya podemos recuperar la información almacenada. La lectura es una de las operaciones más frecuentes de cualquier aplicación web:</p>
+<ul>
+<li>Mostrar el catálogo de productos de una tienda online.</li>
+<li>Listar los usuarios registrados de una plataforma.</li>
+<li>Consultar incidencias de un sistema de soporte.</li>
+<li>Visualizar reservas de una aplicación de gestión.</li>
+</ul>
+<p>Todas necesitan obtener datos de una base de datos y mostrarlos al usuario. Para ello usaremos consultas SQL de tipo <code>SELECT</code>.</p>
+<blockquote>
+<p><strong>Antes de empezar:</strong> en esta unidad trabajamos con la base de datos <code>empresa</code> del Anexo A, con la tabla <code>clientes</code> (<code>id</code>, <code>nombre</code>, <code>telefono</code>).</p>
+</blockquote>
+<hr />
+<h2 id="32-ejecucion-de-consultas-con-mysqli_query">3.2 Ejecución de consultas con <code>mysqli_query()</code></h2>
+<p>Con una conexión activa podemos ejecutar consultas con <code>mysqli_query()</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="x">mysqli_query($conexion, $consulta);</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li><code>$conexion</code>: la conexión abierta con MariaDB.</li>
+<li><code>$consulta</code>: una sentencia SQL escrita como cadena de texto.</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="k">require_once</span> <span class="s2">"conexion.php"</span><span class="p">;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="nv">$conexion</span> <span class="o">=</span> <span class="nx">conexion</span><span class="p">();</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="nv">$sql</span> <span class="o">=</span> <span class="s2">"SELECT id, nombre, telefono FROM clientes"</span><span class="p">;</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="nv">$resultado</span> <span class="o">=</span> <span class="nx">mysqli_query</span><span class="p">(</span><span class="nv">$conexion</span><span class="p">,</span> <span class="nv">$sql</span><span class="p">);</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="cp">?&gt;</span>
+</code></pre></div></td></tr></table></div>
+<blockquote>
+<p>Si la consulta tiene un error (por ejemplo, un nombre de tabla mal escrito), <code>mysqli_query()</code> lanza una excepción <code>mysqli_sql_exception</code>, igual que vimos con la conexión. En un servidor real, <code>display_errors</code> debe estar en <code>Off</code> para que el usuario no vea ese detalle, y los errores quedan registrados en el log.</p>
+</blockquote>
+<hr />
+<h2 id="33-el-resultado-de-una-consulta">3.3 El resultado de una consulta</h2>
+<p><code>mysqli_query()</code> <strong>no devuelve directamente los registros</strong>: devuelve un objeto <em>resultado</em> que representa el conjunto de filas obtenido. Para leer cada fila usamos:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="x">mysqli_fetch_assoc($resultado)</span>
+</code></pre></div></td></tr></table></div>
+<p>Devuelve <strong>una fila</strong> como array asociativo (las claves son los nombres de las columnas). Cada nueva llamada devuelve la siguiente fila. Si la tabla contiene:</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>nombre</th>
+<th>telefono</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Ana</td>
+<td>600111111</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="x">$fila = mysqli_fetch_assoc($resultado);</span>
+</code></pre></div></td></tr></table></div>
+<p>obtendremos:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span>
+<span class="normal"><a href="#__codelineno-4-5">5</a></span>
+<span class="normal"><a href="#__codelineno-4-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="x">Array</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="x">(</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="x">    [id] =&gt; 1</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="x">    [nombre] =&gt; Ana</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="x">    [telefono] =&gt; 600111111</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="x">)</span>
+</code></pre></div></td></tr></table></div>
+<p>y podremos acceder a cada dato por el nombre de su columna:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="x">echo $fila["nombre"];   // Ana</span>
+</code></pre></div></td></tr></table></div>
+<blockquote>
+<p><strong>Importante:</strong> cuando ya no quedan filas por leer (o cuando la consulta no devolvió ninguna), <code>mysqli_fetch_assoc()</code> devuelve <code>null</code>. Intentar usar <code>$fila["nombre"]</code> sobre <code>null</code> genera un <em>warning</em>. Siempre hay que comprobarlo (lo vemos en la sección siguiente).</p>
+</blockquote>
+<hr />
+<h2 id="34-recuperacion-de-registros">3.4 Recuperación de registros</h2>
+<h3 id="un-unico-registro">Un único registro</h3>
+<p>Si esperamos como mucho una fila, la leemos una sola vez <strong>y comprobamos que existe</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-6-10">10</a></span>
+<span class="normal"><a href="#__codelineno-6-11">11</a></span>
+<span class="normal"><a href="#__codelineno-6-12">12</a></span>
+<span class="normal"><a href="#__codelineno-6-13">13</a></span>
+<span class="normal"><a href="#__codelineno-6-14">14</a></span>
+<span class="normal"><a href="#__codelineno-6-15">15</a></span>
+<span class="normal"><a href="#__codelineno-6-16">16</a></span>
+<span class="normal"><a href="#__codelineno-6-17">17</a></span>
+<span class="normal"><a href="#__codelineno-6-18">18</a></span>
+<span class="normal"><a href="#__codelineno-6-19">19</a></span>
+<span class="normal"><a href="#__codelineno-6-20">20</a></span>
+<span class="normal"><a href="#__codelineno-6-21">21</a></span>
+<span class="normal"><a href="#__codelineno-6-22">22</a></span>
+<span class="normal"><a href="#__codelineno-6-23">23</a></span>
+<span class="normal"><a href="#__codelineno-6-24">24</a></span>
+<span class="normal"><a href="#__codelineno-6-25">25</a></span>
+<span class="normal"><a href="#__codelineno-6-26">26</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="k">require_once</span> <span class="s2">"conexion.php"</span><span class="p">;</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="nv">$conexion</span> <span class="o">=</span> <span class="nx">conexion</span><span class="p">();</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="nv">$sql</span> <span class="o">=</span> <span class="s2">"SELECT id, nombre, telefono FROM clientes WHERE id = 1"</span><span class="p">;</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a>
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="nv">$resultado</span> <span class="o">=</span> <span class="nx">mysqli_query</span><span class="p">(</span><span class="nv">$conexion</span><span class="p">,</span> <span class="nv">$sql</span><span class="p">);</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a>
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="nv">$fila</span> <span class="o">=</span> <span class="nx">mysqli_fetch_assoc</span><span class="p">(</span><span class="nv">$resultado</span><span class="p">);</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12"></a>
+<a id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="k">if</span> <span class="p">(</span><span class="nv">$fila</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14"></a>
+<a id="__codelineno-6-15" name="__codelineno-6-15"></a>    <span class="k">echo</span> <span class="nv">$fila</span><span class="p">[</span><span class="s2">"nombre"</span><span class="p">];</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16"></a>
+<a id="__codelineno-6-17" name="__codelineno-6-17"></a><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18"></a>
+<a id="__codelineno-6-19" name="__codelineno-6-19"></a>    <span class="k">echo</span> <span class="s2">"No existe ningún cliente con ese identificador."</span><span class="p">;</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20"></a>
+<a id="__codelineno-6-21" name="__codelineno-6-21"></a><span class="p">}</span>
+<a id="__codelineno-6-22" name="__codelineno-6-22"></a>
+<a id="__codelineno-6-23" name="__codelineno-6-23"></a><span class="nx">mysqli_free_result</span><span class="p">(</span><span class="nv">$resultado</span><span class="p">);</span>
+<a id="__codelineno-6-24" name="__codelineno-6-24"></a><span class="nx">mysqli_close</span><span class="p">(</span><span class="nv">$conexion</span><span class="p">);</span>
+<a id="__codelineno-6-25" name="__codelineno-6-25"></a>
+<a id="__codelineno-6-26" name="__codelineno-6-26"></a><span class="cp">?&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="multiples-registros">Múltiples registros</h3>
+<p>Si la consulta devuelve varias filas usamos un bucle <code>while</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span>
+<span class="normal"><a href="#__codelineno-7-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="x">while ($fila = mysqli_fetch_assoc($resultado)) {</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="x">    echo $fila["nombre"];</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="x">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Cada vuelta del bucle lee una fila nueva. Cuando no quedan más, <code>mysqli_fetch_assoc()</code> devuelve <code>null</code>, la condición del <code>while</code> se evalúa como falsa y el bucle termina por sí solo.</p>
+<h3 id="cuantas-filas-ha-devuelto-la-consulta">¿Cuántas filas ha devuelto la consulta?</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="x">$total = mysqli_num_rows($resultado);</span>
+</code></pre></div></td></tr></table></div>
+<p>Es útil para mostrar un mensaje del tipo «No hay clientes registrados»:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span>
+<span class="normal"><a href="#__codelineno-9-3">3</a></span>
+<span class="normal"><a href="#__codelineno-9-4">4</a></span>
+<span class="normal"><a href="#__codelineno-9-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="x">if (mysqli_num_rows($resultado) === 0) {</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="x">    echo "&lt;p&gt;No hay clientes registrados.&lt;/p&gt;";</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="x">}</span>
+</code></pre></div></td></tr></table></div>
+<hr />
+<h2 id="35-mostrar-resultados-en-html">3.5 Mostrar resultados en HTML</h2>
+<h3 id="escapar-los-datos-htmlspecialchars">Escapar los datos: <code>htmlspecialchars()</code></h3>
+<p>Antes de mostrar en una página un dato que viene de la base de datos hay que <strong>escaparlo</strong> con <code>htmlspecialchars()</code>.</p>
+<p>¿Por qué? Imagina que un usuario se registra con el nombre:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"Hola"</span><span class="p">)&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Si hacemos <code>echo $fila["nombre"]</code>, el navegador de <strong>todos los usuarios que vean el listado</strong> ejecutará ese código JavaScript. Es un ataque llamado <strong>XSS</strong> (<em>Cross-Site Scripting</em>), que permite robar sesiones, redirigir a webs falsas o alterar la página.</p>
+<p><code>htmlspecialchars()</code> convierte los caracteres especiales de HTML (<code>&lt;</code>, <code>&gt;</code>, <code>&amp;</code>, <code>"</code>, <code>'</code>) en entidades inofensivas (<code>&amp;lt;</code>, <code>&amp;gt;</code>…), de modo que el navegador los <strong>muestra como texto</strong> en vez de interpretarlos como código:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="x">echo htmlspecialchars($fila["nombre"], ENT_QUOTES, "UTF-8");</span>
+</code></pre></div></td></tr></table></div>
+<p>Como lo vamos a escribir muchísimas veces, definimos una función corta. Añádela al final de <code>conexion.php</code> (antes del <code>?&gt;</code>, si lo usas):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
+<span class="normal"><a href="#__codelineno-12-2">2</a></span>
+<span class="normal"><a href="#__codelineno-12-3">3</a></span>
+<span class="normal"><a href="#__codelineno-12-4">4</a></span>
+<span class="normal"><a href="#__codelineno-12-5">5</a></span>
+<span class="normal"><a href="#__codelineno-12-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="x">function h($texto)</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="x">{</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a>
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="x">    return htmlspecialchars((string) $texto, ENT_QUOTES, "UTF-8");</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a>
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="x">}</span>
+</code></pre></div></td></tr></table></div>
+<p>A partir de ahora, <strong>todo dato que viene de la base de datos o del usuario y se imprime en HTML se escapa con <code>h()</code></strong>.</p>
+<blockquote>
+<p><strong>Regla de oro:</strong> <code>htmlspecialchars()</code> se aplica al <strong>mostrar</strong> (salida), no al guardar. En la base de datos se guarda el dato original, tal cual lo escribió el usuario.</p>
+</blockquote>
+<h3 id="lista-html">Lista HTML</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-13-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-13-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-13-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-13-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-13-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-13-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-13-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-13-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-13-10">10</a></span>
+<span class="normal"><a href="#__codelineno-13-11">11</a></span>
+<span class="normal"><a href="#__codelineno-13-12">12</a></span>
+<span class="normal"><a href="#__codelineno-13-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="x">&lt;ul&gt;</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a>
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a>
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="k">while</span> <span class="p">(</span><span class="nv">$fila</span> <span class="o">=</span> <span class="nx">mysqli_fetch_assoc</span><span class="p">(</span><span class="nv">$resultado</span><span class="p">))</span> <span class="p">{</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6"></a>
+<a id="__codelineno-13-7" name="__codelineno-13-7"></a>    <span class="k">echo</span> <span class="s2">"&lt;li&gt;"</span> <span class="o">.</span> <span class="nx">h</span><span class="p">(</span><span class="nv">$fila</span><span class="p">[</span><span class="s2">"nombre"</span><span class="p">])</span> <span class="o">.</span> <span class="s2">"&lt;/li&gt;"</span><span class="p">;</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8"></a>
+<a id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="p">}</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10"></a>
+<a id="__codelineno-13-11" name="__codelineno-13-11"></a><span class="cp">?&gt;</span>
+<a id="__codelineno-13-12" name="__codelineno-13-12"></a>
+<a id="__codelineno-13-13" name="__codelineno-13-13"></a><span class="x">&lt;/ul&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Resultado aproximado:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
+<span class="normal"><a href="#__codelineno-14-2">2</a></span>
+<span class="normal"><a href="#__codelineno-14-3">3</a></span>
+<span class="normal"><a href="#__codelineno-14-4">4</a></span>
+<span class="normal"><a href="#__codelineno-14-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a>    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Ana<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a>    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Pedro<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a>    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Marta<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="tabla-html">Tabla HTML</h3>
+<p>Una de las formas más habituales de presentar datos:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-15-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-15-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-15-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-15-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-15-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-15-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-15-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-15-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-15-10">10</a></span>
+<span class="normal"><a href="#__codelineno-15-11">11</a></span>
+<span class="normal"><a href="#__codelineno-15-12">12</a></span>
+<span class="normal"><a href="#__codelineno-15-13">13</a></span>
+<span class="normal"><a href="#__codelineno-15-14">14</a></span>
+<span class="normal"><a href="#__codelineno-15-15">15</a></span>
+<span class="normal"><a href="#__codelineno-15-16">16</a></span>
+<span class="normal"><a href="#__codelineno-15-17">17</a></span>
+<span class="normal"><a href="#__codelineno-15-18">18</a></span>
+<span class="normal"><a href="#__codelineno-15-19">19</a></span>
+<span class="normal"><a href="#__codelineno-15-20">20</a></span>
+<span class="normal"><a href="#__codelineno-15-21">21</a></span>
+<span class="normal"><a href="#__codelineno-15-22">22</a></span>
+<span class="normal"><a href="#__codelineno-15-23">23</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="x">&lt;table border="1"&gt;</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a>
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="x">&lt;tr&gt;</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="x">    &lt;th&gt;ID&lt;/th&gt;</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="x">    &lt;th&gt;Nombre&lt;/th&gt;</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="x">    &lt;th&gt;Teléfono&lt;/th&gt;</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="x">&lt;/tr&gt;</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8"></a>
+<a id="__codelineno-15-9" name="__codelineno-15-9"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-15-10" name="__codelineno-15-10"></a>
+<a id="__codelineno-15-11" name="__codelineno-15-11"></a><span class="k">while</span> <span class="p">(</span><span class="nv">$fila</span> <span class="o">=</span> <span class="nx">mysqli_fetch_assoc</span><span class="p">(</span><span class="nv">$resultado</span><span class="p">))</span> <span class="p">{</span>
+<a id="__codelineno-15-12" name="__codelineno-15-12"></a>
+<a id="__codelineno-15-13" name="__codelineno-15-13"></a>    <span class="k">echo</span> <span class="s2">"&lt;tr&gt;"</span><span class="p">;</span>
+<a id="__codelineno-15-14" name="__codelineno-15-14"></a>    <span class="k">echo</span> <span class="s2">"&lt;td&gt;"</span> <span class="o">.</span> <span class="nx">h</span><span class="p">(</span><span class="nv">$fila</span><span class="p">[</span><span class="s2">"id"</span><span class="p">])</span> <span class="o">.</span> <span class="s2">"&lt;/td&gt;"</span><span class="p">;</span>
+<a id="__codelineno-15-15" name="__codelineno-15-15"></a>    <span class="k">echo</span> <span class="s2">"&lt;td&gt;"</span> <span class="o">.</span> <span class="nx">h</span><span class="p">(</span><span class="nv">$fila</span><span class="p">[</span><span class="s2">"nombre"</span><span class="p">])</span> <span class="o">.</span> <span class="s2">"&lt;/td&gt;"</span><span class="p">;</span>
+<a id="__codelineno-15-16" name="__codelineno-15-16"></a>    <span class="k">echo</span> <span class="s2">"&lt;td&gt;"</span> <span class="o">.</span> <span class="nx">h</span><span class="p">(</span><span class="nv">$fila</span><span class="p">[</span><span class="s2">"telefono"</span><span class="p">])</span> <span class="o">.</span> <span class="s2">"&lt;/td&gt;"</span><span class="p">;</span>
+<a id="__codelineno-15-17" name="__codelineno-15-17"></a>    <span class="k">echo</span> <span class="s2">"&lt;/tr&gt;"</span><span class="p">;</span>
+<a id="__codelineno-15-18" name="__codelineno-15-18"></a>
+<a id="__codelineno-15-19" name="__codelineno-15-19"></a><span class="p">}</span>
+<a id="__codelineno-15-20" name="__codelineno-15-20"></a>
+<a id="__codelineno-15-21" name="__codelineno-15-21"></a><span class="cp">?&gt;</span>
+<a id="__codelineno-15-22" name="__codelineno-15-22"></a>
+<a id="__codelineno-15-23" name="__codelineno-15-23"></a><span class="x">&lt;/table&gt;</span>
+</code></pre></div></td></tr></table></div>
+<hr />
+<h2 id="36-liberacion-de-recursos">3.6 Liberación de recursos</h2>
+<p>Al terminar de trabajar con un resultado conviene liberarlo y después cerrar la conexión:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
+<span class="normal"><a href="#__codelineno-16-2">2</a></span>
+<span class="normal"><a href="#__codelineno-16-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="x">mysqli_free_result($resultado);</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a>
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="x">mysqli_close($conexion);</span>
+</code></pre></div></td></tr></table></div>
+<hr />
+<h2 id="37-ejemplo-completo-clientesphp">3.7 Ejemplo completo: <code>clientes.php</code></h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-17-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-17-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-17-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-17-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-17-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-17-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-17-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-17-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-17-10">10</a></span>
+<span class="normal"><a href="#__codelineno-17-11">11</a></span>
+<span class="normal"><a href="#__codelineno-17-12">12</a></span>
+<span class="normal"><a href="#__codelineno-17-13">13</a></span>
+<span class="normal"><a href="#__codelineno-17-14">14</a></span>
+<span class="normal"><a href="#__codelineno-17-15">15</a></span>
+<span class="normal"><a href="#__codelineno-17-16">16</a></span>
+<span class="normal"><a href="#__codelineno-17-17">17</a></span>
+<span class="normal"><a href="#__codelineno-17-18">18</a></span>
+<span class="normal"><a href="#__codelineno-17-19">19</a></span>
+<span class="normal"><a href="#__codelineno-17-20">20</a></span>
+<span class="normal"><a href="#__codelineno-17-21">21</a></span>
+<span class="normal"><a href="#__codelineno-17-22">22</a></span>
+<span class="normal"><a href="#__codelineno-17-23">23</a></span>
+<span class="normal"><a href="#__codelineno-17-24">24</a></span>
+<span class="normal"><a href="#__codelineno-17-25">25</a></span>
+<span class="normal"><a href="#__codelineno-17-26">26</a></span>
+<span class="normal"><a href="#__codelineno-17-27">27</a></span>
+<span class="normal"><a href="#__codelineno-17-28">28</a></span>
+<span class="normal"><a href="#__codelineno-17-29">29</a></span>
+<span class="normal"><a href="#__codelineno-17-30">30</a></span>
+<span class="normal"><a href="#__codelineno-17-31">31</a></span>
+<span class="normal"><a href="#__codelineno-17-32">32</a></span>
+<span class="normal"><a href="#__codelineno-17-33">33</a></span>
+<span class="normal"><a href="#__codelineno-17-34">34</a></span>
+<span class="normal"><a href="#__codelineno-17-35">35</a></span>
+<span class="normal"><a href="#__codelineno-17-36">36</a></span>
+<span class="normal"><a href="#__codelineno-17-37">37</a></span>
+<span class="normal"><a href="#__codelineno-17-38">38</a></span>
+<span class="normal"><a href="#__codelineno-17-39">39</a></span>
+<span class="normal"><a href="#__codelineno-17-40">40</a></span>
+<span class="normal"><a href="#__codelineno-17-41">41</a></span>
+<span class="normal"><a href="#__codelineno-17-42">42</a></span>
+<span class="normal"><a href="#__codelineno-17-43">43</a></span>
+<span class="normal"><a href="#__codelineno-17-44">44</a></span>
+<span class="normal"><a href="#__codelineno-17-45">45</a></span>
+<span class="normal"><a href="#__codelineno-17-46">46</a></span>
+<span class="normal"><a href="#__codelineno-17-47">47</a></span>
+<span class="normal"><a href="#__codelineno-17-48">48</a></span>
+<span class="normal"><a href="#__codelineno-17-49">49</a></span>
+<span class="normal"><a href="#__codelineno-17-50">50</a></span>
+<span class="normal"><a href="#__codelineno-17-51">51</a></span>
+<span class="normal"><a href="#__codelineno-17-52">52</a></span>
+<span class="normal"><a href="#__codelineno-17-53">53</a></span>
+<span class="normal"><a href="#__codelineno-17-54">54</a></span>
+<span class="normal"><a href="#__codelineno-17-55">55</a></span>
+<span class="normal"><a href="#__codelineno-17-56">56</a></span>
+<span class="normal"><a href="#__codelineno-17-57">57</a></span>
+<span class="normal"><a href="#__codelineno-17-58">58</a></span>
+<span class="normal"><a href="#__codelineno-17-59">59</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a>
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="k">require_once</span> <span class="s2">"conexion.php"</span><span class="p">;</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4"></a>
+<a id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="nv">$conexion</span> <span class="o">=</span> <span class="nx">conexion</span><span class="p">();</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6"></a>
+<a id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="nv">$sql</span> <span class="o">=</span> <span class="s2">"SELECT id, nombre, telefono FROM clientes ORDER BY nombre"</span><span class="p">;</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8"></a>
+<a id="__codelineno-17-9" name="__codelineno-17-9"></a><span class="nv">$resultado</span> <span class="o">=</span> <span class="nx">mysqli_query</span><span class="p">(</span><span class="nv">$conexion</span><span class="p">,</span> <span class="nv">$sql</span><span class="p">);</span>
+<a id="__codelineno-17-10" name="__codelineno-17-10"></a>
+<a id="__codelineno-17-11" name="__codelineno-17-11"></a><span class="cp">?&gt;</span>
+<a id="__codelineno-17-12" name="__codelineno-17-12"></a><span class="x">&lt;!DOCTYPE html&gt;</span>
+<a id="__codelineno-17-13" name="__codelineno-17-13"></a><span class="x">&lt;html lang="es"&gt;</span>
+<a id="__codelineno-17-14" name="__codelineno-17-14"></a>
+<a id="__codelineno-17-15" name="__codelineno-17-15"></a><span class="x">&lt;head&gt;</span>
+<a id="__codelineno-17-16" name="__codelineno-17-16"></a><span class="x">    &lt;meta charset="UTF-8"&gt;</span>
+<a id="__codelineno-17-17" name="__codelineno-17-17"></a><span class="x">    &lt;title&gt;Clientes&lt;/title&gt;</span>
+<a id="__codelineno-17-18" name="__codelineno-17-18"></a><span class="x">&lt;/head&gt;</span>
+<a id="__codelineno-17-19" name="__codelineno-17-19"></a>
+<a id="__codelineno-17-20" name="__codelineno-17-20"></a><span class="x">&lt;body&gt;</span>
+<a id="__codelineno-17-21" name="__codelineno-17-21"></a>
+<a id="__codelineno-17-22" name="__codelineno-17-22"></a><span class="x">&lt;h1&gt;Listado de clientes&lt;/h1&gt;</span>
+<a id="__codelineno-17-23" name="__codelineno-17-23"></a>
+<a id="__codelineno-17-24" name="__codelineno-17-24"></a><span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span><span class="nx">mysqli_num_rows</span><span class="p">(</span><span class="nv">$resultado</span><span class="p">)</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="cp">?&gt;</span>
+<a id="__codelineno-17-25" name="__codelineno-17-25"></a>
+<a id="__codelineno-17-26" name="__codelineno-17-26"></a><span class="x">    &lt;p&gt;No hay clientes registrados.&lt;/p&gt;</span>
+<a id="__codelineno-17-27" name="__codelineno-17-27"></a>
+<a id="__codelineno-17-28" name="__codelineno-17-28"></a><span class="cp">&lt;?php</span> <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="cp">?&gt;</span>
+<a id="__codelineno-17-29" name="__codelineno-17-29"></a>
+<a id="__codelineno-17-30" name="__codelineno-17-30"></a><span class="x">    &lt;table border="1"&gt;</span>
+<a id="__codelineno-17-31" name="__codelineno-17-31"></a>
+<a id="__codelineno-17-32" name="__codelineno-17-32"></a><span class="x">        &lt;tr&gt;</span>
+<a id="__codelineno-17-33" name="__codelineno-17-33"></a><span class="x">            &lt;th&gt;ID&lt;/th&gt;</span>
+<a id="__codelineno-17-34" name="__codelineno-17-34"></a><span class="x">            &lt;th&gt;Nombre&lt;/th&gt;</span>
+<a id="__codelineno-17-35" name="__codelineno-17-35"></a><span class="x">            &lt;th&gt;Teléfono&lt;/th&gt;</span>
+<a id="__codelineno-17-36" name="__codelineno-17-36"></a><span class="x">        &lt;/tr&gt;</span>
+<a id="__codelineno-17-37" name="__codelineno-17-37"></a>
+<a id="__codelineno-17-38" name="__codelineno-17-38"></a><span class="x">        </span><span class="cp">&lt;?php</span> <span class="k">while</span> <span class="p">(</span><span class="nv">$fila</span> <span class="o">=</span> <span class="nx">mysqli_fetch_assoc</span><span class="p">(</span><span class="nv">$resultado</span><span class="p">))</span> <span class="p">{</span> <span class="cp">?&gt;</span>
+<a id="__codelineno-17-39" name="__codelineno-17-39"></a>
+<a id="__codelineno-17-40" name="__codelineno-17-40"></a><span class="x">            &lt;tr&gt;</span>
+<a id="__codelineno-17-41" name="__codelineno-17-41"></a><span class="x">                &lt;td&gt;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nx">h</span><span class="p">(</span><span class="nv">$fila</span><span class="p">[</span><span class="s2">"id"</span><span class="p">])</span> <span class="cp">?&gt;</span><span class="x">&lt;/td&gt;</span>
+<a id="__codelineno-17-42" name="__codelineno-17-42"></a><span class="x">                &lt;td&gt;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nx">h</span><span class="p">(</span><span class="nv">$fila</span><span class="p">[</span><span class="s2">"nombre"</span><span class="p">])</span> <span class="cp">?&gt;</span><span class="x">&lt;/td&gt;</span>
+<a id="__codelineno-17-43" name="__codelineno-17-43"></a><span class="x">                &lt;td&gt;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nx">h</span><span class="p">(</span><span class="nv">$fila</span><span class="p">[</span><span class="s2">"telefono"</span><span class="p">])</span> <span class="cp">?&gt;</span><span class="x">&lt;/td&gt;</span>
+<a id="__codelineno-17-44" name="__codelineno-17-44"></a><span class="x">            &lt;/tr&gt;</span>
+<a id="__codelineno-17-45" name="__codelineno-17-45"></a>
+<a id="__codelineno-17-46" name="__codelineno-17-46"></a><span class="x">        </span><span class="cp">&lt;?php</span> <span class="p">}</span> <span class="cp">?&gt;</span>
+<a id="__codelineno-17-47" name="__codelineno-17-47"></a>
+<a id="__codelineno-17-48" name="__codelineno-17-48"></a><span class="x">    &lt;/table&gt;</span>
+<a id="__codelineno-17-49" name="__codelineno-17-49"></a>
+<a id="__codelineno-17-50" name="__codelineno-17-50"></a><span class="cp">&lt;?php</span> <span class="p">}</span> <span class="cp">?&gt;</span>
+<a id="__codelineno-17-51" name="__codelineno-17-51"></a>
+<a id="__codelineno-17-52" name="__codelineno-17-52"></a><span class="x">&lt;/body&gt;</span>
+<a id="__codelineno-17-53" name="__codelineno-17-53"></a><span class="x">&lt;/html&gt;</span>
+<a id="__codelineno-17-54" name="__codelineno-17-54"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-17-55" name="__codelineno-17-55"></a>
+<a id="__codelineno-17-56" name="__codelineno-17-56"></a><span class="nx">mysqli_free_result</span><span class="p">(</span><span class="nv">$resultado</span><span class="p">);</span>
+<a id="__codelineno-17-57" name="__codelineno-17-57"></a><span class="nx">mysqli_close</span><span class="p">(</span><span class="nv">$conexion</span><span class="p">);</span>
+<a id="__codelineno-17-58" name="__codelineno-17-58"></a>
+<a id="__codelineno-17-59" name="__codelineno-17-59"></a><span class="cp">?&gt;</span>
+</code></pre></div></td></tr></table></div>
+<blockquote>
+<p><code>&lt;?= expresion ?&gt;</code> es la forma abreviada de <code>&lt;?php echo expresion; ?&gt;</code>. Combinada con la sintaxis de llaves, permite mezclar PHP y HTML de forma legible.</p>
+</blockquote>
+<p>Este ejemplo recoge el flujo completo de lectura:</p>
+<ol>
+<li>Se abre la conexión.</li>
+<li>Se ejecuta la consulta.</li>
+<li>Se recorren los registros.</li>
+<li>Se genera el HTML (escapando los datos).</li>
+<li>Se liberan los recursos.</li>
+<li>Se cierra la conexión.</li>
+</ol>
+<hr />
+<h2 id="38-filtrado-de-resultados-con-where">3.8 Filtrado de resultados con <code>WHERE</code></h2>
+<p>Normalmente solo queremos una parte de los datos. Para ello usamos las cláusulas <code>WHERE</code>, <code>ORDER BY</code> y <code>LIMIT</code>.</p>
+<p><code>WHERE</code> selecciona únicamente los registros que cumplen una condición:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span>
+<span class="normal"><a href="#__codelineno-18-2">2</a></span>
+<span class="normal"><a href="#__codelineno-18-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">nombre</span><span class="p">,</span><span class="w"> </span><span class="n">telefono</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">clientes</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p>También podemos filtrar por texto. Los valores de texto van <strong>entre comillas simples</strong> dentro de la sentencia SQL:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span>
+<span class="normal"><a href="#__codelineno-19-2">2</a></span>
+<span class="normal"><a href="#__codelineno-19-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">nombre</span><span class="p">,</span><span class="w"> </span><span class="n">telefono</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">clientes</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">nombre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Ana'</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p>Operadores de comparación habituales: <code>=</code>, <code>&lt;&gt;</code> (distinto), <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code>, y combinaciones con <code>AND</code>, <code>OR</code> y <code>NOT</code>.</p>
+<h3 id="busquedas-parciales-con-like">Búsquedas parciales con <code>LIKE</code></h3>
+<p>Para buscar textos que <strong>contengan</strong> una cadena (en lugar de coincidir exactamente) se usa <code>LIKE</code> con el comodín <code>%</code> (cualquier número de caracteres):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span>
+<span class="normal"><a href="#__codelineno-20-2">2</a></span>
+<span class="normal"><a href="#__codelineno-20-3">3</a></span>
+<span class="normal"><a href="#__codelineno-20-4">4</a></span>
+<span class="normal"><a href="#__codelineno-20-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="c1">-- Nombres que empiezan por "A"</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">nombre</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">clientes</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">nombre</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">'A%'</span><span class="p">;</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3"></a>
+<a id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="c1">-- Nombres que contienen "ar" en cualquier posición</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">nombre</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">clientes</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">nombre</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">'%ar%'</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<hr />
+<h2 id="39-ordenacion-con-order-by">3.9 Ordenación con <code>ORDER BY</code></h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span>
+<span class="normal"><a href="#__codelineno-21-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">nombre</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">clientes</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">nombre</span><span class="p">;</span><span class="w">        </span><span class="c1">-- ascendente (por defecto)</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">nombre</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">clientes</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">nombre</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span><span class="w">   </span><span class="c1">-- descendente</span>
+</code></pre></div></td></tr></table></div>
+<p>Resultado de la segunda consulta (aproximado):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span>
+<span class="normal"><a href="#__codelineno-22-2">2</a></span>
+<span class="normal"><a href="#__codelineno-22-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a>Pedro
+<a id="__codelineno-22-2" name="__codelineno-22-2"></a>Marta
+<a id="__codelineno-22-3" name="__codelineno-22-3"></a>Ana
+</code></pre></div></td></tr></table></div>
+<p>Se pueden indicar varios criterios: <code>ORDER BY apellidos, nombre</code>.</p>
+<hr />
+<h2 id="310-limitacion-con-limit">3.10 Limitación con <code>LIMIT</code></h2>
+<p><code>LIMIT</code> devuelve solo una parte de los registros:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">nombre</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">clientes</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p>Devuelve únicamente los cinco primeros. Con dos números, <code>LIMIT desplazamiento, cantidad</code>, saltamos los primeros registros:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">nombre</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">clientes</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w">   </span><span class="c1">-- del 6.º al 10.º</span>
+</code></pre></div></td></tr></table></div>
+<p>Es la base de los sistemas de <strong>paginación</strong>. Si usas <code>LIMIT</code> conviene añadir siempre <code>ORDER BY</code>; de lo contrario el orden de las filas no está garantizado.</p>
+<hr />
+<h2 id="311-busquedas-desde-formularios">3.11 Búsquedas desde formularios</h2>
+<p>Queremos que el usuario pueda buscar un cliente por su nombre:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1">1</a></span>
+<span class="normal"><a href="#__codelineno-25-2">2</a></span>
+<span class="normal"><a href="#__codelineno-25-3">3</a></span>
+<span class="normal"><a href="#__codelineno-25-4">4</a></span>
+<span class="normal"><a href="#__codelineno-25-5">5</a></span>
+<span class="normal"><a href="#__codelineno-25-6">6</a></span>
+<span class="normal"><a href="#__codelineno-25-7">7</a></span>
+<span class="normal"><a href="#__codelineno-25-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="p">&lt;</span><span class="nt">form</span> <span class="na">method</span><span class="o">=</span><span class="s">"GET"</span> <span class="na">action</span><span class="o">=</span><span class="s">"buscar.php"</span><span class="p">&gt;</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2"></a>
+<a id="__codelineno-25-3" name="__codelineno-25-3"></a>    Nombre:
+<a id="__codelineno-25-4" name="__codelineno-25-4"></a>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">name</span><span class="o">=</span><span class="s">"nombre"</span><span class="p">&gt;</span>
+<a id="__codelineno-25-5" name="__codelineno-25-5"></a>
+<a id="__codelineno-25-6" name="__codelineno-25-6"></a>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"submit"</span> <span class="na">value</span><span class="o">=</span><span class="s">"Buscar"</span><span class="p">&gt;</span>
+<a id="__codelineno-25-7" name="__codelineno-25-7"></a>
+<a id="__codelineno-25-8" name="__codelineno-25-8"></a><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Al enviar el formulario, el dato llega en <code>$_GET["nombre"]</code>. <strong>La primera vez que se carga la página, el formulario todavía no se ha enviado y esa clave no existe</strong>, así que hay que comprobarlo con <code>isset()</code> (o con el operador <code>??</code>):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="x">$nombre = $_GET["nombre"] ?? "";</span>
+</code></pre></div></td></tr></table></div>
+<p><code>??</code> significa: «usa <code>$_GET["nombre"]</code> si existe; si no, usa <code>""</code>».</p>
+<p>Una primera versión (¡<strong>incorrecta</strong>, la veremos enseguida por qué!) construiría la consulta así:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-27-1">1</a></span>
+<span class="normal"><a href="#__codelineno-27-2">2</a></span>
+<span class="normal"><a href="#__codelineno-27-3">3</a></span>
+<span class="normal"><a href="#__codelineno-27-4">4</a></span>
+<span class="normal"><a href="#__codelineno-27-5">5</a></span>
+<span class="normal"><a href="#__codelineno-27-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="x">//  NUNCA HAGAS ESTO </span>
+<a id="__codelineno-27-2" name="__codelineno-27-2"></a><span class="x">$nombre = $_GET["nombre"] ?? "";</span>
+<a id="__codelineno-27-3" name="__codelineno-27-3"></a>
+<a id="__codelineno-27-4" name="__codelineno-27-4"></a><span class="x">$sql = "SELECT id, nombre, telefono FROM clientes WHERE nombre = '$nombre'";</span>
+<a id="__codelineno-27-5" name="__codelineno-27-5"></a>
+<a id="__codelineno-27-6" name="__codelineno-27-6"></a><span class="x">$resultado = mysqli_query($conexion, $sql);</span>
+</code></pre></div></td></tr></table></div>
+<p>Funciona perfectamente cuando el usuario escribe <code>Ana</code>. El problema aparece cuando el usuario no escribe lo que esperamos.</p>
+<hr />
+<h2 id="312-un-grave-problema-de-seguridad-la-inyeccion-sql">3.12 Un grave problema de seguridad: la inyección SQL</h2>
+<p>Con el código anterior, el valor escrito por el usuario pasa <strong>directamente a formar parte de la consulta SQL</strong>. Veamos qué ocurre.</p>
+<p><strong>Entrada normal:</strong> el usuario escribe <code>Ana</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-28-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">nombre</span><span class="p">,</span><span class="w"> </span><span class="n">telefono</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">clientes</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">nombre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Ana'</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Entrada maliciosa:</strong> el usuario escribe <code>' OR '1'='1</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-29-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">nombre</span><span class="p">,</span><span class="w"> </span><span class="n">telefono</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">clientes</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">nombre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">''</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="s1">'1'</span><span class="o">=</span><span class="s1">'1'</span>
+</code></pre></div></td></tr></table></div>
+<p>La condición <code>'1'='1'</code> es siempre verdadera, así que la consulta devuelve <strong>todos los clientes</strong>. El usuario ha conseguido <strong>cambiar el significado de la consulta</strong>.</p>
+<p>Es un ejemplo inofensivo. Con la misma técnica un atacante puede:</p>
+<ul>
+<li>Saltarse formularios de login (<code>' OR '1'='1' --</code> en el campo de usuario).</li>
+<li>Leer tablas que no deberían ser accesibles (por ejemplo, la de usuarios y contraseñas).</li>
+<li>Modificar o borrar datos.</li>
+</ul>
+<p>Esta vulnerabilidad se llama <strong>inyección SQL</strong> (<em>SQL Injection</em>) y lleva décadas entre las más graves y frecuentes de las aplicaciones web (aparece de forma recurrente en el <em>OWASP Top 10</em>).</p>
+<blockquote>
+<p><strong>Idea clave:</strong> el problema no es qué escribe el usuario, sino que <strong>datos y código SQL se mezclan en la misma cadena</strong>. La solución es mantenerlos separados.</p>
+</blockquote>
+<p>Eso es exactamente lo que hacen las <strong>sentencias preparadas</strong>, que estudiamos en el capítulo siguiente. Desde este momento, <strong>nunca concatenaremos variables procedentes del usuario dentro de una consulta SQL</strong>.</p>
+<hr />
+<h2 id="resumen">Resumen</h2>
+<table>
+<thead>
+<tr>
+<th>Función</th>
+<th>Para qué sirve</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mysqli_query()</code></td>
+<td>Ejecuta una consulta SQL</td>
+</tr>
+<tr>
+<td><code>mysqli_fetch_assoc()</code></td>
+<td>Lee una fila como array asociativo (<code>null</code> si no hay más)</td>
+</tr>
+<tr>
+<td><code>mysqli_num_rows()</code></td>
+<td>Cuenta las filas devueltas por un <code>SELECT</code></td>
+</tr>
+<tr>
+<td><code>mysqli_free_result()</code></td>
+<td>Libera la memoria del resultado</td>
+</tr>
+<tr>
+<td><code>htmlspecialchars()</code> / <code>h()</code></td>
+<td>Escapa texto antes de mostrarlo en HTML (evita XSS)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>WHERE</code> filtra, <code>ORDER BY</code> ordena y <code>LIMIT</code> limita; <code>LIKE</code> con <code>%</code> permite búsquedas parciales.</li>
+<li>Hay que comprobar que la fila existe antes de usarla y que <code>$_GET</code> / <code>$_POST</code> contienen la clave esperada (<code>isset</code> o <code>??</code>).</li>
+<li><strong>Todo dato que se imprime en HTML se escapa</strong> (XSS).</li>
+<li><strong>Nunca se concatenan datos del usuario en una consulta SQL</strong> (inyección SQL).</li>
+</ul>
+<h2 id="actividades">Actividades</h2>
+<ol>
+<li>Crea <code>clientes.php</code> con el listado completo y comprueba que las tildes se ven bien.</li>
+<li>Inserta (con el cliente de MariaDB) un cliente cuyo nombre sea <code>&lt;b&gt;Hacker&lt;/b&gt;</code>. Muestra el listado con y sin <code>h()</code> y explica la diferencia.</li>
+<li>Crea <code>buscar.php</code> con el formulario de búsqueda <strong>vulnerable</strong> (solo en tu entorno de pruebas) y comprueba qué devuelve si escribes <code>' OR '1'='1</code>. Anota la consulta SQL final que se ejecuta.</li>
+<li>Escribe consultas SQL para: los 3 últimos clientes dados de alta; los clientes cuyo teléfono empieza por <code>600</code>; los clientes ordenados por nombre de Z a A.</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="../ud03b/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: UD3 - Conexión a MariaDB desde PHP">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l137.3-137.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                UD3 - Conexión a MariaDB desde PHP
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../ud03d/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: UD3 - Sentencias Preparadas">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                UD3 - Sentencias Preparadas
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M247.1 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L179.2 256 41.9 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Fahueso/implantacionWebASIR" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["optimize", "content.code.copy", "search.suggest", "search.highlight", "navigation.top", "navigation.footer", "navigation.tabs", "navigation.tabs.sticky"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+    
+  </body>
+</html>
