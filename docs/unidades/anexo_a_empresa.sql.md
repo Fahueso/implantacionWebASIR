@@ -1,3 +1,4 @@
+```sql
 -- ============================================================
 -- Anexo A: base de datos "empresa" para la UD03
 -- Ejecutar con:  sudo mariadb < anexo_a_empresa.sql
@@ -65,3 +66,4 @@ CREATE USER 'app_web'@'localhost'
 GRANT SELECT, INSERT, UPDATE, DELETE
     ON empresa.*
     TO 'app_web'@'localhost';
+```
