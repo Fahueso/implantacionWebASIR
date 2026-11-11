@@ -19,6 +19,7 @@ Thumbs.db
 code/ud09/AplicacionVuelos/
 # MkDocs generated site (regenerar con: mkdocs build)
 site/
+todo/
 site.zip
 
 # Archivos temporales de Word/LibreOffice
